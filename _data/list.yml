@@ -1,16 +1,11 @@
-- text: Home
-  url: /
-- text: First menu
-  url: /first-menu/
+- text: Geodienste
+  url: /geoservices/
   subitems:
-    - text: First menu (sub)
-      url: /first-menu/first-menu-sub/
+    - text: Suchdienste
+      url: /geoservices/search.md
+  subitems:
+    - text: Darstellungsdienste
+      url: /geoservices/view.md
       subitems:
-        - text: First menu (sub-sub)
-          url: /first-menu/first-menu-sub/first-menu-sub-sub/
-- text: Second menu
-  url: /second-menu/
-  subitems:
-    - text: Second menu (sub)
-      url: /second-menu/second-menu-sub/
-  
+        - text: WMS
+          url: /geoservices/wms.md
