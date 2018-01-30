@@ -1,11 +1,11 @@
 - text: Geodienste
-  url: /geoservices/
+  url: geoservices.md
   subitems:
     - text: Suchdienste
-      url: /geoservices/search.md
+      url: search.md
   subitems:
     - text: Darstellungsdienste
-      url: /geoservices/view.md
+      url: view.md
       subitems:
         - text: WMS
-          url: /geoservices/wms.md
+          url: wms.md
