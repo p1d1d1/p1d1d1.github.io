@@ -1,1 +1,1 @@
-{% include nav.md nav=site.data.list %}
+{% include nav.html nav=site.data.list %}
