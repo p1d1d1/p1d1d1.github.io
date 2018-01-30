@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Geoservices
-permalink: /geoservices
+permalink: geoservices
 ---
 
 {% include nav.html nav=site.data.list %}
