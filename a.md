@@ -5,7 +5,7 @@
 |:--|:--
 |**Bezeichnung**|**XML-Wohlgeformtheit**
 |**Beschreibung**|Jede xml-formatierte INTERLIS-Transferdatei muss gemäss XML-1.0 Standard **[[2]](#2-w3c-extensible-markup-language-xml-10-fifth-edition-26112008)** wohlgeformt sein |
-|**Referenz**|**[[1]](a.md#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 3.3.1 und 3.3.3
+|**Referenz**|**[[1]](bib.md#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 3.3.1 und 3.3.3
 
 ### Testfälle
 ###### RXW.T01
