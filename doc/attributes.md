@@ -206,7 +206,7 @@
 |**Bezeichnung**|**Toleranz bei ARC**
 |**Beschreibung**|Die Tests müssen die Toleranz prüfen (**[[1]](bib.md#1-kogis-interlis---referenzhandbuch-13042006)** Kap. 2.8.12.2, Regel ```WITHOUT OVERLAPS > 1;```)
 |**Testvoraussetzung**|RPO.T03a.xtf, RPO.T03b.xtf, *TestSuite.ili*
-|**Beispiel**|<p align="center"><img src="img/rpo.t03.png" title="RPO.T03"><br/>```POLYLINE WITH (STRAIGHTS, ARCS) VERTEX LKoord WITHOUT OVERLAPS > 0.10;```
+|**Beispiel**|<p align="center"><img src="img/rpo.t03.png" height="384" title="RPO.T03"><br/>```POLYLINE WITH (STRAIGHTS, ARCS) VERTEX LKoord WITHOUT OVERLAPS > 0.10;```
 |**Erwartetes Ergebnis**|<ul><li>RPO.T01a.xtf: keine Fehlermeldung</li></ul>
 |**Referenz**|**[[1]](bib.md#1-kogis-interlis---referenzhandbuch-13042006)** Kap. 2.8.12 und 3.3.11.12
 
@@ -235,7 +235,7 @@
 |**Bezeichnung**|**Validität einer Geometrie**
 |**Beschreibung**|Die Tests müssen die Validität einer Geometrie prüfen
 |**Testvoraussetzung**|RSU.T02a.xtf (```AREA```), RSU.T02b.xtf (```SURFACE```), *TestSuite.ili*
-|**Beispiel**|<p align="center"><img src="img/rsu.t02.png" title="RSU.T02"></p>
+|**Beispiel**|<p align="center"><img src="img/rsu.t02.png" height="384" title="RSU.T02"></p>
 |**Erwartetes Ergebnis**|<ul><li>RSU.T02a.xtf: keine Fehlermeldung</li><li>RSU.T02b.xtf: keine Fehlermeldung</li></ul>
 |**Referenz**|**[[1]](bib.md#1-kogis-interlis---referenzhandbuch-13042006)** Kap. 2.8.13 und 3.3.11.13
 
@@ -245,7 +245,7 @@
 |**Bezeichnung**|**Validität einer Geometrie**
 |**Beschreibung**|Die Tests müssen die Validität einer Geometrie prüfen
 |**Testvoraussetzung**|RSU.T03a.xtf (```AREA```), RSU.T03b.xtf (```SURFACE```), *TestSuite.ili*
-|**Beispiel**|<p align="center"><img src="img/rsu.t03.png" title="RSU.T03"></p>
+|**Beispiel**|<p align="center"><img src="img/rsu.t03.png" height="384" title="RSU.T03"></p>
 |**Erwartetes Ergebnis**|<ul><li>RSU.T03a.xtf: Fehlermeldung</li><li>RSU.T03b.xtf: Fehlermeldung</li></ul>
 |**Referenz**|**[[1]](bib.md#1-kogis-interlis---referenzhandbuch-13042006)** Kap. 2.8.13 und 3.3.11.13
 
@@ -255,7 +255,7 @@
 |**Bezeichnung**|**Validität einer Geometrie**
 |**Beschreibung**|Die Tests müssen die Validität einer Geometrie prüfen
 |**Testvoraussetzung**|RSU.T04a.xtf (```AREA```), RSU.T04b.xtf (```SURFACE```), *TestSuite.ili*
-|**Beispiel**|<p align="center"><img src="img/rsu.t04.png" title="RSU.T04"></p>
+|**Beispiel**|<p align="center"><img src="img/rsu.t04.png" height="384" title="RSU.T04"></p>
 |**Erwartetes Ergebnis**|<ul><li>RSU.T04a.xtf: keine Fehlermeldung</li><li>RSU.T04b.xtf: keine Fehlermeldung</li></ul>
 |**Referenz**|**[[1]](bib.md#1-kogis-interlis---referenzhandbuch-13042006)** Kap. 2.8.13 und 3.3.11.13
 
@@ -265,7 +265,7 @@
 |**Bezeichnung**|**Validität einer Geometrie**
 |**Beschreibung**|Die Tests müssen die Validität einer Geometrie prüfen
 |**Testvoraussetzung**|RSU.T05a.xtf (```AREA```), RSU.T05b.xtf (```SURFACE```), *TestSuite.ili*
-|**Beispiel**|<p align="center"><img src="img/rsu.t05.png" title="RSU.T05"></p>
+|**Beispiel**|<p align="center"><img src="img/rsu.t05.png" height="384" title="RSU.T05"></p>
 |**Erwartetes Ergebnis**|<ul><li>RSU.T05a.xtf: keine Fehlermeldung</li><li>RSU.T05b.xtf: keine Fehlermeldung</li></ul>
 |**Referenz**|**[[1]](bib.md#1-kogis-interlis---referenzhandbuch-13042006)** Kap. 2.8.13 und 3.3.11.13
 
@@ -275,7 +275,7 @@
 |**Bezeichnung**|**Validität einer Geometrie**
 |**Beschreibung**|Die Tests müssen die Validität einer Geometrie prüfen
 |**Testvoraussetzung**|RSU.T06a.xtf (```AREA```), RSU.T06b.xtf (```SURFACE```), *TestSuite.ili*
-|**Beispiel**|<p align="center"><img src="img/rsu.t06.png" title="RSU.T06"></p>
+|**Beispiel**|<p align="center"><img src="img/rsu.t06.png" height="384" title="RSU.T06"></p>
 |**Erwartetes Ergebnis**|<ul><li>RSU.T06a.xtf: Fehlermeldung</li><li>RSU.T06b.xtf: Fehlermeldung</li></ul>
 |**Referenz**|**[[1]](bib.md#1-kogis-interlis---referenzhandbuch-13042006)** Kap. 2.8.13 und 3.3.11.13
 
