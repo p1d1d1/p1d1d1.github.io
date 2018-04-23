@@ -206,7 +206,7 @@
 |**Bezeichnung**|**Toleranz bei ARC**
 |**Beschreibung**|Die Tests müssen die Toleranz prüfen (**[[1]](bib.md#1-kogis-interlis---referenzhandbuch-13042006)** Kap. 2.8.12.2, Regel ```WITHOUT OVERLAPS > 1;```)
 |**Testvoraussetzung**|RPO.T03a.xtf, RPO.T03b.xtf, *TestSuite.ili*
-|**Beispiel**|<p align="center"><img src="img/rpo.t03.png" height="384" title="RPO.T03"><br/>```POLYLINE WITH (STRAIGHTS, ARCS) VERTEX LKoord WITHOUT OVERLAPS > 0.10;```
+|**Beispiel**|<p align="center"><img src="img/rpo.t03.png" title="RPO.T03"><br/>```POLYLINE WITH (STRAIGHTS, ARCS) VERTEX LKoord WITHOUT OVERLAPS > 0.10;```
 |**Erwartetes Ergebnis**|<ul><li>RPO.T01a.xtf: keine Fehlermeldung</li></ul>
 |**Referenz**|**[[1]](bib.md#1-kogis-interlis---referenzhandbuch-13042006)** Kap. 2.8.12 und 3.3.11.12
 
