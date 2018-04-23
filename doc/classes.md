@@ -1,6 +1,6 @@
 # Datenbereich: Klassen
 
-## Regel Klassen
+## Klassen
 |ID|RKl
 |:--|:--
 |**Bezeichnung**|**Klassen**
