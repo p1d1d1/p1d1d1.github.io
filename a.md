@@ -23,5 +23,5 @@
 |**Bezeichnung**|**XML-Attribute**
 |**Beschreibung**|Die Tests müssen prüfen, ob die XML-Attribute in Anführungszeichen geschrieben sind (einfaches oder doppeltes Anführungszeichen). <p>Es ist zusätzlich zu prüfen, dass ein Attributname nicht mehr als einmal im selben Tag vorkommt.</p>
 |**Testvoraussetzung**|RXW.T02a.xtf, RXW.T02b.xtf, RXW.T02c.xtf, RXW.T02d.xtf, *TestSuite.ili*
-|**Erwartetes Ergebnis**|<ul><li>RXW.T02a.xtf: Fehlermeldung. Attributwert (```xmlns```) nicht in Anführungszeichen geschrieben</li><li>RXW.T02b.xtf: keine Fehlermeldung. Einfaches und doppeltes Anführungszeichen sind beide gültig</li><li>RXW.T02c.xtf: Fehlermeldung. Doppeltes Attribut ```BID```</li><li>RXW.T02d.xtf: Fehlermeldung. Doppeltes Attribut ```TID```li></ul>
+|**Erwartetes Ergebnis**|<ul><li>RXW.T02a.xtf: Fehlermeldung. Attributwert (```xmlns```) nicht in Anführungszeichen geschrieben</li><li>RXW.T02b.xtf: keine Fehlermeldung. Einfaches und doppeltes Anführungszeichen sind beide gültig</li><li>RXW.T02c.xtf: Fehlermeldung. Doppeltes Attribut ```BID```</li><li>RXW.T02d.xtf: Fehlermeldung. Doppeltes Attribut ```TID```</li></ul>
 |**Referenz**|**[[1]](bib.md#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 3.3.1<br/>**[[2]](#2-w3c-extensible-markup-language-xml-10-fifth-edition-26112008)** Kap. 3.1 (https://www.w3.org/TR/xml/#uniqattspec)
