@@ -1,6 +1,6 @@
 # Transfer-Struktur
 
-## Regel Transfer
+## Transfer
 |ID|RTR
 |:--|:--
 |**Bezeichnung**|**TRANSFER**
