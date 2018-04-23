@@ -1,6 +1,6 @@
 # Zeichencodierung
 
-## Regel Zeichencodierung
+## Zeichencodierung
 |ID|RZe
 |:--|:--
 |**Bezeichnung**|**Zeichencodierung**
