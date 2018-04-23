@@ -1,6 +1,6 @@
 # XML-Wohlgeformtheit
 
-## Regel XML-Wohlgeformtheit
+## XML-Wohlgeformtheit
 |ID|RXW
 |:--|:--
 |**Bezeichnung**|**XML-Wohlgeformtheit**
