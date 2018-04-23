@@ -1,6 +1,6 @@
 # Vorspann
 
-## Regel HEADERSECTION
+## HEADERSECTION
 |ID|RHE
 |:--|:--
 |**Bezeichnung**|**HEADERSECTION**
