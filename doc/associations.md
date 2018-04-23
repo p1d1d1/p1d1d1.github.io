@@ -1,6 +1,6 @@
 # Datenbereich: Beziehungen
 
-## Regel Beziehungen
+## Beziehungen
 |ID|RBe
 |:--|:--
 |**Bezeichnung**|**Beziehungen**
@@ -17,7 +17,7 @@
 |**Erwartetes Ergebnis**|<ul><li>RBe.T01a.xtf: keine Fehlermeldung</li><li>RBe.T01b.xtf: Fehlermeldung. ```BID``` nicht vorhanden</li></ul>
 |**Referenz**|**[[1]](bib.md#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 3.3.9.2
 
-## Regel Eingebettete Beziehungen
+## Eingebettete Beziehungen
 |ID|REB
 |:--|:--
 |**Bezeichnung**|**Eingebettete Beziehungen**
@@ -44,7 +44,7 @@
 |**Erwartetes Ergebnis**|<ul><li>REB.T02a.xtf: keine Fehlermeldung</li><li>REB.T02b.xtf: Fehlermeldung. Falsche Codierung</li></ul>
 |**Referenz**|**[[1]](bib.md#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 3.3.9
 
-## Regel Nicht eingebettete Beziehungen
+## Nicht eingebettete Beziehungen
 |ID|RBk
 |:--|:--
 |**Bezeichnung**|**Beziehungsklassen**
@@ -88,7 +88,7 @@
 |**Erwartetes Ergebnis**|<ul><li>RBk.T04a.xtf: keine Fehlermeldung</li><li>RBk.T04b.xtf: Fehlermeldung: falsche Codierung</li></ul>
 |**Referenz**|**[[1]](bib.md#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 3.3.9
 
-## Regel Kardinalität
+## Kardinalität
 |ID|RKB
 |:--|:--
 |**Bezeichnung**|**Kardinalität in Beziehungen**
