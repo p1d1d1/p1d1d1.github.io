@@ -1,6 +1,6 @@
 # Datenbereich: Attribute
 
-## Regel Attribute
+## Attribute
 |ID|RAt
 |:--|:--
 |**Bezeichnung**|**Attribute**
@@ -108,7 +108,7 @@
 |**Erwartetes Ergebnis**|<ul><li>RAt.T11a.xtf: Fehlermeldung. Ungültiger UUID im ```BID```</li><li>RAt.T11b.xtf: Fehlermeldung. Ungültiger UUID im ```TID```</li><li>RAt.T11c.xtf: keine Fehlermeldung</li><li>RAt.T11d.xtf: Fehlermeldung. Ungültige Codierung (muss als XML-Attribut codiert werden)</li><li>RAt.T11e.xtf: Fehlermeldung. Nur Ziffern und Buchstaben erlaubt</li><li>RAt.T11f.xtf: Fehlermeldung. Erstes Zeichen muss Buchstabe oder Unterstrich sein</li></ul>
 |**Referenz**|**[[1]](#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.8.9 und 3.3.11.16<br/> **[[4]](bib.md#4-w3c-xmlid-version-10-09-09-2005-online-available-httpswwww3orgtrxml-id)** Kap. D.2 (https://www.w3.org/TR/xml-id/#id-avn)
 
-## Regel Struktur- und Referenzattribute
+## Struktur- und Referenzattribute
 |ID|RStReA
 |:--|:--
 |**Bezeichnung**|**Struktur- und Referenzattribute **
@@ -135,7 +135,7 @@
 |**Erwartetes Ergebnis**|<ul><li>RStReA.T02a.xtf: keine Fehlermeldung</li><li>RStReA.T02b.xtf: keine Fehlermeldung</li><li>RStReA.T02c.xtf: keine Fehlermeldung</li></ul>
 |**Referenz**|**[[1]](#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.6.3 und 3.3.11.14
 
-## Regel Koordinaten
+## Geometrische Attribute: Koordinaten
 |ID|RCO
 |:--|:--
 |**Bezeichnung**|```COORD```
@@ -171,7 +171,7 @@
 |**Erwartetes Ergebnis**|<ul><li>RCO.T03a.xtf: Fehlermeldung. ```<C2>``` nicht im Wertbereich</li><li>RCO.T03b.xtf: Fehlermeldung. ```<C3>``` nicht erlaubt, weil Wertbereich für 2D-Koordinaten ist</li></ul>
 |**Referenz**|**[[1]](#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.8.8 und 3.3.11.11
 
-## Regel Linienzüge
+## Geometrische Attribute: Linienzüge
 |ID|RPO
 |:--|:--
 |**Bezeichnung**|```POLYLINE```
@@ -210,7 +210,7 @@
 |**Erwartetes Ergebnis**|<ul><li>RPO.T01a.xtf: keine Fehlermeldung</li></ul>
 |**Referenz**|**[[1]](#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.8.12 und 3.3.11.12
 
-## Regel Einzelflächen und Gebietseinteilungen
+## Geometrische Attribute: Einzelflächen und Gebietseinteilungen
 |ID|RSU
 |:--|:--
 |**Bezeichnung**|```SURFACE```
@@ -222,13 +222,134 @@
 ###### Einzelflächen und Gebietseinteilungen - RSU.T01
 |ID|RSU.T01
 |:--|:--
-|**Bezeichnung**|**Kardinalität {0..} bei der Rolle EXTERNAL**
-|**Beschreibung**|Die Tests müssen die Regeln fürs Einbetten der Beziehungen prüfen. *«Falls bei einer der beiden (Basis-)Rollen die maximale Kardinalität grösser 1 ist, wird bei der Ziel-Klasse dieser Rolle eingebettet. Wenn diese Ziel-Klasse in einem anderen Topic definiert ist als die (Basis-)Assoziation, kann nicht eingebettet werden…»*
-|**Testvoraussetzung**|RBk.T01a.xtf, RBk.T01b.xtf, *TestSuite.ili*
-|**Erwartetes Ergebnis**|<ul><li>RBk.T01a.xtf: Fehlermeldung: falsche Codierung</li><li>RBk.T01b.xtf: keine Fehlermeldung</li></ul>
-|**Referenz**|**[[1]](bib.md#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 3.3.9
+|**Bezeichnung**|```AREA```
+|**Beschreibung**|Der Test muss prüfen, ob zwei Polygone der ```AREA```-Definition entsprechen
+|**Testvoraussetzung**|RSU.T01a.xtf, *TestSuite.ili*
+|**Beispiel**|<p align="center"><img src="img/rsu.t01.png" height="384" title="RSU.T01"></p>
+|**Erwartetes Ergebnis**|<ul><li>RSU.T01a.xtf: Fehlermeldung. die Fläche teilen nicht die gleichen Kurvenstücke (eine Fläche hat einen Stützpunkt mehr)</li></ul>
+|**Referenz**|**[[1]](#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.8.13 und 3.3.11.13
 
-## Regel Kardinalität
+###### Einzelflächen und Gebietseinteilungen - RSU.T02
+|ID|RSU.T02
+|:--|:--
+|**Bezeichnung**|**Validität einer Geometrie**
+|**Beschreibung**|Die Tests müssen die Validität einer Geometrie prüfen
+|**Testvoraussetzung**|RSU.T02a.xtf (```AREA```), RSU.T02b.xtf (```SURFACE```), *TestSuite.ili*
+|**Beispiel**|<p align="center"><img src="img/rsu.t02.png" title="RSU.T02"></p>
+|**Erwartetes Ergebnis**|<ul><li>RSU.T02a.xtf: keine Fehlermeldung</li><li>RSU.T02b.xtf: keine Fehlermeldung</li></ul>
+|**Referenz**|**[[1]](#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.8.13 und 3.3.11.13
+
+###### Einzelflächen und Gebietseinteilungen - RSU.T03
+|ID|RSU.T03
+|:--|:--
+|**Bezeichnung**|**Validität einer Geometrie**
+|**Beschreibung**|Die Tests müssen die Validität einer Geometrie prüfen
+|**Testvoraussetzung**|RSU.T03a.xtf (```AREA```), RSU.T03b.xtf (```SURFACE```), *TestSuite.ili*
+|**Beispiel**|<p align="center"><img src="img/rsu.t03.png" title="RSU.T03"></p>
+|**Erwartetes Ergebnis**|<ul><li>RSU.T03a.xtf: Fehlermeldung</li><li>RSU.T03b.xtf: Fehlermeldung</li></ul>
+|**Referenz**|**[[1]](#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.8.13 und 3.3.11.13
+
+###### Einzelflächen und Gebietseinteilungen - RSU.T04
+|ID|RSU.T04
+|:--|:--
+|**Bezeichnung**|**Validität einer Geometrie**
+|**Beschreibung**|Die Tests müssen die Validität einer Geometrie prüfen
+|**Testvoraussetzung**|RSU.T04a.xtf (```AREA```), RSU.T04b.xtf (```SURFACE```), *TestSuite.ili*
+|**Beispiel**|<p align="center"><img src="img/rsu.t04.png" title="RSU.T04"></p>
+|**Erwartetes Ergebnis**|<ul><li>RSU.T04a.xtf: keine Fehlermeldung</li><li>RSU.T04b.xtf: keine Fehlermeldung</li></ul>
+|**Referenz**|**[[1]](#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.8.13 und 3.3.11.13
+
+###### Einzelflächen und Gebietseinteilungen - RSU.T05
+|ID|RSU.T05
+|:--|:--
+|**Bezeichnung**|**Validität einer Geometrie**
+|**Beschreibung**|Die Tests müssen die Validität einer Geometrie prüfen
+|**Testvoraussetzung**|RSU.T05a.xtf (```AREA```), RSU.T05b.xtf (```SURFACE```), *TestSuite.ili*
+|**Beispiel**|<p align="center"><img src="img/rsu.t05.png" title="RSU.T05"></p>
+|**Erwartetes Ergebnis**|<ul><li>RSU.T05a.xtf: keine Fehlermeldung</li><li>RSU.T05b.xtf: keine Fehlermeldung</li></ul>
+|**Referenz**|**[[1]](#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.8.13 und 3.3.11.13
+
+###### Einzelflächen und Gebietseinteilungen - RSU.T06
+|ID|RSU.T06
+|:--|:--
+|**Bezeichnung**|**Validität einer Geometrie**
+|**Beschreibung**|Die Tests müssen die Validität einer Geometrie prüfen
+|**Testvoraussetzung**|RSU.T06a.xtf (```AREA```), RSU.T06b.xtf (```SURFACE```), *TestSuite.ili*
+|**Beispiel**|<p align="center"><img src="img/rsu.t06.png" title="RSU.T06"></p>
+|**Erwartetes Ergebnis**|<ul><li>RSU.T06a.xtf: Fehlermeldung</li><li>RSU.T06b.xtf: Fehlermeldung</li></ul>
+|**Referenz**|**[[1]](#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.8.13 und 3.3.11.13
+
+###### Einzelflächen und Gebietseinteilungen - RSU.T07
+|ID|RSU.T07
+|:--|:--
+|**Bezeichnung**|**Validität einer Geometrie**
+|**Beschreibung**|Die Tests müssen die Validität einer Geometrie prüfen
+|**Testvoraussetzung**|RSU.T07a.xtf, RSU.T07b.xtf, *TestSuite.ili*
+|**Beispiel**|<p align="center"><img src="img/rsu.t07.png" height="384" title="RSU.T07"></p>
+|**Erwartetes Ergebnis**|<ul><li>RSU.T07a.xtf: Fehlermeldung</li><li>RSU.T07b.xtf: Fehlermeldung</li></ul>
+|**Referenz**|**[[1]](#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.8.13 und 3.3.11.13
+
+###### Einzelflächen und Gebietseinteilungen - RSU.T08
+|ID|RSU.T08
+|:--|:--
+|**Bezeichnung**|**Validität einer Geometrie**
+|**Beschreibung**|Die Tests müssen die Validität einer Geometrie prüfen
+|**Testvoraussetzung**|RSU.T08a.xtf, RSU.T08b.xtf, *TestSuite.ili*
+|**Beispiel**|<p align="center"><img src="img/rsu.t08.png" height="384" title="RSU.T08"></p>
+|**Erwartetes Ergebnis**|<ul><li>RSU.T08a.xtf: Fehlermeldung</li><li>RSU.T08b.xtf: Fehlermeldung</li></ul>
+|**Referenz**|**[[1]](#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.8.13 und 3.3.11.13
+
+###### Einzelflächen und Gebietseinteilungen - RSU.T09
+|ID|RSU.T09
+|:--|:--
+|**Bezeichnung**|**Validität einer Geometrie**
+|**Beschreibung**|Die Tests müssen die Validität einer Geometrie prüfen
+|**Testvoraussetzung**|RSU.T09a.xtf, RSU.T09b.xtf, *TestSuite.ili*
+|**Beispiel**|<p align="center"><img src="img/rsu.t09.png" height="384" title="RSU.T09"></p>
+|**Erwartetes Ergebnis**|<ul><li>RSU.T09a.xtf: Fehlermeldung</li><li>RSU.T09b.xtf: Fehlermeldung</li></ul>
+|**Referenz**|**[[1]](#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.8.13 und 3.3.11.13
+
+###### Einzelflächen und Gebietseinteilungen - RSU.T10
+|ID|RSU.T10
+|:--|:--
+|**Bezeichnung**|**Validität einer Geometrie**
+|**Beschreibung**|Die Tests müssen die Validität einer Geometrie prüfen
+|**Testvoraussetzung**|RSU.T10a.xtf, RSU.T10b.xtf, *TestSuite.ili*
+|**Beispiel**|<p align="center"><img src="img/rsu.t10.png" height="384" title="RSU.T10"></p>
+|**Erwartetes Ergebnis**|<ul><li>RSU.T10a.xtf: Fehlermeldung</li><li>RSU.T10b.xtf: Fehlermeldung</li></ul>
+|**Referenz**|**[[1]](#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.8.13 und 3.3.11.13
+
+###### Einzelflächen und Gebietseinteilungen - RSU.T11
+|ID|RSU.T11
+|:--|:--
+|**Bezeichnung**|**Validität einer Geometrie**
+|**Beschreibung**|Die Tests müssen die Validität einer Geometrie prüfen
+|**Testvoraussetzung**|RSU.T11a.xtf, RSU.T11b.xtf, *TestSuite.ili*
+|**Beispiel**|<p align="center"><img src="img/rsu.t11.png" height="384" title="RSU.T11"></p>
+|**Erwartetes Ergebnis**|<ul><li>RSU.T11a.xtf: Fehlermeldung</li><li>RSU.T11b.xtf: Fehlermeldung</li></ul>
+|**Referenz**|**[[1]](#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.8.13 und 3.3.11.13
+
+###### Einzelflächen und Gebietseinteilungen - RSU.T12
+|ID|RSU.T12
+|:--|:--
+|**Bezeichnung**|**Validität einer Geometrie**
+|**Beschreibung**|Die Tests müssen die Validität einer Geometrie prüfen
+|**Testvoraussetzung**|RSU.T12a.xtf, RSU.T12b.xtf, *TestSuite.ili*
+|**Beispiel**|<p align="center"><img src="img/rsu.t12.png" height="384" title="RSU.T12"></p>
+|**Erwartetes Ergebnis**|<ul><li>RSU.T12a.xtf: Fehlermeldung</li><li>RSU.T12b.xtf: Fehlermeldung</li></ul>
+|**Referenz**|**[[1]](#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.8.13 und 3.3.11.13
+
+###### Einzelflächen und Gebietseinteilungen - RSU.T13
+|ID|RSU.T13
+|:--|:--
+|**Bezeichnung**|**Validität einer Geometrie**
+|**Beschreibung**|Die Tests müssen die Validität einer Geometrie prüfen
+|**Testvoraussetzung**|RSU.T13a.xtf, RSU.T13b.xtf, *TestSuite.ili*
+|**Beispiel**|<p align="center"><img src="img/rsu.t13.png" height="384" title="RSU.T13"></p>
+|**Erwartetes Ergebnis**|<ul><li>RSU.T13a.xtf: Fehlermeldung</li><li>RSU.T13b.xtf: Fehlermeldung</li></ul>
+|**Referenz**|**[[1]](#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.8.13 und 3.3.11.13
+
+## Kardinalität
 |ID|RKA
 |:--|:--
 |**Bezeichnung**|**Kardinalität der Attributen**
@@ -240,72 +361,17 @@
 ###### Kardinalität - RKA.T01
 |ID|RKA.T01
 |:--|:--
-|**Bezeichnung**|**Kardinalität {0..} bei der Rolle EXTERNAL**
-|**Beschreibung**|Die Tests müssen die Regeln fürs Einbetten der Beziehungen prüfen. *«Falls bei einer der beiden (Basis-)Rollen die maximale Kardinalität grösser 1 ist, wird bei der Ziel-Klasse dieser Rolle eingebettet. Wenn diese Ziel-Klasse in einem anderen Topic definiert ist als die (Basis-)Assoziation, kann nicht eingebettet werden…»*
-|**Testvoraussetzung**|RBk.T01a.xtf, RBk.T01b.xtf, *TestSuite.ili*
-|**Erwartetes Ergebnis**|<ul><li>RBk.T01a.xtf: Fehlermeldung: falsche Codierung</li><li>RBk.T01b.xtf: keine Fehlermeldung</li></ul>
-|**Referenz**|**[[1]](bib.md#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 3.3.9
+|**Bezeichnung**|```MANDATORY```
+|**Beschreibung**|Die Tests müssen die Regeln für die Kardinalität der Attribute prüfen.
+|**Testvoraussetzung**|RKA.T01a.xtf, RKA.T01b.xtf, *TestSuite.ili*
+|**Erwartetes Ergebnis**|<ul><li>RKA.T01a.xtf: keine Fehlermeldung</li><li>RKA.T01b.xtf: Fehlermeldung. Fehlendes obligatorisches Attribut</li></ul>
+|**Referenz**|**[[1]](bib.md#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.6.1 und 2.7.3
 
-
-
-
-
-
-
-
-
-
-
-
-## Regel Kardinalität
-|ID|RKB
+###### Kardinalität - RKA.T02
+|ID|RKA.T02
 |:--|:--
-|**Bezeichnung**|**Kardinalität in Beziehungen**
-|**Beschreibung**|Für die Validierung der Kardinalität, muss die Anzahl der nötigen/erlaubten in Beziehung stehenden Objekte der ```RolDef``` (**[[1]](bib.md#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.7.1) im INTERLIS-Datenmodell entsprechen
-|**Details**|<ul><li>Es gelten zusätzlich die im **[[1]](bib.md#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.7.3 definierten Regeln</li></ul>
-|**Referenz**|**[[1]](bib.md#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.7.1 und 2.7.3
-
-###### Kardinalität - RKB.T01
-|ID|RKB.T01
-|:--|:--
-|**Bezeichnung**|**{1} bei beiden Rollen**
-|**Beschreibung**|Die Tests müssen die Regeln für die Kardinalität der Beziehungen prüfen
-|**Testvoraussetzung**|RKB.T01a.xtf, RKB.T01b.xtf, RKB.T01c.xtf, RKB.T01d.xtf, *TestSuite.ili*
-|**Erwartetes Ergebnis**|<ul><li>RKB.T01a.xtf: keine Fehlermeldung</li><li>RKB.T01b.xtf: Fehlermeldung. Fehlende Rolle ```RolleA``` in ```Klasse B```)</li><li>RKB.T01c.xtf: Fehlermeldung. Zwei Instanzen von ```B``` verweisen auf die gleiche Instanz von ```A```</li><li>RKB.T01d.xtf: Fehlermeldung. Alle Instanzen von ```A``` müssen referenziert werden.</li></ul>
-|**Referenz**|**[[1]](bib.md#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.7.1 und 2.7.3
-
-###### Kardinalität - RKB.T02
-|ID|RKB.T02
-|:--|:--
-|**Bezeichnung**|**{0..1} {1}**
-|**Beschreibung**|Der Test muss die Regeln für die Kardinalität der Beziehungen prüfen
-|**Testvoraussetzung**|RKB.T02a.xtf, *TestSuite.ili*
-|**Erwartetes Ergebnis**|<ul><li>RKB.T02a.xtf: keine Fehlermeldung</li></ul>
-|**Referenz**|**[[1]](bib.md#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.7.1 und 2.7.3
-
-###### Kardinalität - RKB.T03
-|ID|RKB.T03
-|:--|:--
-|**Bezeichnung**|**{0..1} {0..1}**
-|**Beschreibung**|Der Test muss die Regeln für die Kardinalität der Beziehungen prüfen
-|**Testvoraussetzung**|RKB.T03a.xtf, *TestSuite.ili*
-|**Erwartetes Ergebnis**|<ul><li>RKB.T03a.xtf: keine Fehlermeldung</li></ul>
-|**Referenz**|**[[1]](bib.md#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.7.1 und 2.7.3
-
-###### Kardinalität - RKB.T04
-|ID|RKB.T04
-|:--|:--
-|**Bezeichnung**|**{1} {0..*}**
-|**Beschreibung**|Der Test muss die Regeln für die Kardinalität der Beziehungen prüfen
-|**Testvoraussetzung**|RKB.T04a.xtf, *TestSuite.ili*
-|**Erwartetes Ergebnis**|<ul><li>RKB.T04a.xtf: keine Fehlermeldung</li></ul>
-|**Referenz**|**[[1]](bib.md#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.7.1 und 2.7.3
-
-###### Kardinalität - RKB.T05
-|ID|RKB.T05
-|:--|:--
-|**Bezeichnung**|**{0..*} {1}**
-|**Beschreibung**|Die Tests müssen die Regeln für die Kardinalität der Beziehungen prüfen
-|**Testvoraussetzung**|RKB.T05a.xtf, RKB.T05b.xtf, *TestSuite.ili*
-|**Erwartetes Ergebnis**|<ul><li>RKB.T05a.xtf: Fehlermeldung. Falsches Einbetten</li><li>RKB.T05b.xtf: keine Fehlermeldung</li></ul>
-|**Referenz**|**[[1]](bib.md#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.7.1 und 2.7.3
+|**Bezeichnung**|```BAG OF```
+|**Beschreibung**|Die Tests müssen die Regeln für die Kardinalität der Attribute prüfen.
+|**Testvoraussetzung**|RKA.T02a.xtf, RKA.T02b.xtf, RKA.T02c.xtf, *TestSuite.ili*
+|**Erwartetes Ergebnis**|<ul><li>RKA.T02a.xtf: keine Fehlermeldung</li><li>RKA.T02b.xtf: Fehlermeldung. Fehlendes obligatorisches Attribut</li><li>RKA.T02c.xtf: Fehlermeldung. Die Struktur darf nicht mehr als zweimal vorkommen</li><li>RKA.T02d.xtf: Fehlermeldung: falsche Codierung (mehrere Tags ```Namen```)</li></ul>
+|**Referenz**|**[[1]](#1-kogis-interlis-2--referenzhandbuch-13042006)** Kap. 2.6.1 und 2.7.3
