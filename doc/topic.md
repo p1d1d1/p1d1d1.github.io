@@ -1,6 +1,6 @@
 # Datenbereich: Themen
 
-## Regel TOPIC
+## TOPIC
 |ID|RTO
 |:--|:--
 |**Bezeichnung**|**TOPIC**
