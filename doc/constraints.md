@@ -59,7 +59,7 @@
 |:--|:--
 |**Bezeichnung**|```MANDATORY``` **mit Bedingungsvorgabe**
 |**Beschreibung**|Die Tests müssen prüfen, dass die Daten der ```ConstraintDef``` im INTERLIS-Datenmodell entsprechen
-|**Testvoraussetzung**|RKo.T06a.xtf, RKo.T06b.xtf, RKo.T06c.xtf, RKo.T06d.xtf, RKo.T06e.xtf, RKo.T06f.xtf, RKo.T06g.xtf, *TestSuite.ili*
+|**Testvoraussetzung**|[RKo.T06a.xtf](../data/RKo.T06a.xtf), RKo.T06b.xtf, RKo.T06c.xtf, RKo.T06d.xtf, RKo.T06e.xtf, RKo.T06f.xtf, RKo.T06g.xtf, *TestSuite.ili*
 |**Erwartetes Ergebnis**|<ul><li>RKo.T06a.xtf: keine Fehlermeldung</li><li>RKo.T06b.xtf: keine Fehlermeldung</li><li>RKo.T06c.xtf: Fehlermeldung</li><li>RKo.T06d.xtf: keine Fehlermeldung</li><li>RKo.T06e.xtf: keine Fehlermeldung</li><li>RKo.T06f.xtf: Fehlermeldung</li><li>RKo.T06g.xtf: Fehlermeldung</li></ul>
 |**Referenz**|[[1]] Kap. 2.12, 2.13 und 2.14
 
