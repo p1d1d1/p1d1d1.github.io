@@ -1,4 +1,4 @@
-# Konsistenzbedingungen
+# Datenbereich: Konsistenzbedingungen
 
 ## Konsistenzbedingungen
 |ID|RKo
