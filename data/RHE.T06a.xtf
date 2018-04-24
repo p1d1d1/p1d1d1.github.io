@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TRANSFER xmlns="http://www.interlis.ch/INTERLIS2.3">
+  <HEADERSECTION VERSION="2.3" SENDER="ili2c-4.5.22-20160520">
+    <MODELS>
+      <MODEL NAME="TestSuite" VERSION="2017-07-27" URI="http://interlis.ch"/>
+	  <!-- Modell TestSuite2 fehlt -->
+    </MODELS>
+  </HEADERSECTION>
+  <DATASECTION>
+    <TestSuite.GebaeudeRegister BID="gr">
+		<TestSuite.GebaeudeRegister.GebaeudeRegister TID="gr1">
+			<RegisterID>0001</RegisterID>
+		</TestSuite.GebaeudeRegister.GebaeudeRegister>
+		<TestSuite.GebaeudeRegister.Gebaeude TID="g1">
+			<RegisterID>0001</RegisterID>
+			<BezirkNummer>246</BezirkNummer>
+		</TestSuite.GebaeudeRegister.Gebaeude>
+	</TestSuite.GebaeudeRegister>
+	<TestSuite2.Einheiten BID="ei">
+		<TestSuite2.Einheiten.Bezirk TID="b1b31da8-ead2-405c-bd9e-cd219913e0b0">
+		  <BFS_Nummer>246</BFS_Nummer>
+		  <BezName>Bern-Mittelland</BezName>
+		</TestSuite2.Einheiten.Bezirk>
+	</TestSuite2.Einheiten>
+  </DATASECTION>
+</TRANSFER>
+<!-- 
+INTERLIS Referenzhandbuch Kap. 3.3.4
+Im Element Models müssen alle Datenmodelle aufgeführt werden, zu deren Themen Daten vorkommen.
+-->

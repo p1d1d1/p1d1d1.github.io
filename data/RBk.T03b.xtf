@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TRANSFER xmlns="http://www.interlis.ch/INTERLIS2.3">
+  <HEADERSECTION VERSION="2.3" SENDER="ili2c-4.5.22-20160520">
+    <MODELS>
+      <MODEL NAME="TestSuite" VERSION="2017-07-27" URI="http://interlis.ch"/>
+    </MODELS>
+  </HEADERSECTION>
+  <DATASECTION>
+	<TestSuite.Beziehungen BID="bez">
+		<TestSuite.Beziehungen.F TID="f1"/>
+		<!-- Kann nicht eingebettet werden. Attribut der Beziehungsklasse wird verloren.-->
+		<TestSuite.Beziehungen.G TID="g1">
+		  <RolleF REF="f1"/>
+		</TestSuite.Beziehungen.G>
+    </TestSuite.Beziehungen>
+  </DATASECTION>
+</TRANSFER>
