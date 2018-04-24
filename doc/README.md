@@ -28,4 +28,4 @@
        - [Reihenfolge der Objekte im Datenbereich](order.md#reihenfolge-der-objekte-im-datenbereich)
        - [Reihenfolge innerhalb der Klasseinstanzen](order.md#reihenfolge-innerhalb-der-klasseinstanzen)
      - [Konsistenzbedingungen](constraints.md)
-1. [Referenzen](bib.md)
+* [Referenzen](bib.md)
