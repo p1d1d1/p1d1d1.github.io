@@ -51,3 +51,5 @@ include::ordre.adoc[leveloffset=+1]
 include::regles-integrite.adoc[]
 
 include::references.adoc[]
+
+include::annexe.adoc[]

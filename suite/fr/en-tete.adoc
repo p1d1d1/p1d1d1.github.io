@@ -5,15 +5,15 @@
 |ID|RHE
 
 |*Désignation*|*HEADERSECTION*
-|*Description*|Pour la validation de l'en-tête, les règles définies dans  <<1>> Chap. 3.3.4 s'appliquent
+|*Description*|Pour la validation de l'en-tête, les règles définies dans  <<references.adoc#1,[1]>> Chap. 3.3.4 s'appliquent
 |*Détails*|
 * Les indication `VERSION` et `SENDER` dans la balise `HEADERSECTION` sont obligatoires
 * Tous les modèles de données dont les thèmes comportent des données doivent être énumérés au sein de l'élément  `MODELS`
 * Les indications `NAME`, `VERSION` et `URI` dans la sous-balise `MODEL` sont obligatoires
-* L'indication `NAME` doit être conforme à la définition `ModelDef` (<<1>> Chap. 2.5.1) du modèle de données INTERLIS
-* L'indication `VERSION` devrait être conforme à la définition `ModelDef` (<<1>> Chap. 2.5.1) du modèle de données INTERLIS
+* L'indication `NAME` doit être conforme à la définition `ModelDef` (<<references.adoc#1,[1]>> Chap. 2.5.1) du modèle de données INTERLIS
+* L'indication `VERSION` devrait être conforme à la définition `ModelDef` (<<references.adoc#1,[1]>> Chap. 2.5.1) du modèle de données INTERLIS
 * L'indication `URI` n'a aucune autre signification pour le contrôle des données
-|*Référence*|<<1>> Chap. 2.5.1 et 3.3.4
+|*Référence*|<<references.adoc#1,[1]>> Chap. 2.5.1 et 3.3.4
 |===
 
 ===== Cas de test
@@ -33,7 +33,7 @@ link:https://raw.githubusercontent.com/geoadmin/suite-interlis/master/data/RHE.T
 * RHE.T01a.xtf: message d'erreur. `VERSION` non disponible
 * RHE.T01b.xtf: message d'erreur. `SENDER` non disponible
 * RHE.T01c.xtf: message d'erreur. La valeur de `VERSION` doit être 2.3
-|*Référence*|<<1>> Chap. 3.3.4
+|*Référence*|<<references.adoc#1,[1]>> Chap. 3.3.4
 |===
 
 ====== RHE.T02
@@ -47,7 +47,7 @@ link:https://raw.githubusercontent.com/geoadmin/suite-interlis/master/data/RHE.T
 link:https://raw.githubusercontent.com/geoadmin/suite-interlis/master/data/RHE.T02a.xtf[RHE.T02a.xtf]
 |*Résultat attendu*|
 * RHE.T02a.xtf: message d'erreur. Balise `MODELS` non disponible
-|*Référence*|<<1>> Chap. 3.3.4
+|*Référence*|<<references.adoc#1,[1]>> Chap. 3.3.4
 |===
 
 ====== RHE.T03
@@ -61,7 +61,7 @@ link:https://raw.githubusercontent.com/geoadmin/suite-interlis/master/data/RHE.T
 link:https://raw.githubusercontent.com/geoadmin/suite-interlis/master/data/RHE.T03a.xtf[RHE.T03a.xtf]
 |*Résultat attendu*|
 * RHE.T03a.xtf: message d'erreur. Sous-balise `MODEL` non disponible
-|*Référence*|<<1>> Chap. 3.3.4
+|*Référence*|<<references.adoc#1,[1]>> Chap. 3.3.4
 |===
 
 ====== RHE.T04
@@ -79,7 +79,7 @@ link:https://raw.githubusercontent.com/geoadmin/suite-interlis/master/data/RHE.T
 * RHE.T04a.xtf: message d'erreur. `NAME` non disponible
 * RHE.T04b.xtf: message d'erreur. `VERSION` non disponible
 * RHE.T04c.xtf: message d'erreur. `URI` non disponible
-|*Référence*|<<1>> Chap. 3.3.4
+|*Référence*|<<references.adoc#1,[1]>> Chap. 3.3.4
 |===
 
 ====== RHE.T05
@@ -95,5 +95,5 @@ link:https://raw.githubusercontent.com/geoadmin/suite-interlis/master/data/RHE.T
 |*Résultat attendu*|
 * RHE.T05a.xtf: message d'erreur. La valeur dans `NAME` ne corresponde pas / Modèle `TestSuite` non disponible
 * RHE.T05b.xtf: message d'erreur. La valeur dans `VERSION` ne corresponde pas
-|*Référence*|<<1>> Chap. 3.3.4
+|*Référence*|<<references.adoc#1,[1]>> Chap. 3.3.4
 |===

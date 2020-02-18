@@ -4,8 +4,8 @@
 |ID|RZe
 
 |*Désignation*|*Codage de caractères*
-|*Description*|Pour le codage de XML-String ou XML-NormalizedString les règles definies dans <<1>> Chap. 3.3.1, Chap. 3.3.2 et Annexe B s'appliquent
-|*Réferénce*|<<1>> Chap. 3.3.1, 3.3.2 et Annexe B
+|*Description*|Pour le codage de XML-String ou XML-NormalizedString les règles definies dans <<references.adoc#1,[1]>> Chap. 3.3.1, Chap. 3.3.2 et Annexe B s'appliquent
+|*Réferénce*|<<references.adoc#1,[1]>> Chap. 3.3.1, 3.3.2 et Annexe B
 |===
 
 ===== Cas de test
@@ -25,5 +25,5 @@ link:https://raw.githubusercontent.com/geoadmin/suite-interlis/master/data/RZe.T
 * RZe.T01a.xtf: aucun message d'erreur
 * RZe.T01b.xtf: message d'erreur. Fichier non encodé en UTF-8
 * RZe.T01c.xtf: message d'erreur. Caractères UTF-8 invalides
-|*Réferénce*|<<1>> Chap. 3.3.2
+|*Réferénce*|<<references.adoc#1,[1]>> Chap. 3.3.2
 |===

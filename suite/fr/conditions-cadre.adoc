@@ -3,7 +3,7 @@
 La suite de tests est centrée sur :
 
 * INTERLIS 2.3 et le format de transfert XML correspondant (XTF)
-*	Type de transfert = FULL ( <<1>> Chap. 3.2.7)
+*	Type de transfert = FULL ( <<references.adoc#1,[1]>> Chap. 3.2.7)
 
 Il est important de noter ce qui suit :
 
@@ -11,7 +11,7 @@ Il est important de noter ce qui suit :
 ====
 *Identification d’objet*
 
-`BID` et `TID` sont codés en tant que XML-ID  (<<1>> Chap. 3.3.6 et 3.3.7). La règle EBNF pour XML-ID est  (<<1>> Chap. 3.3.1):
+`BID` et `TID` sont codés en tant que XML-ID  (<<references.adoc#1,[1]>> Chap. 3.3.6 et 3.3.7). La règle EBNF pour XML-ID est  (<<references.adoc#1,[1]>> Chap. 3.3.1):
 
 ``
 XML-ID = XML-ValueDelimiter [ XML-NcName ':' ] ( Letter | Digit | '_ ' ) { Letter | Digit | '_' | '-' | '.' } XML-ValueDelimiter
@@ -25,9 +25,9 @@ Les valeurs d’OID des domaines de valeurs d’OID textuels doivent satisfaire 
 
 En résumé :
 
-*	Les `TID` et le `BID` sont codés en tant qu’ID XML « à la INTERLIS » (selon <<1>> Chap. 3.3.1) et non comme de véritables XML-ID.
-*	`STANDARDOID` : seuls les chiffres et les lettres sont autorisés ( <<1>> Chap. 2.8.9)
-*	`UUIDOID` : doit être un UUID valide selon ISO 11578 ( <<1>> Chap. 2.8.9)
+*	Les `TID` et le `BID` sont codés en tant qu’ID XML « à la INTERLIS » (selon <<references.adoc#1,[1]>> Chap. 3.3.1) et non comme de véritables XML-ID.
+*	`STANDARDOID` : seuls les chiffres et les lettres sont autorisés ( <<references.adoc#1,[1]>> Chap. 2.8.9)
+*	`UUIDOID` : doit être un UUID valide selon ISO 11578 ( <<references.adoc#1,[1]>> Chap. 2.8.9)
 *	`OID` numérique : seuls les chiffres sont autorisés
-*	`OID` textuel: véritable XML-ID (selon <<1>> Chap. 2.8.9)
+*	`OID` textuel: véritable XML-ID (selon <<references.adoc#1,[1]>> Chap. 2.8.9)
 ====

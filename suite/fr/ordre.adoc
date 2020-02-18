@@ -6,10 +6,10 @@
 |ID|RRO
 
 |*Désignation*|*Ordre - Section de données*
-|*Description*|Pour la validation de l’ordre des instances d’objet dans la section données, les règles définies dans <<1>> Chap. 3.2.5 s'appliquent
+|*Description*|Pour la validation de l’ordre des instances d’objet dans la section données, les règles définies dans <<references.adoc#1,[1]>> Chap. 3.2.5 s'appliquent
 |*Détails*|
 * L’ordre des objets est sans importance pour le transfert, il n’est en particulier pas nécessaire que les objets au sein d’un conteneur soient ordonnés par relations ou groupés par classes
-|*Référence*|<<1>> Chap. 3.2.5
+|*Référence*|<<references.adoc#1,[1]>> Chap. 3.2.5
 |===
 
 ===== Cas de test
@@ -26,7 +26,7 @@ link:https://raw.githubusercontent.com/geoadmin/suite-interlis/master/data/RRO.T
 |*Résultat attendu*|
 * RRO.T01a.xtf: aucun message d'erreur
 * RRO.T01b.xtf: aucun message d'erreur
-|*Référence*|<<1>> Chap. 3.2.5
+|*Référence*|<<references.adoc#1,[1]>> Chap. 3.2.5
 |===
 
 ==== Ordre au sein des classes
@@ -35,7 +35,7 @@ link:https://raw.githubusercontent.com/geoadmin/suite-interlis/master/data/RRO.T
 |ID|RRiO
 
 |*Désignation*|*Ordre au sein des instances de classe*
-|*Description*|Pour la validation de l’ordre au sein des instances d’objet, les règles définies dans <<1>> Chap. 3.3.7 s'appliquent
+|*Description*|Pour la validation de l’ordre au sein des instances d’objet, les règles définies dans <<references.adoc#1,[1]>> Chap. 3.3.7 s'appliquent
 |*Détails*|
 * La règle suivante s’applique pour l’ordre de succession des attributs, rôles, `EmbeddedLinks` et attributs de référence au sein d’une classe ( étendue ) :
 . Rôles de la classe de base
@@ -45,7 +45,7 @@ link:https://raw.githubusercontent.com/geoadmin/suite-interlis/master/data/RRO.T
 . ``EmbeddedLinks`` de l’extension
 * Au sein d’un même niveau d’extension, les attributs / attributs de référence et les rôles sont codés selon l’ordre défini dans le modèle de données INTERLIS
 * Au sein d’un même niveau d’extension, les `EmbeddedLinks` sont triés par ordre alphabétique croissant
-|*Référence*|<<1>> Chap. 3.3.7
+|*Référence*|<<references.adoc#1,[1]>> Chap. 3.3.7
 |===
 
 ===== Cas de test
@@ -64,7 +64,7 @@ link:https://raw.githubusercontent.com/geoadmin/suite-interlis/master/data/RRiO.
 * RRiO.T01a.xtf: aucun message d'erreur
 * RRiO.T01b.xtf: message d'erreur. Ordre des attributs incorrect
 * RRiO.T01c.xtf: message d'erreur. Ordre des  `EmbeddedLinks` incorrect
-|*Référence*|<<1>> Chap. 3.3.7
+|*Référence*|<<references.adoc#1,[1]>> Chap. 3.3.7
 |===
 
 ====== RRiO.T02
@@ -80,7 +80,7 @@ link:https://raw.githubusercontent.com/geoadmin/suite-interlis/master/data/RRiO.
 |*Résultat attendu*|
 * RRiO.T02a.xtf: aucun message d'erreur
 * RRiO.T02b.xtf: message d'erreur. Ordre des attributs incorrect ( les attributs de la classe de base doivent être codés d'abord )
-|*Référence*|<<1>> Chap. 3.3.7
+|*Référence*|<<references.adoc#1,[1]>> Chap. 3.3.7
 |===
 
 ====== RRiO.T03
@@ -100,5 +100,5 @@ link:https://raw.githubusercontent.com/geoadmin/suite-interlis/master/data/RRiO.
 * RRiO.T03b.xtf: message d'erreur. Les rôles de la classe de base doivent être codés d'abord
 * RRiO.T03c.xtf: message d'erreur. Les attributs de la classe de base doivent être codés d'abord
 * RRiO.T03d.xtf: message d'erreur. Les rôles de la classe de base sont obligatoires
-|*Référence*|<<1>> Chap. 3.3.7
+|*Référence*|<<references.adoc#1,[1]>> Chap. 3.3.7
 |===

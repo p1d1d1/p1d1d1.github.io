@@ -8,8 +8,8 @@
 |ID|RVX
 
 |*Désignation*|*Règles XML prédéfinies*
-|*Description*|Les règles prédéfinies dans <<1>> Chap. 3.3.1 s'appliquent
-|*Référence*|<<1>> Chap. 3.3.1
+|*Description*|Les règles prédéfinies dans <<references.adoc#1,[1]>> Chap. 3.3.1 s'appliquent
+|*Référence*|<<references.adoc#1,[1]>> Chap. 3.3.1
 |===
 
 ==== Document XML bien formé
@@ -18,8 +18,8 @@
 |ID|RXW
 
 |*Désignation*|*XML bien formé*
-|*Description*|Chaque fichier de transfert INTERLIS au format XML doit être bien formé conformément à la norme XML-1.0 <<2>>
-|*Référence*|<<1>> Chap. 3.3.1 et 3.3.3
+|*Description*|Chaque fichier de transfert INTERLIS au format XML doit être bien formé conformément à la norme XML-1.0 <<references.adoc#2,[2]>>
+|*Référence*|<<references.adoc#1,[1]>> Chap. 3.3.1 et 3.3.3
 |===
 
 ===== Cas te test
@@ -37,8 +37,8 @@ link:https://raw.githubusercontent.com/geoadmin/suite-interlis/master/data/RXW.T
 |*Résultat attendu*|
 * RXW.T01a.xtf: message d'erreur. Il y a un espace dans la balise `DATASECTION`
 * RXW.T01b.xtf: message d'erreur. Le nom de la balise fermante `TRANSFERs` ne correspond pas au nom del la balise ouvrante `TRANSFER`
-|*Référence*|<<1>> Chap. 3.3.1 et 3.3.3 +
-<<2>> Chap. 2.1 (https://www.w3.org/TR/xml/#sec-starttags)
+|*Référence*|<<references.adoc#1,[1]>> Chap. 3.3.1 et 3.3.3 +
+<<references.adoc#2,[2]>> Chap. 2.1 (https://www.w3.org/TR/xml/#sec-starttags)
 |===
 
 ====== RXW.T02
@@ -63,6 +63,6 @@ link:https://raw.githubusercontent.com/geoadmin/suite-interlis/master/data/RXW.T
 * RXW.T02d.xtf: message d'erreur. Double Attribut `TID`
 * RXW.T02e.xtf: message d'erreur. Double Attribut `VERSION` dans `HEADERSECTION`
 * RXW.T02f.xtf: message d'erreur. Double Attribut `VERSION` dans `MODEL`
-|*Référence*|<<1>> Chap. 3.3.1 +
-<<2>> Chap. 3.1 (https://www.w3.org/TR/xml/#uniqattspec)
+|*Référence*|<<references.adoc#1,[1]>> Chap. 3.3.1 +
+<<references.adoc#2,[2]>> Chap. 3.1 (https://www.w3.org/TR/xml/#uniqattspec)
 |===
