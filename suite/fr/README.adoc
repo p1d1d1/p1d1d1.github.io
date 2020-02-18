@@ -1,8 +1,7 @@
 = Suite de tests pour les fichiers de transfert INTERLIS au format XML ( Version 2.3 )
 
-> :warning: Le contenu au format AsciiDoc est optimisé pour la génération de fichiers PDF
-
-> **(I)**: Le contenu au format AsciiDoc est optimisé pour la génération de fichiers PDF
+>[!WARNING]
+>Le contenu au format AsciiDoc est optimisé pour la génération de fichiers PDF
 
 [discrete]
 === Table des matières
