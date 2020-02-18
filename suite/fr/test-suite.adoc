@@ -1,4 +1,4 @@
-:titletext: Suite de tests pour les fichiers de transfert INTERLIS au format XML
+:titletext: Suite de tests pour les fichiers de transfert INTERLIS au format XML ( Version 2.3 )
 :front-cover-image: image::../img/front-cover-fr.png[]
 :doctype: article
 :encoding: utf-8

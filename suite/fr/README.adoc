@@ -18,16 +18,15 @@ WARNING: Le contenu au format AsciiDoc est optimisé pour la génération de fic
  ** <<codage-caracteres.adoc#Codage-de-caractères,Codage de caractères>>
 
 * Structure du fichier de transfert
- ** <<transfert.adoc#Transfert,Transfert>>
- ** <<en-tete.adoc#En-tête,En-tête>>
+ ** <<transfert.adoc#,Transfert>>
+ ** <<en-tete.adoc#,En-tête>>
 
 * Section de données
- ** <<themes.adoc#Thèmes,Thèmes>>
- ** <<classes.adoc#Classes,Classes>>
- ** <<relations.adoc#Relations,Relations>>
- ** <<attributs.adoc#Attributs,Attributs>>
- ** <<ordre.adoc#Ordre,Ordre des objets>>
- ** <<regles-integrite.adoc##règles-dintégrité,Règles d’intégrité>>
-* <<references.adoc#Références,Références>>
-* <<annexe1.adoc#Annexe-1,Routine de test>>
-
+ ** <<themes.adoc#,Thèmes>>
+ ** <<classes.adoc#,Classes>>
+ ** <<relations.adoc#,Relations>>
+ ** <<attributs.adoc#,Attributs>>
+ ** <<ordre.adoc#,Ordre des objets>>
+ ** <<regles-integrite.adoc#,Règles d’intégrité>>
+* <<references.adoc#,Références>>
+* <<annexe1.adoc#,Routine de test>>
