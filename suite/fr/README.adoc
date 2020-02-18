@@ -1,5 +1,11 @@
 = Suite de tests pour les fichiers de transfert INTERLIS au format XML ( Version 2.3 )
 
+[NOTE]
+====
+Le contenu au format AsciiDoc est optimisé pour la génération de fichiers PDF
+====
+
+
 [discrete]
 === Table des matières
 
@@ -21,4 +27,4 @@
  ** <<ordre.adoc#Ordre,Ordre des objets>>
  ** <<regles-integrite.adoc##règles-dintégrité,Règles d’intégrité>>
 * <<references.adoc#Références,Références>>
-* <<annexe1.adoc#Annexe-1,Annexe 1: Routine de test>>
+* <<annexe1.adoc#Annexe-1,Routine de test>>
