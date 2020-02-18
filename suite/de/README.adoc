@@ -12,27 +12,21 @@ WARNING: Der Inhalt im AsciiDoc-Format ist für die Erzeugung von PDF-Dateien op
 * Allgemeine Regeln
  ** <<rahmenbedingungen.adoc#,Objektidentifikation>>
  ** <<xml.adoc#vordefinierte-xml-regeln,Vordefinierte XML-Regeln>>
- ** link:xml_de-CH.md#xml-wohlgeformtheit[XML-Wohlgeformtheit]
- ** xref:charEncoding_de-CH.adoc[Zeichencodierung]
+ ** <<xml.adoc#xml-wohlgeformtheit,XML-Wohlgeformtheit>>
+ ** <<zeichencodierung.adoc#,Zeichencodierung>>
+
 * Struktur der Transferdatei
- ** xref:transferStructure_de-CH.adoc[Transfer]
- ** xref:headerSection_de-CH.adoc[Vorspann]
+ ** <<transfer.adoc#,Transfer>>
+ ** <<vorspann.adoc#,Vorspann>>
+
 * Datenbereich
- ** xref:topic_de-CH.adoc[Themen]
- ** xref:classes_de-CH.adoc[Klassen]
- ** link:associations_de-CH.md#beziehungen[Beziehungen]
-  *** link:associations_de-CH.md#eingebettete-beziehungen[Eingebettete Beziehungen]
-  *** link:associations_de-CH.md#nicht-eingebettete-beziehungen[Nicht eingebettete Beziehungen]
-  *** link:associations_de-CH.md#kardinalität[Kardinalität]
- ** link:attributes_de-CH.md#attribute[Attribute]
-  *** link:attributes_de-CH.md#struktur--und-referenzattribute[Struktur- und Referenzattribute]
-  *** Geometrische Attribute
-   **** link:attributes_de-CH.md#geometrische-attribute-koordinaten[Koordinaten]
-   **** link:attributes_de-CH.md#geometrische-attribute-linienzüge[Linienzüge]
-   **** link:attributes_de-CH.md#geometrische-attribute-einzelflächen-und-gebietseinteilungen[Einzelflächen und Gebietseinteilungen]
-  *** link:attributes_de-CH.md#kardinalität[Kardinalität]
-  *** Reihenfolge
-   **** link:order_de-CH.md#reihenfolge-der-objekte-im-datenbereich[Reihenfolge der Objekte im Datenbereich]
-   **** link:order_de-CH.md#reihenfolge-innerhalb-der-klasseinstanzen[Reihenfolge innerhalb der Klasseinstanzen]
- ** xref:constraints_de-CH.adoc[Konsistenzbedingungen]
-* xref:bib_de-CH.adoc[Referenzen]
+ ** <<themen.adoc#,Themen>>
+ ** <<klassen.adoc#,Klassen>>
+ ** <<beziehungen.adoc#,Beziehungen>>
+ ** <<attribute.adoc#,Attribute>>
+ ** <<reihenfolge.adoc#,Reihenfolge der Objekte>>
+ ** <<konsistenzbedingungen.adoc#,Konsistenzbedingungen>>
+
+* <<referenzen.adoc#,Referenzen>>
+
+* <<anhang.adoc#,Anhang>>
