@@ -7,7 +7,7 @@
  ** <<conditions-cadre.adoc#Conditions-cadre,Identification d’objet>>
  ** <<xml.adoc#Codage-XML,Règles XML prédéfinies>>
  ** <<xml.adoc#Document-XML-bien-formé,XML bien formé>>
- ** <<codage-caracteres.adoc,Codage de caractères>>
+ ** <<codage-caracteres.adoc#Codage-de-caractères,Codage de caractères>>
 
 * Structure du fichier de transfert
  ** <<transfert.adoc#Transfert,Transfert>>
