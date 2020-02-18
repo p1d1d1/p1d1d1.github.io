@@ -1,9 +1,6 @@
 = Suite de tests pour les fichiers de transfert INTERLIS au format XML ( Version 2.3 )
 
-[NOTE]
-====
-Le contenu au format AsciiDoc est optimisé pour la génération de fichiers PDF
-====
+> :warning: Le contenu au format AsciiDoc est optimisé pour la génération de fichiers PDF
 
 <<<
 
