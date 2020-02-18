@@ -2,7 +2,7 @@
 
 > :warning: Le contenu au format AsciiDoc est optimisé pour la génération de fichiers PDF
 
-<<<
+> **WARNING**: Be careful, or else!
 
 [discrete]
 === Table des matières
