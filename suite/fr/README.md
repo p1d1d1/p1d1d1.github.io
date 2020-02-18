@@ -1,0 +1,32 @@
+= Suite de tests pour les fichiers de transfert INTERLIS au format XML ( Version 2.3 )
+
+[NOTE]
+====
+Le contenu au format AsciiDoc est optimisé pour la génération de fichiers PDF
+====
+
+<<<
+
+[discrete]
+=== Table des matières
+
+* Règles générales
+ ** <<conditions-cadre.adoc#Conditions-cadre,Identification d’objet>>
+ ** <<xml.adoc#Codage-XML,Règles XML prédéfinies>>
+ ** <<xml.adoc#Document-XML-bien-formé,XML bien formé>>
+ ** <<codage-caracteres.adoc#Codage-de-caractères,Codage de caractères>>
+
+* Structure du fichier de transfert
+ ** <<transfert.adoc#Transfert,Transfert>>
+ ** <<en-tete.adoc#En-tête,En-tête>>
+
+* Section de données
+ ** <<themes.adoc#Thèmes,Thèmes>>
+ ** <<classes.adoc#Classes,Classes>>
+ ** <<relations.adoc#Relations,Relations>>
+ ** <<attributs.adoc#Attributs,Attributs>>
+ ** <<ordre.adoc#Ordre,Ordre des objets>>
+ ** <<regles-integrite.adoc##règles-dintégrité,Règles d’intégrité>>
+* <<references.adoc#Références,Références>>
+* <<annexe1.adoc#Annexe-1,Routine de test>>
+
