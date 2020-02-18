@@ -5,6 +5,7 @@
 Le contenu au format AsciiDoc est optimisé pour la génération de fichiers PDF
 ====
 
+<<<
 
 [discrete]
 === Table des matières
