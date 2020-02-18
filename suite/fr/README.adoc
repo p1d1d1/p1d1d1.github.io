@@ -1,9 +1,14 @@
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
 = Suite de tests pour les fichiers de transfert INTERLIS au format XML ( Version 2.3 )
 
-[NOTE]
-====
-Le contenu au format AsciiDoc est optimisé pour la génération de fichiers PDF
-====
+WARNING: Le contenu au format AsciiDoc est optimisé pour la génération de fichiers PDF
 
 <<<
 
