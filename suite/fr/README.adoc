@@ -32,3 +32,5 @@ WARNING: Le contenu au format AsciiDoc est optimisé pour la génération de fic
  ** <<regles-integrite.adoc##règles-dintégrité,Règles d’intégrité>>
 * <<references.adoc#Références,Références>>
 * <<annexe1.adoc#Annexe-1,Routine de test>>
+
+include::references.adoc[]
