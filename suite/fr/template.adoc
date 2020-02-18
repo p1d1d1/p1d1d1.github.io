@@ -1,0 +1,56 @@
+:titletext: Test Suite für XML-formatierte INTERLIS-Transferdateien
+:revnumber:
+:revdate:
+:front-cover-image: image::../img/front-cover.png[]
+:doctype: article
+:encoding: utf-8
+:lang: de
+:toc: macro
+:toc-title: Inhaltsverzeichnis
+:toclevels: 4
+:sectnums:
+:sectnumlevels: 6
+:sectanchors:
+
+[colophon]
+[.text-right]
+Die vorliegende Publikation wurde +
+im Rahmen des KOGIS- und KKGEO-Projektes +
+« INTERLIS Testsuite » verfasst. +
+Februar 2020
+
+<<<
+
+toc::[]
+
+<<<
+
+include::ausgangslage.adoc[]
+
+<<<
+
+include::rahmenbedingungen.adoc[]
+
+<<<
+
+include::xml.adoc[]
+
+include::zeichencodierung.adoc[]
+
+include::transfer.adoc[]
+
+include::vorspann.adoc[]
+
+include::themen.adoc[]
+
+include::klassen.adoc[]
+
+include::beziehungen.adoc[leveloffset=+1]
+
+include::attribute.adoc[leveloffset=+1]
+
+include::reihenfolge.adoc[leveloffset=+1]
+
+include::konsistenzbedingungen.adoc[]
+
+include::referenzen.adoc[]

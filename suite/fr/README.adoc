@@ -1,0 +1,24 @@
+= Suite de tests pour les fichiers de transfert INTERLIS au format XML ( Version 2.3 )
+
+[discrete]
+=== Table des matières
+
+* Règles générales
+ ** <<conditions-cadre.adoc,Identification d’objet>>
+ ** <<xml.adoc#Codage-XML,Règles XML prédéfinies>>
+ ** <<xml.adoc#Document-XML-bien-formé,XML bien formé>>
+ ** <<codage-caracteres.adoc,Codage de caractères>>
+
+* Structure du fichier de transfert
+ ** <<transfert.adoc,Transfert>>
+ ** <<en-tete.adoc,En-tête>>
+
+* Section de données
+ ** <<themes.adoc,Thèmes>>
+ ** <<classes.adoc,Classes>>
+ ** <<references.adoc,Relations>>
+ ** <<attributs.adoc,Attributs>>
+ ** <<ordre.adoc,Ordre des objets>>
+ ** <<regles-integrite.adoc,Règles d’intégrité>>
+* <<references.adoc,Références>>
+* <<annexe1.adoc,Annexe 1: Routine de test>>
