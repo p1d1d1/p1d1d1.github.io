@@ -1,0 +1,314 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Comprendere i Fogli &mdash; An Introduction to VisiData</title>
+  
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://jsvine.github.io/intro-to-visidata/basics/understanding-sheets.html"/>
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Comprendere le righe" href="../understanding-rows/" />
+    <link rel="prev" title="Muoversi in VisiData" href="../navigating-visidata/" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../" class="icon icon-home"> Introduzione a VisiData
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../">Informazioni su questo tutorial</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Il quadro generale</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../the-big-picture/what-is-visidata/">Cos’è VisiData?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-big-picture/installation/">Installazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-big-picture/visidata-in-60-seconds/">VisiData in 60 secondi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Uso di base</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-out-of-trouble/">Per <em>tirarsi fuori dai guai</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../opening-files/">Aprire i file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../navigating-visidata/">Muoversi in VisiData</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Comprendere i Fogli</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#come-usare-il-foglio-dei-fogli">Come usare il Foglio dei fogli</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#come-rinominare-un-foglio">Come rinominare un foglio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#come-chiudere-rimuovere-un-foglio">Come chiudere/rimuovere un foglio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#passare-rapidamente-da-un-foglio-all-altro">Passare rapidamente da un foglio all’altro</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding-rows/">Comprendere le righe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding-columns/">Comprendere le colonne</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sorting-and-filtering/">Ordinare e filtrare</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summarizing-data/">Riepilogare i dati</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working-with-excel/">Lavorare con i fogli Excel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../saving-sheets/">Salvare i fogli</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Uso intermedio</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intermediate/creating-new-columns/">Creare nuove colonne</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intermediate/joining-sheets/">Join di fogli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intermediate/reshaping-data/">Dare una nuova forma ai dati</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intermediate/large-files/">Lavorare con file di grandi dimensioni</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Uso avanzato</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/configuring-visidata/">Configurare VisiData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/extending-visidata/">Estendere VisiData con i Plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/debugging-visidata/">Debug di VisiData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/the-command-log/">Il Log dei comandi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Esempi pratici</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../practical/high-flying-birds/">Uccelli <em>d’alta quota</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../practical/distinctive-birds/">Uccelli caratteristici</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">Introduzione a VisiData</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../">Docs</a> &raquo;</li>
+        
+      <li>Comprendere i Fogli</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="comprendere-i-fogli">
+<h1>Comprendere i Fogli<a class="headerlink" href="#comprendere-i-fogli" title="Permalink to this headline">¶</a></h1>
+<p>Il flusso di lavoro di VisiData ruota intorno ai “fogli”. Come per i tradizionali programmi di foglio di calcolo, i fogli di VisiData sono composti da <strong>colonne</strong> e <strong>righe</strong>.</p>
+<p>Ma VisiData porta il concetto di foglio ad un livello superiore. In VisiData, quasi <em>tutto</em> - anche il pannello delle impostazioni del programma - è un foglio.</p>
+<p>In VisiData ci sono tre tipi di fogli:</p>
+<ul class="simple">
+<li>Fogli sorgente
+- I dati che hai caricato in VisiData</li>
+<li>Fogli derivati
+- Fogli che si basano sui dati contenuti nei fogli sorgente, some ad esempio una tabella di frequenza o un sottoinsieme di righe filtrate.</li>
+<li><em>Meta</em>-fogli
+- Sono fogli che ti aiuteranno nella navigazione e personalizzazione di VisiData. Due dei più potenti sono il “Foglio dei fogli” (discusso di seguito) ed il “Foglio delle colonne” (discusso in “Capire le colonne”).</li>
+</ul>
+<div class="section" id="come-usare-il-foglio-dei-fogli">
+<h2>Come usare il Foglio dei fogli<a class="headerlink" href="#come-usare-il-foglio-dei-fogli" title="Permalink to this headline">¶</a></h2>
+<p>Il Foglio dei fogli elenca tutti i fogli aperti in VisiData e permette di passare facilmente da un foglio all’altro.</p>
+<p>Per aprire il Foglio dei fogli digita <kbd class="kbd docutils literal notranslate">Shift-S</kbd>.</p>
+<p>Se hai appena lanciato VisiData con un singolo set di dati, digitando <kbd class="kbd docutils literal notranslate">Shift-S</kbd> si aprirà un foglio di fogli simile a quanto segue:</p>
+<div class='ansi2html'>
+<pre>
+<span class="ansi1 ansi4 inv_background inv_foreground"></span><span class="ansi1 ansi4 inv38-81 inv_foreground"></span><span class="ansi1 ansi4 inv38-81 inv40"> name                         </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">‖</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> nRows  #</span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> nCols  #</span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> nVisibleCols  #</span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> cursorDisplay   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> keyColNames</span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">&gt;</span><span class="ansi40"> 
+</span><span class="ansi1 inv_background inv40"></span><span class="ansi1 inv38-81 inv40"> sheets                       </span><span class="inv_background inv_foreground"></span><span class="inv37 inv_foreground"></span><span class="inv37 inv40">‖       2 |       8 |              8 | sheets          | name        </span><span class="ansi40"> 
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> faa-wildlife-strikes         </span><span class="ansi37"></span><span class="ansi37 ansi40">‖   73448 |      16 |             16 | BUSINESS        |</span><span class="ansi40">              
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40">sheets|</span><span class="ansi40">                                                              </span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40">          </span><span class="ansi37"></span><span class="ansi37 ansi40"> S</span><span class="ansi1 ansi37 ansi40">         2 sheets </span><span class="ansi40"> </span>
+</pre>
+</div>
+<p>Niente di speciale per il momento, ma non appena inizierai a destreggiarti tra più fogli, tabelle di frequenza e vari file, il Foglio dei fogli ti sarà sicuramente di aiuto.</p>
+<p>Puoi spostarti nel Foglio dei fogli proprio come faresti con un qualsiasi altro foglio, con una differenza principale: prmendo <kbd class="kbd docutils literal notranslate">Invio</kbd> si aprirà il foglio selezionato.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Digitando <kbd class="kbd docutils literal notranslate">d</kbd> su una riga del Foglio dei fogli si invierà il foglio al “cimitero dei fogli”.</p>
+</div>
+</div>
+<div class="section" id="come-rinominare-un-foglio">
+<h2>Come rinominare un foglio<a class="headerlink" href="#come-rinominare-un-foglio" title="Permalink to this headline">¶</a></h2>
+<p>Ci sono due modi per rinominare un foglio:</p>
+<ul class="simple">
+<li>Apri il <strong>Foglio dei fogli</strong> e spostati sulla riga del foglio che vuoi rinominare. Digita <kbd class="kbd docutils literal notranslate">e</kbd> per attivare la modalità di modifica, digita il nuovo nome e premi <kbd class="kbd docutils literal notranslate">Invio</kbd> per completare l’operazione.</li>
+<li>Se già ti trovi all’interno del <strong>foglio che vuoi rinominare</strong>, premi <kbd class="kbd docutils literal notranslate">Spazio</kbd> per attivare il prompt dei comandi, quindi digita <code class="docutils literal notranslate"><span class="pre">rename-sheet</span></code> seguito da <kbd class="kbd docutils literal notranslate">Invio</kbd>. Al prompt successivo, digita il nuovo nome e premi <kbd class="kbd docutils literal notranslate">Invio</kbd> per completare l’operazione.</li>
+</ul>
+</div>
+<div class="section" id="come-chiudere-rimuovere-un-foglio">
+<h2>Come chiudere/rimuovere un foglio<a class="headerlink" href="#come-chiudere-rimuovere-un-foglio" title="Permalink to this headline">¶</a></h2>
+<p>Per chiudere il foglio corrente (rimuovendolo da VisiData), digita <kbd class="kbd docutils literal notranslate">q</kbd>.</p>
+<p>Per chiudere tutti i fogli (e quindi chiudere VisiData), digita <kbd class="kbd docutils literal notranslate">gq</kbd>.</p>
+<p>Per accedere al “cimitero dei fogli”, l’elenco dei fogli recentemente chiusi, digita <kbd class="kbd docutils literal notranslate">gS</kbd>.</p>
+</div>
+<div class="section" id="passare-rapidamente-da-un-foglio-all-altro">
+<h2>Passare rapidamente da un foglio all’altro<a class="headerlink" href="#passare-rapidamente-da-un-foglio-all-altro" title="Permalink to this headline">¶</a></h2>
+<p>Per passare dal foglio corrente a quello precedente, digita <kbd class="kbd docutils literal notranslate">Control-^</kbd>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../understanding-rows/" class="btn btn-neutral float-right" title="Comprendere le righe" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../navigating-visidata/" class="btn btn-neutral float-left" title="Muoversi in VisiData" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Jeremy Singer-Vine
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

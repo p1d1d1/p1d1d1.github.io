@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lavorare con file di grandi dimensioni &mdash; An Introduction to VisiData</title>
+  
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://jsvine.github.io/intro-to-visidata/intermediate/large-files.html"/>
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Configurare VisiData" href="../../advanced/configuring-visidata/" />
+    <link rel="prev" title="Dare una nuova forma ai dati" href="../reshaping-data/" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../" class="icon icon-home"> Introduzione a VisiData
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../">Informazioni su questo tutorial</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Il quadro generale</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../the-big-picture/what-is-visidata/">Cos’è VisiData?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-big-picture/installation/">Installazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-big-picture/visidata-in-60-seconds/">VisiData in 60 secondi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Uso di base</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/getting-out-of-trouble/">Per <em>tirarsi fuori dai guai</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/opening-files/">Aprire i file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/navigating-visidata/">Muoversi in VisiData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/understanding-sheets/">Comprendere i Fogli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/understanding-rows/">Comprendere le righe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/understanding-columns/">Comprendere le colonne</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/sorting-and-filtering/">Ordinare e filtrare</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/summarizing-data/">Riepilogare i dati</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/working-with-excel/">Lavorare con i fogli Excel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/saving-sheets/">Salvare i fogli</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Uso intermedio</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../creating-new-columns/">Creare nuove colonne</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../joining-sheets/">Join di fogli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reshaping-data/">Dare una nuova forma ai dati</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lavorare con file di grandi dimensioni</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#selezionare-un-numero-casuale-di-righe">Selezionare un numero casuale di righe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#caricare-solo-parte-di-un-file">Caricare solo parte di un file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#da-linea-di-comando">Da linea di comando</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#arrestando-il-processi-di-caricamento">Arrestando il processi di caricamento</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mettendo-le-colonne-dinamiche-nella-cache">Mettendo le colonne dinamiche nella cache</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Uso avanzato</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/configuring-visidata/">Configurare VisiData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/extending-visidata/">Estendere VisiData con i Plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/debugging-visidata/">Debug di VisiData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/the-command-log/">Il Log dei comandi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Esempi pratici</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../practical/high-flying-birds/">Uccelli <em>d’alta quota</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../practical/distinctive-birds/">Uccelli caratteristici</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">Introduzione a VisiData</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../">Docs</a> &raquo;</li>
+        
+      <li>Lavorare con file di grandi dimensioni</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lavorare-con-file-di-grandi-dimensioni">
+<h1>Lavorare con file di grandi dimensioni<a class="headerlink" href="#lavorare-con-file-di-grandi-dimensioni" title="Permalink to this headline">¶</a></h1>
+<p>VisiData gestisce abbastanza bene file moderatamente grandi. Ma se un file particolarmente grande rallenta VisiData, i suggerimenti seguenti possono essere di aiuti.</p>
+<div class="section" id="selezionare-un-numero-casuale-di-righe">
+<h2>Selezionare un numero casuale di righe<a class="headerlink" href="#selezionare-un-numero-casuale-di-righe" title="Permalink to this headline">¶</a></h2>
+<p>In VisiData è possibile creare una copia campionata a caso di qualsiasi foglio. Per creare un foglio campione casuale, digita <kbd class="kbd docutils literal notranslate">Shift-R</kbd>. Al prompt digita il numero di righe che desideri includere, quindi premi <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p>
+</div>
+<div class="section" id="caricare-solo-parte-di-un-file">
+<h2>Caricare solo parte di un file<a class="headerlink" href="#caricare-solo-parte-di-un-file" title="Permalink to this headline">¶</a></h2>
+<p>Se vuoi utilizzare VisiData solo per avere un’anteprima dei dati, potresti caricare solo l’inizio del file.</p>
+<div class="section" id="da-linea-di-comando">
+<h3>Da linea di comando<a class="headerlink" href="#da-linea-di-comando" title="Permalink to this headline">¶</a></h3>
+<p>Se stai lavorando con un file CSV semplice, puoi utilizzare il comando <code class="docutils literal notranslate"><span class="pre">head</span></code>, combinato con <code class="docutils literal notranslate"><span class="pre">vd</span> <span class="pre">-f</span> <span class="pre">csv</span></code>, ad esempio:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>head -n <span class="m">1000</span> faa-wildlife-strikes.csv <span class="p">|</span> vd -f csv
+</pre></div>
+</div>
+<p>Il tal modo, le prime 1.000 righe del file saranno caricate (in effetti qualcuna in meno, visto che la colonna <code class="docutils literal notranslate"><span class="pre">REMARKS</span></code> contiene alcuni caratteri di nuova riga).</p>
+<p>In alternativa potresti usare <a class="reference external" href="https://github.com/BurntSushi/xsv">xsv</a> per ritagliare o filtrare il file prima di caricarlo in VisiData. Ad esempio:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>xsv search <span class="s2">&quot;CHICAGO&quot;</span> faa-wildlife-strikes.csv <span class="p">|</span> vd -f csv
+</pre></div>
+</div>
+</div>
+<div class="section" id="arrestando-il-processi-di-caricamento">
+<h3>Arrestando il processi di caricamento<a class="headerlink" href="#arrestando-il-processi-di-caricamento" title="Permalink to this headline">¶</a></h3>
+<p>Puoi arrestare il processo di caricamento dei dati digitando <kbd class="kbd docutils literal notranslate">Control-c</kbd>. VisiData gestisce il tutto senza problemi e potrai continuare ad usare il programma normalmente.</p>
+<p>Questo approccio funziona bene se si utilizza una fonte di dati più complessa di un file CSV e se non ci si preoccupa esattamente di quante righe vengono caricate.</p>
+</div>
+</div>
+<div class="section" id="mettendo-le-colonne-dinamiche-nella-cache">
+<h2>Mettendo le colonne dinamiche nella cache<a class="headerlink" href="#mettendo-le-colonne-dinamiche-nella-cache" title="Permalink to this headline">¶</a></h2>
+<p>Se si stanno eseguendo molte operazioni su colonne dinamiche (per esempio, quelle create con il comando <kbd class="kbd docutils literal notranslate">=</kbd>), magari calcolandone la media, la mediana e la somma, si può risparmiare un po’ di tempo “mettendo in cache” le colonne stesse.</p>
+<p>Spostai sulla colonna che intendi mettere in cache e digita <kbd class="kbd docutils literal notranslate">z'</kbd>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../advanced/configuring-visidata/" class="btn btn-neutral float-right" title="Configurare VisiData" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../reshaping-data/" class="btn btn-neutral float-left" title="Dare una nuova forma ai dati" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Jeremy Singer-Vine
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

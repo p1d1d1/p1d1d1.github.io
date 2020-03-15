@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Configurare VisiData &mdash; An Introduction to VisiData</title>
+  
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://jsvine.github.io/intro-to-visidata/advanced/configuring-visidata.html"/>
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Estendere VisiData con i Plugin" href="../extending-visidata/" />
+    <link rel="prev" title="Lavorare con file di grandi dimensioni" href="../../intermediate/large-files/" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../" class="icon icon-home"> Introduzione a VisiData
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../">Informazioni su questo tutorial</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Il quadro generale</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../the-big-picture/what-is-visidata/">Cos’è VisiData?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-big-picture/installation/">Installazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-big-picture/visidata-in-60-seconds/">VisiData in 60 secondi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Uso di base</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/getting-out-of-trouble/">Per <em>tirarsi fuori dai guai</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/opening-files/">Aprire i file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/navigating-visidata/">Muoversi in VisiData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/understanding-sheets/">Comprendere i Fogli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/understanding-rows/">Comprendere le righe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/understanding-columns/">Comprendere le colonne</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/sorting-and-filtering/">Ordinare e filtrare</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/summarizing-data/">Riepilogare i dati</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/working-with-excel/">Lavorare con i fogli Excel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/saving-sheets/">Salvare i fogli</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Uso intermedio</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intermediate/creating-new-columns/">Creare nuove colonne</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intermediate/joining-sheets/">Join di fogli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intermediate/reshaping-data/">Dare una nuova forma ai dati</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intermediate/large-files/">Lavorare con file di grandi dimensioni</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Uso avanzato</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configurare VisiData</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#argomenti-da-linea-di-comando-di-vd">Argomenti da linea di comando di <code class="docutils literal notranslate"><span class="pre">vd</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#il-foglio-delle-opzioni-globali">Il foglio delle opzioni globali</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fogli-opzione-specifici-per-foglio">Fogli opzione specifici per foglio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#il-file-visidatarc">Il file <code class="docutils literal notranslate"><span class="pre">~/.visidatarc</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../extending-visidata/">Estendere VisiData con i Plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging-visidata/">Debug di VisiData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-command-log/">Il Log dei comandi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Esempi pratici</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../practical/high-flying-birds/">Uccelli <em>d’alta quota</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../practical/distinctive-birds/">Uccelli caratteristici</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">Introduzione a VisiData</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../">Docs</a> &raquo;</li>
+        
+      <li>Configurare VisiData</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="configurare-visidata">
+<h1>Configurare VisiData<a class="headerlink" href="#configurare-visidata" title="Permalink to this headline">¶</a></h1>
+<p>Il comportamento di VisiData può essere configurato in diversi modi:</p>
+<ul class="simple">
+<li>Tramite gli argomenti da linea di comando di <code class="docutils literal notranslate"><span class="pre">vd</span></code></li>
+<li>Tramite il foglio delle opzioni globali</li>
+<li>Tramite fogli opzione specifici per foglio</li>
+<li>Tramite il file <code class="docutils literal notranslate"><span class="pre">~/.visidatarc</span></code></li>
+</ul>
+<div class="section" id="argomenti-da-linea-di-comando-di-vd">
+<h2>Argomenti da linea di comando di <code class="docutils literal notranslate"><span class="pre">vd</span></code><a class="headerlink" href="#argomenti-da-linea-di-comando-di-vd" title="Permalink to this headline">¶</a></h2>
+<p>Quando lanci <code class="docutils literal notranslate"><span class="pre">vd</span></code> dalla linea di comando, puoi impostare determinati comportamenti di VisiData tramite gli argomenti.</p>
+<p>Per esempio, per dire a VisiData di ignorare le prime tre righe del file di input, puoi puoi usare l’argomento <code class="docutils literal notranslate"><span class="pre">skip</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vd my-spreadsheet.csv --skip <span class="m">3</span>
+</pre></div>
+</div>
+<p>Per vedere l’elenco completo delle opzioni configurabili, lancia <code class="docutils literal notranslate"><span class="pre">vd</span> <span class="pre">-h</span> <span class="pre">|</span> <span class="pre">less</span></code>:</p>
+<div class='ansi2html'>
+<pre>
+usage: vd [-h] [-f FILETYPE] [-y] [-p PLAY] [-b] [-o OUTPUT] [-w REPLAY_WAIT]                       
+          [-d DELIMITER] [--diff DIFF] [-v] [--encoding ENCODING]                                   
+          [--encoding-errors ENCODING_ERRORS] [--regex-flags REGEX_FLAGS]                           
+          [--default-width DEFAULT_WIDTH] [--wrap] [--bulk-select-clear]                            
+          [--cmd-after-edit CMD_AFTER_EDIT] [--col-cache-size COL_CACHE_SIZE]                       
+          [--quitguard] [--null-value NULL_VALUE] [--force-valid-colnames]                          
+          [--debug] [--curses-timeout CURSES_TIMEOUT] [--force-256-colors]                          
+          [--use-default-colors] [--note-pending NOTE_PENDING]                                      
+          [--note-format-exc NOTE_FORMAT_EXC]     
+          [--note-getter-exc NOTE_GETTER_EXC] [--note-type-exc NOTE_TYPE_EXC]                       
+          [--note-unknown-type NOTE_UNKNOWN_TYPE] [--scroll-incr SCROLL_INCR]                       
+          [--skip SKIP] [--confirm-overwrite CONFIRM_OVERWRITE]                                     
+          [--safe-error SAFE_ERROR] [--header HEADER] [--delimiter DELIMITER]                       
+          [--filetype FILETYPE] [--save-filetype SAVE_FILETYPE]                                     
+          [--tsv-safe-newline TSV_SAFE_NEWLINE] [--tsv-safe-tab TSV_SAFE_TAB]                       
+          [--clipboard-copy-cmd CLIPBOARD_COPY_CMD] [--visibility VISIBILITY]                       
+          [--min-memory-mb MIN_MEMORY_MB] [--replay-wait REPLAY_WAIT]                               
+          [--replay-movement] [--visidata-dir VISIDATA_DIR]                                         
+          [--rowkey-prefix ROWKEY_PREFIX] [--cmdlog-histfile CMDLOG_HISTFILE]                       
+          [--regex-maxsplit REGEX_MAXSPLIT]       
+          [--show-graph-labels SHOW_GRAPH_LABELS] [--plot-colors PLOT_COLORS]                       
+          [--zoom-incr ZOOM_INCR] [--motd-url MOTD_URL] [--profile PROFILE]                         
+          [--csv-dialect CSV_DIALECT] [--csv-delimiter CSV_DELIMITER]                               
+:
+</pre>
+</div>
+<p>Premi <kbd class="kbd docutils literal notranslate">Spazio</kbd> per scorrere la lista.</p>
+</div>
+<div class="section" id="il-foglio-delle-opzioni-globali">
+<h2>Il foglio delle opzioni globali<a class="headerlink" href="#il-foglio-delle-opzioni-globali" title="Permalink to this headline">¶</a></h2>
+<p>Puoi impostare la maggior parte delle stesse opzioni (più altre opzioni per il colore e l’aspetto) tramite il “foglio delle opzioni globali”. Digita <kbd class="kbd docutils literal notranslate">Shift-O</kbd> per aprire il foglio. Dovresti vedere qualcosa del genere:</p>
+<div class='ansi2html'>
+<pre>
+<span class="ansi1 ansi4 inv_background inv_foreground"></span><span class="ansi1 ansi4 inv38-81 inv_foreground"></span><span class="ansi1 ansi4 inv38-81 inv40"> option             </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">‖</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> global_value   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> default           </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> description        </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> replayable   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">‖</span><span class="ansi40">      
+</span><span class="ansi1 inv_background inv40"></span><span class="ansi1 inv38-81 inv40"> encoding           </span><span class="inv_background inv_foreground"></span><span class="inv37 inv_foreground"></span><span class="inv37 inv40">‖                | utf-8             | encoding passed to…| True         ‖</span><span class="ansi40">      
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> encoding_errors    </span><span class="ansi37"></span><span class="ansi37 ansi40">‖        </span><span class="ansi40">        </span><span class="ansi37 ansi40">| surrogateescape   | encoding_errors pa…| True         ‖</span><span class="ansi40">      
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> regex_flags        </span><span class="ansi37"></span><span class="ansi37 ansi40">‖</span><span class="ansi40">                </span><span class="ansi37 ansi40">| I</span><span class="ansi40">                 </span><span class="ansi37 ansi40">| flags to pass to r…| True         ‖</span><span class="ansi40">      
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> default_width      </span><span class="ansi37"></span><span class="ansi37 ansi40">‖          </span><span class="ansi40">      </span><span class="ansi37 ansi40">| 20</span><span class="ansi40">               </span><span class="ansi38-226 ansi40">#</span><span class="ansi37 ansi40">| default column wid…| True         ‖</span><span class="ansi40">      
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> wrap</span><span class="ansi40">               </span><span class="ansi37 ansi40">‖                | False             | wrap text to fit w…| False        ‖</span><span class="ansi40">      
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> bulk_select_clear  </span><span class="ansi37"></span><span class="ansi37 ansi40">‖      </span><span class="ansi40">          </span><span class="ansi37 ansi40">| False             | clear selected row…| True         ‖</span><span class="ansi40">      
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> cmd_after_edit     </span><span class="ansi37"></span><span class="ansi37 ansi40">‖          </span><span class="ansi40">      </span><span class="ansi37 ansi40">| go-down           | command longname t…| False        ‖</span><span class="ansi40">      
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> col_cache_size     </span><span class="ansi37"></span><span class="ansi37 ansi40">‖      </span><span class="ansi40">          </span><span class="ansi37 ansi40">| 0</span><span class="ansi40">                </span><span class="ansi38-226 ansi40">#</span><span class="ansi37 ansi40">| max number of cach…| False        ‖</span><span class="ansi40">      
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> quitguard          </span><span class="ansi37"></span><span class="ansi37 ansi40">‖      </span><span class="ansi40">          </span><span class="ansi37 ansi40">| False             | confirm before qui…| False        ‖</span><span class="ansi40">      
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> null_value         </span><span class="ansi37"></span><span class="ansi37 ansi40">‖        </span><span class="ansi40">        </span><span class="ansi37 ansi40">| </span><span class="ansi40">                 </span><span class="ansi38-226 ansi40">⌀</span><span class="ansi37 ansi40">| a value to be coun…| True         ‖</span><span class="ansi40">      
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> force_valid_colnam…</span><span class="ansi37"></span><span class="ansi37 ansi40">‖      </span><span class="ansi40">          </span><span class="ansi37 ansi40">| False             | clean column names…| True         ‖</span><span class="ansi40">      
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> debug</span><span class="ansi40">              </span><span class="ansi37 ansi40">‖      </span><span class="ansi40">          </span><span class="ansi37 ansi40">| False             | exit on error and …| False        ‖</span><span class="ansi40">      
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> curses_timeout     </span><span class="ansi37"></span><span class="ansi37 ansi40">‖      </span><span class="ansi40">          </span><span class="ansi37 ansi40">| 100</span><span class="ansi40">              </span><span class="ansi38-226 ansi40">#</span><span class="ansi37 ansi40">| curses timeout in …| False        ‖</span><span class="ansi40">      
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> force_256_colors   </span><span class="ansi37"></span><span class="ansi37 ansi40">‖                | False             | use 256 colors eve…| False        ‖</span><span class="ansi40">      
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> use_default_colors </span><span class="ansi37"></span><span class="ansi37 ansi40">‖       </span><span class="ansi40">         </span><span class="ansi37 ansi40">| False             | curses use default…| False        ‖</span><span class="ansi40">      
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> disp_note_none     </span><span class="ansi37"></span><span class="ansi37 ansi40">‖                | ⌀</span><span class="ansi40">                 </span><span class="ansi37 ansi40">| visible contents o…| False        ‖</span><span class="ansi40">      
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> disp_truncator     </span><span class="ansi37"></span><span class="ansi37 ansi40">‖      </span><span class="ansi40">          </span><span class="ansi37 ansi40">| …</span><span class="ansi40">                 </span><span class="ansi37 ansi40">| indicator that the…| False        ‖</span><span class="ansi40">      
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> disp_oddspace      </span><span class="ansi37"></span><span class="ansi37 ansi40">‖      </span><span class="ansi40">          </span><span class="ansi37 ansi40">| ·</span><span class="ansi40">                 </span><span class="ansi37 ansi40">| displayable charac…| False        ‖</span><span class="ansi40">      
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> disp_unprintable   </span><span class="ansi37"></span><span class="ansi37 ansi40">‖      </span><span class="ansi40">          </span><span class="ansi37 ansi40">| .</span><span class="ansi40">                 </span><span class="ansi37 ansi40">| substitute charact…| False        ‖</span><span class="ansi40">      
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> disp_column_sep    </span><span class="ansi37"></span><span class="ansi37 ansi40">‖      </span><span class="ansi40">          </span><span class="ansi37 ansi40">| |</span><span class="ansi40">                 </span><span class="ansi37 ansi40">| separator between …| False        ‖</span><span class="ansi40">      
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> disp_keycol_sep    </span><span class="ansi37"></span><span class="ansi37 ansi40">‖      </span><span class="ansi40">          </span><span class="ansi37 ansi40">| ‖</span><span class="ansi40">                 </span><span class="ansi37 ansi40">| separator between …| False        ‖</span><span class="ansi40">      
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> disp_status_fmt    </span><span class="ansi37"></span><span class="ansi37 ansi40">‖        </span><span class="ansi40">        </span><span class="ansi37 ansi40">| {sheet.name}|     | status line prefix | False        ‖</span><span class="ansi40">      
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40">global_options|</span><span class="ansi40">                                                               </span><span class="ansi37 ansi40"> O</span><span class="ansi1 ansi37 ansi40">       100 options </span><span class="ansi40"> </span>
+</pre>
+</div>
+<p>Per personalizzare un’opzione, spostati nella cella <code class="docutils literal notranslate"><span class="pre">global_value</span></code> nella riga dell’opzione e digita <kbd class="kbd docutils literal notranslate">e</kbd> per modificarla. Ad esempio, modificare la larghezza predefinita di una colonna da 20 a 10, spostati sulla riga <code class="docutils literal notranslate"><span class="pre">default_width</span></code>, quindi fino alla cella <code class="docutils literal notranslate"><span class="pre">global_value</span></code> e digita <kbd class="kbd docutils literal notranslate">e</kbd>, quindi digita <code class="docutils literal notranslate"><span class="pre">10</span></code> seguito da <kbd class="kbd docutils literal notranslate">Invio</kbd>. Dovresti vedere qualcosa di simile a quanto segue:</p>
+<div class='ansi2html'>
+<pre>
+<span class="ansi1 ansi4"></span><span class="ansi1 ansi4 ansi38-81"></span><span class="ansi1 ansi4 ansi38-81 ansi40"> option             </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">‖</span><span class="ansi1 ansi4 inv38-246 inv40"></span><span class="ansi1 ansi4 inv37 inv40"> global_value   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> default           </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> description        </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> replayable   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">‖</span><span class="ansi40">      
+</span><span class="ansi38-81 ansi40"> encoding           </span><span class="ansi37 ansi40">‖</span><span class="ansi40">                </span><span class="ansi37 ansi40">| utf-8             | encoding passed to…| True         ‖</span><span class="ansi40">      
+</span><span class="ansi38-81 ansi40"> encoding_errors    </span><span class="ansi37 ansi40">‖</span><span class="ansi40">                </span><span class="ansi37 ansi40">| surrogateescape   | encoding_errors pa…| True         ‖</span><span class="ansi40">      
+</span><span class="ansi38-81 ansi40"> regex_flags        </span><span class="ansi37 ansi40">‖</span><span class="ansi40">                </span><span class="ansi37 ansi40">| I</span><span class="ansi40">                 </span><span class="ansi37 ansi40">| flags to pass to r…| True         ‖</span><span class="ansi40">      
+</span><span class="inv_background inv40"></span><span class="inv38-81 inv40"> default_width      </span><span class="inv37 inv40">‖</span><span class="ansi1 inv37 inv40"> 10            </span><span class="ansi1 inv38-226 inv40">#</span><span class="inv_background inv_foreground"></span><span class="inv37 inv_foreground"></span><span class="inv37 inv40">| 20               </span><span class="inv38-226 inv40">#</span><span class="inv37 inv40">| default column wid…| True         ‖</span><span class="ansi40">      
+</span><span class="ansi38-81 ansi40"> wrap</span><span class="ansi40">               </span><span class="ansi37 ansi40">‖</span><span class="ansi40">                </span><span class="ansi37 ansi40">| False             | wrap text to fit w…| False        ‖</span><span class="ansi40">      
+</span><span class="ansi38-81 ansi40"> bulk_select_clear  </span><span class="ansi37 ansi40">‖</span><span class="ansi40">                </span><span class="ansi37 ansi40">| False             | clear selected row…| True         ‖</span><span class="ansi40">      
+</span><span class="ansi38-81 ansi40"> cmd_after_edit     </span><span class="ansi37 ansi40">‖</span><span class="ansi40">                </span><span class="ansi37 ansi40">| go-down           | command longname t…| False        ‖</span><span class="ansi40">      
+</span><span class="ansi38-81 ansi40"> col_cache_size     </span><span class="ansi37 ansi40">‖</span><span class="ansi40">                </span><span class="ansi37 ansi40">| 0</span><span class="ansi40">                </span><span class="ansi38-226 ansi40">#</span><span class="ansi37 ansi40">| max number of cach…| False        ‖</span><span class="ansi40">      
+</span><span class="ansi38-81 ansi40"> quitguard          </span><span class="ansi37 ansi40">‖</span><span class="ansi40">                </span><span class="ansi37 ansi40">| False             | confirm before qui…| False        ‖</span><span class="ansi40">      
+</span><span class="ansi38-81 ansi40"> null_value         </span><span class="ansi37 ansi40">‖</span><span class="ansi40">                </span><span class="ansi37 ansi40">| </span><span class="ansi40">                 </span><span class="ansi38-226 ansi40">⌀</span><span class="ansi37 ansi40">| a value to be coun…| True         ‖</span><span class="ansi40">      
+</span><span class="ansi38-81 ansi40"> force_valid_colnam…</span><span class="ansi37 ansi40">‖</span><span class="ansi40">                </span><span class="ansi37 ansi40">| False             | clean column names…| True         ‖</span><span class="ansi40">      
+</span><span class="ansi38-81 ansi40"> debug</span><span class="ansi40">              </span><span class="ansi37 ansi40">‖</span><span class="ansi40">                </span><span class="ansi37 ansi40">| False             | exit on error and …| False        ‖</span><span class="ansi40">      
+</span><span class="ansi38-81 ansi40"> curses_timeout     </span><span class="ansi37 ansi40">‖</span><span class="ansi40">                </span><span class="ansi37 ansi40">| 100</span><span class="ansi40">              </span><span class="ansi38-226 ansi40">#</span><span class="ansi37 ansi40">| curses timeout in …| False        ‖</span><span class="ansi40">      
+</span><span class="ansi38-81 ansi40"> force_256_colors   </span><span class="ansi37 ansi40">‖</span><span class="ansi40">                </span><span class="ansi37 ansi40">| False             | use 256 colors eve…| False        ‖</span><span class="ansi40">      
+</span><span class="ansi38-81 ansi40"> use_default_colors </span><span class="ansi37 ansi40">‖</span><span class="ansi40">                </span><span class="ansi37 ansi40">| False             | curses use default…| False        ‖</span><span class="ansi40">      
+</span><span class="ansi38-81 ansi40"> disp_note_none     </span><span class="ansi37 ansi40">‖</span><span class="ansi40">                </span><span class="ansi37 ansi40">| ⌀</span><span class="ansi40">                 </span><span class="ansi37 ansi40">| visible contents o…| False        ‖</span><span class="ansi40">      
+</span><span class="ansi38-81 ansi40"> disp_truncator     </span><span class="ansi37 ansi40">‖</span><span class="ansi40">                </span><span class="ansi37 ansi40">| …</span><span class="ansi40">                 </span><span class="ansi37 ansi40">| indicator that the…| False        ‖</span><span class="ansi40">      
+</span><span class="ansi38-81 ansi40"> disp_oddspace      </span><span class="ansi37 ansi40">‖</span><span class="ansi40">                </span><span class="ansi37 ansi40">| ·</span><span class="ansi40">                 </span><span class="ansi37 ansi40">| displayable charac…| False        ‖</span><span class="ansi40">      
+</span><span class="ansi38-81 ansi40"> disp_unprintable   </span><span class="ansi37 ansi40">‖</span><span class="ansi40">                </span><span class="ansi37 ansi40">| .</span><span class="ansi40">                 </span><span class="ansi37 ansi40">| substitute charact…| False        ‖</span><span class="ansi40">      
+</span><span class="ansi38-81 ansi40"> disp_column_sep    </span><span class="ansi37 ansi40">‖</span><span class="ansi40">                </span><span class="ansi37 ansi40">| |</span><span class="ansi40">                 </span><span class="ansi37 ansi40">| separator between …| False        ‖</span><span class="ansi40">      
+</span><span class="ansi38-81 ansi40"> disp_keycol_sep    </span><span class="ansi37 ansi40">‖</span><span class="ansi40">                </span><span class="ansi37 ansi40">| ‖</span><span class="ansi40">                 </span><span class="ansi37 ansi40">| separator between …| False        ‖</span><span class="ansi40">      
+</span><span class="ansi38-81 ansi40"> disp_status_fmt    </span><span class="ansi37 ansi40">‖</span><span class="ansi40">                </span><span class="ansi37 ansi40">| {sheet.name}|     | status line prefix | False        ‖</span><span class="ansi40">      
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40">global_options| "10"</span><span class="ansi40">                                                           </span><span class="ansi37 ansi40">e</span><span class="ansi1 ansi37 ansi40">       100 options </span><span class="ansi40"> </span>
+</pre>
+</div>
+<p>Digita <kbd class="kbd docutils literal notranslate">q</kbd> per uscire dal foglio delle opzioni globali e ritornare al foglio precedente.</p>
+</div>
+<div class="section" id="fogli-opzione-specifici-per-foglio">
+<h2>Fogli opzione specifici per foglio<a class="headerlink" href="#fogli-opzione-specifici-per-foglio" title="Permalink to this headline">¶</a></h2>
+<p>Come suggerisce il nome, le modifiche apportate nel foglio delle opzioni <em>globali</em> riguardano l’intera sessione VisiData. Per modificare il comportamento di VisiData per un solo foglio, digita <kbd class="kbd docutils literal notranslate">zO</kbd> per modificare il “foglio delle opzioni del foglio”:</p>
+<div class='ansi2html'>
+<pre>
+<span class="ansi1 ansi4 inv_background inv_foreground"></span><span class="ansi1 ansi4 inv38-81 inv_foreground"></span><span class="ansi1 ansi4 inv38-81 inv40"> option             </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">‖</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> sheet_value   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> default           </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> description        </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> replayable   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">‖</span><span class="ansi40">       
+</span><span class="ansi1 inv_background inv40"></span><span class="ansi1 inv38-81 inv40"> encoding           </span><span class="inv_background inv_foreground"></span><span class="inv37 inv_foreground"></span><span class="inv37 inv40">‖               | utf-8             | encoding passed to…| True         ‖</span><span class="ansi40">       
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> encoding_errors    </span><span class="ansi37"></span><span class="ansi37 ansi40">‖               | surrogateescape   | encoding_errors pa…| True         ‖</span><span class="ansi40">       
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> regex_flags        </span><span class="ansi37"></span><span class="ansi37 ansi40">‖</span><span class="ansi40">               </span><span class="ansi37 ansi40">| I</span><span class="ansi40">                 </span><span class="ansi37 ansi40">| flags to pass to r…| True         ‖</span><span class="ansi40">       
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> default_width      </span><span class="ansi37"></span><span class="ansi37 ansi40">‖</span><span class="ansi40">               </span><span class="ansi37 ansi40">| 20</span><span class="ansi40">               </span><span class="ansi38-226 ansi40">#</span><span class="ansi37 ansi40">| default column wid…| False        ‖</span><span class="ansi40">       
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> wrap</span><span class="ansi40">               </span><span class="ansi37 ansi40">‖</span><span class="ansi40">               </span><span class="ansi37 ansi40">| False             | wrap text to fit w…| False        ‖</span><span class="ansi40">       
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> bulk_select_clear  </span><span class="ansi37"></span><span class="ansi37 ansi40">‖               | False             | clear selected row…| True         ‖</span><span class="ansi40">       
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> cmd_after_edit     </span><span class="ansi37"></span><span class="ansi37 ansi40">‖</span><span class="ansi40">               </span><span class="ansi37 ansi40">| go-down           | command longname t…| False        ‖</span><span class="ansi40">       
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> col_cache_size     </span><span class="ansi37"></span><span class="ansi37 ansi40">‖               | 0</span><span class="ansi40">                </span><span class="ansi38-226 ansi40">#</span><span class="ansi37 ansi40">| max number of cach…| False        ‖</span><span class="ansi40">       
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> quitguard          </span><span class="ansi37"></span><span class="ansi37 ansi40">‖               | False             | confirm before qui…| False        ‖</span><span class="ansi40">       
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> null_value         </span><span class="ansi37"></span><span class="ansi37 ansi40">‖               |</span><span class="ansi40">                  </span><span class="ansi38-226 ansi40">⌀</span><span class="ansi37 ansi40">| a value to be coun…| True         ‖</span><span class="ansi40">       
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> force_valid_colnam…</span><span class="ansi37"></span><span class="ansi37 ansi40">‖               | False             | clean column names…| True         ‖</span><span class="ansi40">       
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> debug</span><span class="ansi40">              </span><span class="ansi37 ansi40">‖               | False             | exit on error and …| False        ‖</span><span class="ansi40">       
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> curses_timeout     </span><span class="ansi37"></span><span class="ansi37 ansi40">‖               | 100</span><span class="ansi40">              </span><span class="ansi38-226 ansi40">#</span><span class="ansi37 ansi40">| curses timeout in …| False        ‖</span><span class="ansi40">       
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> force_256_colors   </span><span class="ansi37"></span><span class="ansi37 ansi40">‖</span><span class="ansi40">               </span><span class="ansi37 ansi40">| False             | use 256 colors eve…| False        ‖</span><span class="ansi40">       
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> use_default_colors </span><span class="ansi37"></span><span class="ansi37 ansi40">‖               | False             | curses use default…| False        ‖</span><span class="ansi40">       
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> disp_note_none     </span><span class="ansi37"></span><span class="ansi37 ansi40">‖</span><span class="ansi40">               </span><span class="ansi37 ansi40">| ⌀</span><span class="ansi40">                 </span><span class="ansi37 ansi40">| visible contents o…| False        ‖</span><span class="ansi40">       
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> disp_truncator     </span><span class="ansi37"></span><span class="ansi37 ansi40">‖               | …</span><span class="ansi40">                 </span><span class="ansi37 ansi40">| indicator that the…| False        ‖</span><span class="ansi40">       
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> disp_oddspace      </span><span class="ansi37"></span><span class="ansi37 ansi40">‖               | ·</span><span class="ansi40">                 </span><span class="ansi37 ansi40">| displayable charac…| False        ‖</span><span class="ansi40">       
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> disp_unprintable   </span><span class="ansi37"></span><span class="ansi37 ansi40">‖               | .</span><span class="ansi40">                 </span><span class="ansi37 ansi40">| substitute charact…| False        ‖</span><span class="ansi40">       
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> disp_column_sep    </span><span class="ansi37"></span><span class="ansi37 ansi40">‖               | |</span><span class="ansi40">                 </span><span class="ansi37 ansi40">| separator between …| False        ‖</span><span class="ansi40">       
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> disp_keycol_sep    </span><span class="ansi37"></span><span class="ansi37 ansi40">‖               | ‖</span><span class="ansi40">                 </span><span class="ansi37 ansi40">| separator between …| False        ‖</span><span class="ansi40">       
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> disp_status_fmt    </span><span class="ansi37"></span><span class="ansi37 ansi40">‖               | {sheet.name}|     | status line prefix | False        ‖</span><span class="ansi40">       
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40">faa-wildlife-strikes_options|</span><span class="ansi40">                                                </span><span class="ansi37 ansi40"> zO</span><span class="ansi1 ansi37 ansi40">       100 options </span><span class="ansi40"> </span>
+</pre>
+</div>
+</div>
+<div class="section" id="il-file-visidatarc">
+<h2>Il file <code class="docutils literal notranslate"><span class="pre">~/.visidatarc</span></code><a class="headerlink" href="#il-file-visidatarc" title="Permalink to this headline">¶</a></h2>
+<p>I due approcci fin qui descritti hanno effetto solo nella sessione corrente di VisiData: quando esci dal programma, le impostazioni vengono perse.</p>
+<p>Per rendere le personalizzazioni persistenti, devi usare il file <code class="docutils literal notranslate"><span class="pre">~/.visidatarc</span></code>. Apri il file in un editor di tua scelta e, per ogni opzione che vuoi modificare, scrivi <code class="docutils literal notranslate"><span class="pre">options.my_example_option</span> <span class="pre">=</span> <span class="pre">my_custom_value</span></code>. Ad esempio:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>options.default_width <span class="o">=</span> <span class="m">10</span>
+options.encoding <span class="o">=</span> <span class="s2">&quot;latin-1&quot;</span>
+options.bulk_select_clear <span class="o">=</span> True
+</pre></div>
+</div>
+<p>… quindi salve il file.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Il file <code class="docutils literal notranslate"><span class="pre">~/.visidatarc</span></code> si aspetta che i tuoi comandi siano scritti in Python. Per le impostazioni di base, non importa molto se non conosci Python, purché tu segua lo schema dell’esempio riportato. Ad esempio, le stringhe di caratteri (testo) devono essere scritte tra virgolette ed i valori vero/falso devono essere scritti esattamente come nell’esempio (True o False).</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Se conosci Python e sei disposto a familiarizzare con l’<a class="reference external" href="https://github.com/saulpw/visidata/">architettura diVisiData</a>, potrai usare il file <code class="docutils literal notranslate"><span class="pre">~/.visidatarc</span></code> per personalizzazioni molto potenti, che vanno oltre la semplice impostazione di opzioni. Potrai, ad esempio, <a class="reference external" href="https://github.com/saulpw/visidata/blob/stable/docs/customize.md#how-to-configure-commands">creare i tuoi propri comandi</a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../extending-visidata/" class="btn btn-neutral float-right" title="Estendere VisiData con i Plugin" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../intermediate/large-files/" class="btn btn-neutral float-left" title="Lavorare con file di grandi dimensioni" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Jeremy Singer-Vine
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

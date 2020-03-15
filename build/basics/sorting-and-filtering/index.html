@@ -1,0 +1,570 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Ordinare e filtrare &mdash; An Introduction to VisiData</title>
+  
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering.html"/>
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Riepilogare i dati" href="../summarizing-data/" />
+    <link rel="prev" title="Comprendere le colonne" href="../understanding-columns/" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../" class="icon icon-home"> Introduzione a VisiData
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../">Informazioni su questo tutorial</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Il quadro generale</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../the-big-picture/what-is-visidata/">Cos’è VisiData?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-big-picture/installation/">Installazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-big-picture/visidata-in-60-seconds/">VisiData in 60 secondi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Uso di base</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-out-of-trouble/">Per <em>tirarsi fuori dai guai</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../opening-files/">Aprire i file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../navigating-visidata/">Muoversi in VisiData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding-sheets/">Comprendere i Fogli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding-rows/">Comprendere le righe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding-columns/">Comprendere le colonne</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Ordinare e filtrare</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#come-ordinare-le-righe">Come ordinare le righe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#come-filtrare-le-righe">Come filtrare le righe</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#filtrare-le-righe-selezionate-con">Filtrare le righe selezionate con <kbd class="kbd docutils literal notranslate">&quot;</kbd></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filtrare-tramite-tabelle-di-frequenza">Filtrare tramite tabelle di frequenza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usare-le-tabelle-di-frequenza-per-selezionare-e-filtrare-in-base-a-piu-valori">Usare le tabelle di frequenza per selezionare (e filtrare) in base a più valori</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../summarizing-data/">Riepilogare i dati</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working-with-excel/">Lavorare con i fogli Excel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../saving-sheets/">Salvare i fogli</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Uso intermedio</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intermediate/creating-new-columns/">Creare nuove colonne</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intermediate/joining-sheets/">Join di fogli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intermediate/reshaping-data/">Dare una nuova forma ai dati</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intermediate/large-files/">Lavorare con file di grandi dimensioni</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Uso avanzato</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/configuring-visidata/">Configurare VisiData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/extending-visidata/">Estendere VisiData con i Plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/debugging-visidata/">Debug di VisiData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/the-command-log/">Il Log dei comandi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Esempi pratici</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../practical/high-flying-birds/">Uccelli <em>d’alta quota</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../practical/distinctive-birds/">Uccelli caratteristici</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">Introduzione a VisiData</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../">Docs</a> &raquo;</li>
+        
+      <li>Ordinare e filtrare</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ordinare-e-filtrare">
+<h1>Ordinare e filtrare<a class="headerlink" href="#ordinare-e-filtrare" title="Permalink to this headline">¶</a></h1>
+<p>Ora che si hanno a portata di mano fogli, righe e colonne, passiamo alle operazioni elementari sui dati: l’ordinamento e il filtraggio delle righe.</p>
+<div class="section" id="come-ordinare-le-righe">
+<h2>Come ordinare le righe<a class="headerlink" href="#come-ordinare-le-righe" title="Permalink to this headline">¶</a></h2>
+<p>I tasti <kbd class="kbd docutils literal notranslate">[</kbd> e <kbd class="kbd docutils literal notranslate">]</kbd> ordinano le righe in ordine crescente e decrescente, rispettivamente.</p>
+<p>Ad esempio, potresti fare quanto segue con il set di dati FAA:</p>
+<ul class="simple">
+<li>Spostati sulla colonna <code class="docutils literal notranslate"><span class="pre">COST_REPAIRS</span></code></li>
+<li>Digita <kbd class="kbd docutils literal notranslate">#</kbd> per dire a VisiData che si tratta di una colonna numerica</li>
+<li>Digita <kbd class="kbd docutils literal notranslate">]</kbd> per ordinare la colonna in ordine decrescente — cioè dal valore più alto a quello più basso</li>
+</ul>
+<p>Dovresti vedere qualcosa di simile a quanto segue:</p>
+<div class='ansi2html'>
+<pre>
+<span class="ansi38-246"></span><span class="ansi38-246 ansi40">&lt;</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40">SPEED   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> SPECIES            </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> BIRDS_STRUCK   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> EFFECT             </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> DAMAGE   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 inv38-246 inv40"></span><span class="ansi1 ansi4 inv37 inv40"> COST_REPAIRS  #</span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">&gt;</span><span class="ansi40"> 
+</span><span class="inv_background inv40"></span><span class="inv37 inv40"> 143     | Red-tailed hawk    | 1              | Engine Shut Down   | S        |</span><span class="ansi1 inv37 inv40">        6500000 </span><span class="inv_background inv_foreground"></span><span class="inv37 inv_foreground"></span><span class="inv37 inv40">| …</span><span class="ansi40"> 
+         </span><span class="ansi37 ansi40">| Gadwall</span><span class="ansi40">            </span><span class="ansi37 ansi40">| 2-10</span><span class="ansi40">           </span><span class="ansi37 ansi40">| Precautionary Land…| S</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40">        5818528 </span><span class="ansi37"></span><span class="ansi37 ansi40">| …</span><span class="ansi40"> 
+         </span><span class="ansi37 ansi40">| Mallard</span><span class="ansi40">            </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">              </span><span class="ansi37 ansi40">| None</span><span class="ansi40">               </span><span class="ansi37 ansi40">| S</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40">        5548924 </span><span class="ansi37"></span><span class="ansi37 ansi40">| …</span><span class="ansi40"> 
+         </span><span class="ansi37 ansi40">| Gray partridge     | 2-10</span><span class="ansi40">           </span><span class="ansi37 ansi40">| Precautionary Land…| S</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40">        5427992 </span><span class="ansi37"></span><span class="ansi37 ansi40">| …</span><span class="ansi40"> 
+         </span><span class="ansi37 ansi40">| American white pel…| 2-10</span><span class="ansi40">           </span><span class="ansi37 ansi40">| Engine Shut Down   | S</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40">        5111000 </span><span class="ansi37"></span><span class="ansi37 ansi40">|</span><span class="ansi40">   
+</span><span class="ansi37 ansi40"> 150     | American coot</span><span class="ansi40">      </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">              </span><span class="ansi37 ansi40">| Engine Shut Down   | S</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40">        5000000 </span><span class="ansi37"></span><span class="ansi37 ansi40">| …</span><span class="ansi40"> 
+</span><span class="ansi37 ansi40"> 180     | Northern pintail   | 2-10</span><span class="ansi40">           </span><span class="ansi37 ansi40">| Engine Shut Down   | S</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40">        5000000 </span><span class="ansi37"></span><span class="ansi37 ansi40">| …</span><span class="ansi40"> 
+</span><span class="ansi37 ansi40"> 96</span><span class="ansi40">      </span><span class="ansi37 ansi40">| Red-tailed hawk    | 2-10</span><span class="ansi40">           </span><span class="ansi37 ansi40">| Engine Shut Down   | S</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40">        4600279 </span><span class="ansi37"></span><span class="ansi37 ansi40">| …</span><span class="ansi40"> 
+</span><span class="ansi37 ansi40"> 160     | Bald eagle</span><span class="ansi40">         </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">              </span><span class="ansi37 ansi40">| Precautionary Land…| S</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40">        4500000 </span><span class="ansi37"></span><span class="ansi37 ansi40">|</span><span class="ansi40">   
+</span><span class="ansi37 ansi40"> 170     | Canada goose</span><span class="ansi40">       </span><span class="ansi37 ansi40">| 2-10</span><span class="ansi40">           </span><span class="ansi37 ansi40">| Precautionary Land…| S</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40">        3909837 </span><span class="ansi37"></span><span class="ansi37 ansi40">| …</span><span class="ansi40"> 
+</span><span class="ansi37 ansi40"> 130     | Rock pigeon</span><span class="ansi40">        </span><span class="ansi37 ansi40">| 11-100</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Precautionary Land…| S</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40">        3250000 </span><span class="ansi37"></span><span class="ansi37 ansi40">| …</span><span class="ansi40"> 
+</span><span class="ansi37 ansi40"> 230     | Greater white-fron…| 2-10</span><span class="ansi40">           </span><span class="ansi37 ansi40">| Precautionary Land…| S</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40">        3228053 </span><span class="ansi37"></span><span class="ansi37 ansi40">| …</span><span class="ansi40"> 
+</span><span class="ansi37 ansi40"> 141     | Mallard</span><span class="ansi40">            </span><span class="ansi37 ansi40">| 2-10</span><span class="ansi40">           </span><span class="ansi37 ansi40">| Precautionary Land…| S</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40">        3000000 </span><span class="ansi37"></span><span class="ansi37 ansi40">| …</span><span class="ansi40"> 
+</span><span class="ansi37 ansi40"> 120     | Bald eagle</span><span class="ansi40">         </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">              </span><span class="ansi37 ansi40">| Engine Shut Down   | S</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40">        2900000 </span><span class="ansi37"></span><span class="ansi37 ansi40">| …</span><span class="ansi40"> 
+         </span><span class="ansi37 ansi40">| Snow goose</span><span class="ansi40">         </span><span class="ansi37 ansi40">| 11-100</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Precautionary Land…| S</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40">        2737462 </span><span class="ansi37"></span><span class="ansi37 ansi40">| …</span><span class="ansi40"> 
+         </span><span class="ansi37 ansi40">| Red-tailed hawk    | 1</span><span class="ansi40">              </span><span class="ansi37 ansi40">| Precautionary Land…| S</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40">        2300000 </span><span class="ansi37"></span><span class="ansi37 ansi40">| …</span><span class="ansi40"> 
+</span><span class="ansi37 ansi40"> 190     | Turkey vulture     | 2-10</span><span class="ansi40">           </span><span class="ansi37 ansi40">| Precautionary Land…| S</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40">        2000000 </span><span class="ansi37"></span><span class="ansi37 ansi40">| …</span><span class="ansi40"> 
+</span><span class="ansi37 ansi40"> 160     | Unknown bird - med…| 1</span><span class="ansi40">              </span><span class="ansi37 ansi40">| Engine Shut Down   | S</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40">        2000000 </span><span class="ansi37"></span><span class="ansi37 ansi40">| …</span><span class="ansi40"> 
+</span><span class="ansi37 ansi40"> 220     | Black vulture</span><span class="ansi40">      </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">              </span><span class="ansi37 ansi40">| Engine Shut Down   | S</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40">        2000000 </span><span class="ansi37"></span><span class="ansi37 ansi40">| …</span><span class="ansi40"> 
+         </span><span class="ansi37 ansi40">| Brown thrasher     | 1</span><span class="ansi40">              </span><span class="ansi37 ansi40">| None</span><span class="ansi40">               </span><span class="ansi37 ansi40">| M</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40">        2000000 </span><span class="ansi37"></span><span class="ansi37 ansi40">| …</span><span class="ansi40"> 
+</span><span class="ansi37 ansi40"> 140     | Great black-backed…| 1</span><span class="ansi40">              </span><span class="ansi37 ansi40">|</span><span class="ansi40">                    </span><span class="ansi37 ansi40">| S</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40">        1529013 </span><span class="ansi37"></span><span class="ansi37 ansi40">| …</span><span class="ansi40"> 
+</span><span class="ansi37 ansi40"> 90</span><span class="ansi40">      </span><span class="ansi37 ansi40">| Mallard</span><span class="ansi40">            </span><span class="ansi37 ansi40">| 2-10</span><span class="ansi40">           </span><span class="ansi37 ansi40">| Other</span><span class="ansi40">              </span><span class="ansi37 ansi40">| S</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40">        1500000 </span><span class="ansi37"></span><span class="ansi37 ansi40">| …</span><span class="ansi40"> 
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40">faa-wildlife-strikes|       </span><span class="ansi40">                                           </span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40">   </span><span class="ansi40">      </span><span class="ansi37 ansi40"> ]</span><span class="ansi1 ansi37 ansi40">     73448 rows</span><span class="ansi32"></span><span class="ansi32 ansi40"> </span><span class="ansi1 ansi32 ansi40"></span><span class="ansi1 ansi37 ansi40"> </span><span class="ansi40"> </span>
+</pre>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Puoi ordinare anche più colonne allo stesso tempo. Spostati sulla prima colonna di tuo interesse e digita <kbd class="kbd docutils literal notranslate">!</kbd>, quindi spostati su un’altra colonna e digita di nuovo <kbd class="kbd docutils literal notranslate">!</kbd>. Per ordinare digita <kbd class="kbd docutils literal notranslate">g[</kbd> (crescente) o <kbd class="kbd docutils literal notranslate">g]</kbd> (decrescente).</p>
+</div>
+</div>
+<div class="section" id="come-filtrare-le-righe">
+<h2>Come filtrare le righe<a class="headerlink" href="#come-filtrare-le-righe" title="Permalink to this headline">¶</a></h2>
+<p>Hai diversi modi per filtrare i dati in VisiData:</p>
+<ul class="simple">
+<li>Selezione di riga + <kbd class="kbd docutils literal notranslate">&quot;</kbd></li>
+<li>Tabelle di frequenza + <kbd class="kbd docutils literal notranslate">Invio</kbd></li>
+<li>Tabelle di frequenza + selezione di riga + <kbd class="kbd docutils literal notranslate">&quot;</kbd></li>
+</ul>
+<p>Vediamo di seguito le varie possibilità.</p>
+<div class="section" id="filtrare-le-righe-selezionate-con">
+<h3>Filtrare le righe selezionate con <kbd class="kbd docutils literal notranslate">&quot;</kbd><a class="headerlink" href="#filtrare-le-righe-selezionate-con" title="Permalink to this headline">¶</a></h3>
+<p>In VisiData il tasto <kbd class="kbd docutils literal notranslate">&quot;</kbd> ti permette di creare una copia del foglio corrente contenente solo “le righe selezionate*.</p>
+<p>Quindi per visualizzare solo gli urti con la fauna selvatica che coinvolgono i falchi, potresti fare quanto segue:</p>
+<ul class="simple">
+<li>Spostati sulla colonna <code class="docutils literal notranslate"><span class="pre">SPECIES</span></code></li>
+<li>Digita <kbd class="kbd docutils literal notranslate">|</kbd> per selezionare tramite ricerca e digita <code class="docutils literal notranslate"><span class="pre">hawk</span></code>, quindi digita <kbd class="kbd docutils literal notranslate">Invio</kbd></li>
+</ul>
+<p>A questo punto, dovresti vedere qualcosa di simile a quanto segue:</p>
+<div class='ansi2html'>
+<pre>
+<span class="ansi38-246"></span><span class="ansi38-246 ansi40">&lt;</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40">STATE   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> AIRPORT            </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> PHASE_OF_FLT   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> HEIGHT   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> SPEED   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 inv38-246 inv40"></span><span class="ansi1 ansi4 inv37 inv40"> SPECIES            </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> BIRDS_S</span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">&gt;</span><span class="ansi40"> 
+</span><span class="inv_background inv40"></span><span class="inv37 inv40"> FL      | VERO BEACH MUNICIP…| APPROACH       |          |         |</span><span class="ansi1 inv37 inv40"> Unknown bird       </span><span class="inv_background inv_foreground"></span><span class="inv37 inv_foreground"></span><span class="inv37 inv40">| 1       </span><span class="ansi40"> 
+</span><span class="ansi37 ansi40"> AK      | KENAI MUNICIPAL AR…| APPROACH       |          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Unknown bird       </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> TX      | DAVID WAYNE HOOKS …|</span><span class="ansi40">                </span><span class="ansi37 ansi40">|          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Unknown bird       </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> MO      | LAMBERT-ST LOUIS I…| APPROACH       |          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Unknown bird       </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> FL      | POMPANO BEACH AIRP…| LANDING ROLL   | 0        |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Unknown bird       </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> VI      | HENRY E ROHLSEN AR…|</span><span class="ansi40">      </span><span class="ansi37 ansi40">          |          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Unknown bird       </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> TX      | SAN ANTONIO INTL   | APPROACH       |          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Unknown bird       </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> TX      | LONE STAR EXECUTIV…| DEPARTURE      |          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Unknown bird       </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> FL      | TAMPA INTL         | APPROACH       | 6000     |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Unknown bird       </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> MO      | LAMBERT-ST LOUIS I…| APPROACH       |          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Owls</span><span class="ansi40">               </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi38-215 ansi40"> FL      | OPA-LOCKA EXECUTIV…| APPROACH       |          |         |</span><span class="ansi1 ansi38-215 ansi40"> Hawks</span><span class="ansi40">              </span><span class="ansi38-215 ansi40">| 1       </span><span class="ansi40"> 
+</span><span class="ansi37 ansi40"> CA      | NORMAN Y. MINETA S…|</span><span class="ansi40">      </span><span class="ansi37 ansi40">          |          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Gulls</span><span class="ansi40">              </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> FL      | FORT LAUDERDALE/HO…| APPROACH       | 1500     |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Unknown bird - sma…</span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> AR      | FORT SMITH REGIONA…| CLIMB          |          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Unknown bird - sma…</span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> AR      | BILL AND  HILLARY …| LANDING ROLL   | 0        |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Unknown bird - sma…</span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+        </span><span class="ansi37 ansi40"> | UNKNOWN            | En Route       |          |</span><span class="ansi40">         </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Unknown bird       </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> CA      | METRO OAKLAND INTL |</span><span class="ansi40">      </span><span class="ansi37 ansi40">          |          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Unknown bird       </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> UT      | SALT LAKE CITY INTL|</span><span class="ansi40">      </span><span class="ansi37 ansi40">          |          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Unknown bird       </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> TX      | GEORGE BUSH INTERC…| CLIMB          |          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Unknown bird       </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> FL      | ORLANDO SANFORD IN…| APPROACH       |          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Unknown bird       </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> IL      | CHICAGO O'HARE INT…| CLIMB          | 12000    |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Unknown bird       </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> AL      | BIRMINGHAM-SHUTTLE…| LANDING ROLL   | 0        |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Unknown bird - sma…</span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40">faa-wildlife-strikes| "hawk"</span><span class="ansi40"> </span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40">| search wrapped | 2164 matches for /hawk/ | selecte</span><span class="ansi37"></span><span class="ansi37 ansi40"> |</span><span class="ansi1 ansi37 ansi40">     73448 rows </span><span class="ansi40"> </span>
+</pre>
+</div>
+<p>Digita <kbd class="kbd docutils literal notranslate">&quot;</kbd>; dovresti vedere qualcosa di simile a quanto segue:</p>
+<div class='ansi2html'>
+<pre>
+<span class="ansi38-246"></span><span class="ansi38-246 ansi40">&lt;</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40">STATE   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> AIRPORT            </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> PHASE_OF_FLT   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> HEIGHT   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> SPEED   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 inv38-246 inv40"></span><span class="ansi1 ansi4 inv37 inv40"> SPECIES            </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> BIRDS_S</span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">&gt;</span><span class="ansi40"> 
+</span><span class="inv_background inv40"></span><span class="inv37 inv40"> FL      | OPA-LOCKA EXECUTIV…| APPROACH       |          |         |</span><span class="ansi1 inv37 inv40"> Hawks              </span><span class="inv_background inv_foreground"></span><span class="inv37 inv_foreground"></span><span class="inv37 inv40">| 1       </span><span class="ansi40"> 
+</span><span class="ansi37 ansi40"> TX      | GEORGE BUSH INTERC…|                |          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Red-tailed hawk    </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> CO      | DENVER INTL AIRPORT| Landing Roll   | 0        |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Ferruginous hawk   </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> PR      | LUIS MUNOZ MARIN I…| Landing Roll   | 0        |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Hawks              </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> GA      | DEKALB-PEACHTREE A…| APPROACH       |          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Hawks              </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> OK      | RICHARD LLOYD JONE…| APPROACH       |          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Hawks              </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> AR      | NW ARKANSAS REGION…| DEPARTURE      |          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Hawks              </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> TX      | AUSTIN-BERGSTROM I…| APPROACH       |          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Hawks              </span><span class="ansi37"></span><span class="ansi37 ansi40">| 2-10</span><span class="ansi40">     
+</span><span class="ansi37 ansi40"> IL      | QUAD CITY ARPT     | APPROACH       |          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Red-tailed hawk    </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> MO      | LAMBERT-ST LOUIS I…| APPROACH       | 100      |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Hawks</span><span class="ansi40">              </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+        </span><span class="ansi37 ansi40"> | UNKNOWN            | En Route       | 500      | 50      |</span><span class="ansi1 ansi37 ansi40"> Hawks</span><span class="ansi40">              </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> KY      | LOUISVILLE INTL AR…|</span><span class="ansi40">      </span><span class="ansi37 ansi40">          |          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Red-tailed hawk</span><span class="ansi40">    </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> MO      | KANSAS CITY INTL   |                |          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Red-tailed hawk    </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> NY      | JOHN F KENNEDY INTL| Climb          | 20       | 155</span><span class="ansi40">     </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Red-tailed hawk    </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> UT      | SALT LAKE CITY INTL| Approach       | 75       | 140</span><span class="ansi40">     </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Rough-legged hawk  </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+ </span><span class="ansi37 ansi40">BC</span><span class="ansi40">     </span><span class="ansi37 ansi40"> | VANCOUVER INTL     | Take-off run   | 0        |</span><span class="ansi40">         </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Rough-legged hawk  </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> MD      | BALTIMORE/WASH INT…| Climb          | 100      |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Red-tailed hawk    </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> FL      | GAINESVILLE REG AR…|</span><span class="ansi40">      </span><span class="ansi37 ansi40">          |          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Common nighthawk   </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> CA      | LONG BEACH-DAUGH F…| Landing Roll   | 0        |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Red-tailed hawk    </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> MD      | BALTIMORE/WASH INT…| Take-off run   | 0        | 140</span><span class="ansi40">     </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Hawks              </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> IL      | CHICAGO O'HARE INT…|                |          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Red-tailed hawk    </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> OH      | PORT COLUMBUS INTL | Take-off run   | 0        |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi1 ansi37 ansi40"> Red-tailed hawk    </span><span class="ansi37"></span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40">faa-wildlife-strikes_selectedref|</span><span class="ansi40">                                                </span><span class="ansi37 ansi40"> "</span><span class="ansi1 ansi37 ansi40">      2164 rows </span><span class="ansi40"> </span>
+</pre>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Se nel foglio corrente non c’è <strong>nessuna riga</strong> selezionata, il tasto <kbd class="kbd docutils literal notranslate">&quot;</kbd> creerà una copia dell’<strong>intero foglio</strong>.</p>
+</div>
+</div>
+<div class="section" id="filtrare-tramite-tabelle-di-frequenza">
+<h3>Filtrare tramite tabelle di frequenza<a class="headerlink" href="#filtrare-tramite-tabelle-di-frequenza" title="Permalink to this headline">¶</a></h3>
+<p>Da qualsiasi riga di qualsiasi tabella di frequenza, si può digitare <kbd class="kbd docutils literal notranslate">Invio</kbd> per creare un nuovo set di dati contenente le sole righe corrispondenti al valore di frequenza.</p>
+<p>Quindi per visualizzare solo gli urti con la fauna selvatica che si sono verificati in California, potresti fare quanto segue:</p>
+<ul class="simple">
+<li>Spostati sulla colonna <code class="docutils literal notranslate"><span class="pre">STATE</span></code></li>
+<li>Digita <kbd class="kbd docutils literal notranslate">Shift-F</kbd> per creare una tabella di frequenza</li>
+<li>Spostati di due righe in basso nella riga con il valore <code class="docutils literal notranslate"><span class="pre">CA</span></code></li>
+</ul>
+<p>A questo punto, dovresti vedere qualcosa di simile a quanto segue:</p>
+<div class='ansi2html'>
+<pre>
+<span class="ansi1 ansi4 inv_background inv_foreground"></span><span class="ansi1 ansi4 inv38-81 inv_foreground"></span><span class="ansi1 ansi4 inv38-81 inv40"> STATE   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">‖</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> count  #</span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> percent  %</span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> histogram                                         ~</span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">‖</span><span class="ansi40">               
+        </span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    9840 |     13.40 | ************************************************** ‖</span><span class="ansi40">               
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> TX      </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    7309 |      9.95 | *************************************</span><span class="ansi40">              </span><span class="ansi37 ansi40">‖</span><span class="ansi40">               
+</span><span class="ansi1 inv_background inv40"></span><span class="ansi1 inv38-81 inv40"> CA      </span><span class="inv_background inv_foreground"></span><span class="inv37 inv_foreground"></span><span class="inv37 inv40">‖    5270 |      7.18 | **************************                         ‖</span><span class="ansi40">               
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> FL      </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    4902 |      6.67 | ************************     </span><span class="ansi40">                      </span><span class="ansi37 ansi40">‖</span><span class="ansi40">               
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> CO      </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    3523 |      4.80 | *****************            </span><span class="ansi40">                      </span><span class="ansi37 ansi40">‖</span><span class="ansi40">               
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> NY      </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    3434 |      4.68 | *****************                    </span><span class="ansi40">              </span><span class="ansi37 ansi40">‖</span><span class="ansi40">               
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> IL      </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    3020 |      4.11 | ***************              </span><span class="ansi40">                      </span><span class="ansi37 ansi40">‖</span><span class="ansi40">               
+ </span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40">PA</span><span class="ansi40">     </span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    2475 |      3.37 | ************</span><span class="ansi40">                                       </span><span class="ansi37 ansi40">‖</span><span class="ansi40">               
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> TN      </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    2116 |      2.88 | **********                   </span><span class="ansi40">                      </span><span class="ansi37 ansi40">‖</span><span class="ansi40">               
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> NJ      </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    2085 |      2.84 | **********                   </span><span class="ansi40">      </span><span class="ansi37 ansi40">      </span><span class="ansi40">          </span><span class="ansi37 ansi40">‖</span><span class="ansi40">               
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> OH      </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    1914 |      2.61 | *********                                 </span><span class="ansi40">         </span><span class="ansi37 ansi40">‖</span><span class="ansi40">               
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> MO      </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    1633 |      2.22 | ********                     </span><span class="ansi40">      </span><span class="ansi37 ansi40">       </span><span class="ansi40">         </span><span class="ansi37 ansi40">‖</span><span class="ansi40">               
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> NC      </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    1620 |      2.21 | ********                     </span><span class="ansi40">                      </span><span class="ansi37 ansi40">‖</span><span class="ansi40">               
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> KY      </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    1548 |      2.11 | *******                       </span><span class="ansi40">                     </span><span class="ansi37 ansi40">‖</span><span class="ansi40">               
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> MI      </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    1532 |      2.09 | *******                       </span><span class="ansi40">                     </span><span class="ansi37 ansi40">‖</span><span class="ansi40">               
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> GA      </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    1247 |      1.70 | ******                    </span><span class="ansi40">                         </span><span class="ansi37 ansi40">‖</span><span class="ansi40">               
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> UT      </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    1225 |      1.67 | ******                       </span><span class="ansi40">                      </span><span class="ansi37 ansi40">‖</span><span class="ansi40">               
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> LA      </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    1182 |      1.61 | ******                       </span><span class="ansi40">                      </span><span class="ansi37 ansi40">‖</span><span class="ansi40">               
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> IN      </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    1174 |      1.60 | *****                        </span><span class="ansi40">                      </span><span class="ansi37 ansi40">‖</span><span class="ansi40">               
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> WA      </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    1089 |      1.48 | *****                         </span><span class="ansi40">                     </span><span class="ansi37 ansi40">‖</span><span class="ansi40">               
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> HI      </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    1052 |      1.43 | *****                        </span><span class="ansi40">                      </span><span class="ansi37 ansi40">‖</span><span class="ansi40">               
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> MA      </span><span class="ansi37"></span><span class="ansi37 ansi40">‖     990 |      1.35 | *****                        </span><span class="ansi40">                      </span><span class="ansi37 ansi40">‖</span><span class="ansi40">               
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40">faa-wildlife-strikes_STATE_freq|</span><span class="ansi40">                                        </span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40">  </span><span class="ansi40">       </span><span class="ansi37 ansi40"> j</span><span class="ansi1 ansi37 ansi40">        63 bins </span><span class="ansi40"> </span>
+</pre>
+</div>
+<p>Da qui, digita <kbd class="kbd docutils literal notranslate">Invio</kbd> per creare il foglio filtrato:</p>
+<div class='ansi2html'>
+<pre>
+<span class="ansi38-246"></span><span class="ansi38-246 ansi40">&lt;</span><span class="ansi1 ansi4 inv38-246 inv40"></span><span class="ansi1 ansi4 inv37 inv40">STATE   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> AIRPORT            </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> PHASE_OF_FLT   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> HEIGHT   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> SPEED   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> SPECIES            </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> BIRDS_S</span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">&gt;</span><span class="ansi40"> 
+</span><span class="ansi1 inv_background inv40"></span><span class="ansi1 inv37 inv40"> CA      </span><span class="inv_background inv_foreground"></span><span class="inv37 inv_foreground"></span><span class="inv37 inv40">| NORMAN Y. MINETA S…|                |          |         | Gulls              | 1       </span><span class="ansi40"> 
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> CA      </span><span class="ansi37"></span><span class="ansi37 ansi40">| METRO OAKLAND INTL |</span><span class="ansi40">                </span><span class="ansi37 ansi40">|          |         | Unknown bird       | 1</span><span class="ansi40">        
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> CA      </span><span class="ansi37"></span><span class="ansi37 ansi40">| LOS ANGELES INTL   | CLIMB          |          |         | Unknown bird       | 1</span><span class="ansi40">        
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> CA      </span><span class="ansi37"></span><span class="ansi37 ansi40">| LONG BEACH-DAUGH F…| LANDING ROLL   | 0        |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">| Unknown bird       | 1</span><span class="ansi40">        
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> CA      </span><span class="ansi37"></span><span class="ansi37 ansi40">| NAPA COUNTY ARPT   | LANDING ROLL   | 0        |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">| Unknown bird       | 1</span><span class="ansi40">        
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> CA      </span><span class="ansi37"></span><span class="ansi37 ansi40">| HAYWARD EXECUTIVE …| Climb          |          |         | Unknown bird - sma…| 1</span><span class="ansi40">        
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> CA      </span><span class="ansi37"></span><span class="ansi37 ansi40">| ONTARIO INTL ARPT  |</span><span class="ansi40">                </span><span class="ansi37 ansi40">|          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">| Owls</span><span class="ansi40">          </span><span class="ansi37 ansi40">     | 1</span><span class="ansi40">        
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> CA      </span><span class="ansi37"></span><span class="ansi37 ansi40">| LOS ANGELES INTL   | APPROACH       |</span><span class="ansi40">          </span><span class="ansi37 ansi40">|</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Unknown bird       | 1</span><span class="ansi40">        
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> CA      </span><span class="ansi37"></span><span class="ansi37 ansi40">| LIVERMORE MUNICIPA…| TAKE-OFF RUN   | 0        |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">| Unknown bird       | 2-10</span><span class="ansi40">     
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> CA      </span><span class="ansi37"></span><span class="ansi37 ansi40">| WHITEMAN AIRPORT   | LANDING ROLL   | 0        |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">| Rock pigeon        | 1</span><span class="ansi40">        
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> CA      </span><span class="ansi37"></span><span class="ansi37 ansi40">| LIVERMORE MUNICIPA…| APPROACH       |          |         | Unknown bird       | 1</span><span class="ansi40">        
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> CA      </span><span class="ansi37"></span><span class="ansi37 ansi40">| JOHN WAYNE-ORANGE …| APPROACH       | 1700     |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">| Unknown bird - med…| 1</span><span class="ansi40">        
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> CA      </span><span class="ansi37"></span><span class="ansi37 ansi40">| CHINO AIRPORT      |                |          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">| Unknown bird       | 1</span><span class="ansi40">        
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> CA      </span><span class="ansi37"></span><span class="ansi37 ansi40">| SAN FRANCISCO INTL…| LANDING ROLL   | 0        |    </span><span class="ansi40">     </span><span class="ansi37 ansi40">| Unknown bird       | 1</span><span class="ansi40">        
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> CA      </span><span class="ansi37"></span><span class="ansi37 ansi40">| SACRAMENTO INTL    | APPROACH       |          |    </span><span class="ansi40">     </span><span class="ansi37 ansi40">| Unknown bird       | 1</span><span class="ansi40">        
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> CA      </span><span class="ansi37"></span><span class="ansi37 ansi40">| SANTA MONICA MUNIC…| APPROACH       | 60       |</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Unknown bird       | 1</span><span class="ansi40">        
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> CA      </span><span class="ansi37"></span><span class="ansi37 ansi40">| SACRAMENTO INTL    |                |          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">| Unknown bird       | 1</span><span class="ansi40">        
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> CA      </span><span class="ansi37"></span><span class="ansi37 ansi40">| SACRAMENTO INTL    | Climb          | 1500     | 210     | Northern pintail   | 2-10</span><span class="ansi40">     
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> CA      </span><span class="ansi37"></span><span class="ansi37 ansi40">| LOS ANGELES INTL   | Approach       | 900      | 135     | Unknown bird - med…| 1</span><span class="ansi40">        
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> CA      </span><span class="ansi37"></span><span class="ansi37 ansi40">| SAN FRANCISCO INTL…| Landing Roll   | 0        | 90 </span><span class="ansi40">     </span><span class="ansi37 ansi40">| Black-tailed jackr…| 1</span><span class="ansi40">        
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> CA      </span><span class="ansi37"></span><span class="ansi37 ansi40">| SACRAMENTO INTL    | Approach       | 1000     | 135     | Northern pintail   | 1</span><span class="ansi40">        
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> CA      </span><span class="ansi37"></span><span class="ansi37 ansi40">| SANTA BARBARA MUNI…| Approach       |          |   </span><span class="ansi40">      </span><span class="ansi37 ansi40">| Unknown bird - med…| 1</span><span class="ansi40">        
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40">faa-wildlife-strikes_CA|        </span><span class="ansi40">                                        </span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40">  </span><span class="ansi40">      </span><span class="ansi37 ansi40"> ^J</span><span class="ansi1 ansi37 ansi40">      5270 rows </span><span class="ansi40"> </span>
+</pre>
+</div>
+</div>
+<div class="section" id="usare-le-tabelle-di-frequenza-per-selezionare-e-filtrare-in-base-a-piu-valori">
+<h3>Usare le tabelle di frequenza per selezionare (e filtrare) in base a più valori<a class="headerlink" href="#usare-le-tabelle-di-frequenza-per-selezionare-e-filtrare-in-base-a-piu-valori" title="Permalink to this headline">¶</a></h3>
+<p>L’approccio di cui sopra è ottimo se si vuole fare un <em>drill down</em> sulle righe dove un campo equivale ad un particolare valore. Ma cosa fare se si vuole includere più valori diversi? Lo si può fare attraverso una combinazione delle tecniche di cui sopra. In particolare: seleziona le righe della tabella delle frequenze che ti interessano, torna al foglio principale e poi filtra con <kbd class="kbd docutils literal notranslate">&quot;</kbd>.</p>
+<p>Ecco un esempio pratico con il set di dati FAA. Diciamo che intendi filtrare gli urti con la fauna selvatica secondo i cinque aeroporti che riportano il maggior numero di eventi. Potresti proseguire come segue:</p>
+<ul class="simple">
+<li>Torna al foglio principale e digita <kbd class="kbd docutils literal notranslate">gu</kbd> per far si che nessuna riga sia selezionata. Spostati sulla colonna <code class="docutils literal notranslate"><span class="pre">AIRPORT</span></code> e digita <kbd class="kbd docutils literal notranslate">Shift-F</kbd> per creare una tabella di frequenza:</li>
+</ul>
+<div class='ansi2html'>
+<pre>
+<span class="ansi1 ansi4 inv_background inv_foreground"></span><span class="ansi1 ansi4 inv38-81 inv_foreground"></span><span class="ansi1 ansi4 inv38-81 inv40"> AIRPORT            </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">‖</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> count  #</span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> percent  %</span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> histogram                                         ~</span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">‖</span><span class="ansi40">    
+</span><span class="ansi1 inv_background inv40"></span><span class="ansi1 inv38-81 inv40"> UNKNOWN            </span><span class="inv_background inv_foreground"></span><span class="inv37 inv_foreground"></span><span class="inv37 inv40">‖    8424 |     11.47 | ************************************************** ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> DENVER INTL AIRPORT</span><span class="ansi37"></span><span class="ansi37 ansi40">‖    2756 |      3.75 | ****************        </span><span class="ansi40">              </span><span class="ansi37 ansi40">             ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> DALLAS/FORT WORTH …</span><span class="ansi37"></span><span class="ansi37 ansi40">‖    2392 |      3.26 | **************          </span><span class="ansi40">              </span><span class="ansi37 ansi40">             ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> CHICAGO O'HARE INT…</span><span class="ansi37"></span><span class="ansi37 ansi40">‖    1583 |      2.16 | *********               </span><span class="ansi40">              </span><span class="ansi37 ansi40">             ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> JOHN F KENNEDY INTL</span><span class="ansi37"></span><span class="ansi37 ansi40">‖    1302 |      1.77 | *******</span><span class="ansi40">       </span><span class="ansi37 ansi40"> </span><span class="ansi40">                              </span><span class="ansi37 ansi40">      ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> MEMPHIS INTL       </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    1217 |</span><span class="ansi40">      </span><span class="ansi37 ansi40">1.66 | *******</span><span class="ansi40">       </span><span class="ansi37 ansi40"> </span><span class="ansi40">                              </span><span class="ansi37 ansi40">      ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> SALT LAKE CITY INTL</span><span class="ansi37"></span><span class="ansi37 ansi40">‖    1179 |      1.61 | ******</span><span class="ansi40">        </span><span class="ansi37 ansi40"> </span><span class="ansi40">                              </span><span class="ansi37 ansi40">      ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> PHILADELPHIA INTL  </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    1131 |      1.54 | ******</span><span class="ansi40">        </span><span class="ansi37 ansi40"> </span><span class="ansi40">                              </span><span class="ansi37 ansi40">      ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> ORLANDO INTL       </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    1026 |      1.40 | ******         </span><span class="ansi40">                              </span><span class="ansi37 ansi40">      ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> SACRAMENTO INTL    </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    1021 |      1.39 | ******</span><span class="ansi40">        </span><span class="ansi37 ansi40"> </span><span class="ansi40">         </span><span class="ansi37 ansi40">      </span><span class="ansi40">               </span><span class="ansi37 ansi40">      ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> LA GUARDIA ARPT    </span><span class="ansi37"></span><span class="ansi37 ansi40">‖     974 |      1.33 | *****</span><span class="ansi40">         </span><span class="ansi37 ansi40"> </span><span class="ansi40">         </span><span class="ansi37 ansi40">       </span><span class="ansi40">              </span><span class="ansi37 ansi40">      ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> CHARLOTTE/DOUGLAS …</span><span class="ansi37"></span><span class="ansi37 ansi40">‖     960 |</span><span class="ansi40">      </span><span class="ansi37 ansi40">1.31 | *****</span><span class="ansi40">         </span><span class="ansi37 ansi40"> </span><span class="ansi40">         </span><span class="ansi37 ansi40">       </span><span class="ansi40">              </span><span class="ansi37 ansi40">      ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> NEWARK LIBERTY INT…</span><span class="ansi37"></span><span class="ansi37 ansi40">‖     917 |      1.25 | *****          </span><span class="ansi40">                                    </span><span class="ansi37 ansi40">‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> LOUISVILLE INTL AR…</span><span class="ansi37"></span><span class="ansi37 ansi40">‖     841 |      1.15 | ****</span><span class="ansi40">          </span><span class="ansi37 ansi40"> </span><span class="ansi40">                                    </span><span class="ansi37 ansi40">‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> AUSTIN-BERGSTROM I…</span><span class="ansi37"></span><span class="ansi37 ansi40">‖     817 |      1.11 | ****</span><span class="ansi40">                                               </span><span class="ansi37 ansi40">‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> LOUIE ARMSTRONG NE…</span><span class="ansi37"></span><span class="ansi37 ansi40">‖     809 |      1.10 | ****</span><span class="ansi40">          </span><span class="ansi37 ansi40"> </span><span class="ansi40">                              </span><span class="ansi37 ansi40">      ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> KANSAS CITY INTL   </span><span class="ansi37"></span><span class="ansi37 ansi40">‖     807 |</span><span class="ansi40">      </span><span class="ansi37 ansi40">1.10 | ****    </span><span class="ansi40">      </span><span class="ansi37 ansi40"> </span><span class="ansi40">                              </span><span class="ansi37 ansi40">      ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> HARTSFIELD - JACKS…</span><span class="ansi37"></span><span class="ansi37 ansi40">‖     775 |</span><span class="ansi40">      </span><span class="ansi37 ansi40">1.06 | ****           </span><span class="ansi40">                              </span><span class="ansi37 ansi40">      ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> GEORGE BUSH INTERC…</span><span class="ansi37"></span><span class="ansi37 ansi40">‖     746 |      1.02 | ****</span><span class="ansi40">          </span><span class="ansi37 ansi40"> </span><span class="ansi40">                              </span><span class="ansi37 ansi40">      ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> DETROIT METRO WAYN…</span><span class="ansi37"></span><span class="ansi37 ansi40">‖     734 |      1.00 | ****         </span><span class="ansi40"> </span><span class="ansi37 ansi40"> </span><span class="ansi40">                              </span><span class="ansi37 ansi40">      ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> BALTIMORE/WASH INT…</span><span class="ansi37"></span><span class="ansi37 ansi40">‖     691 |      0.94 | ****</span><span class="ansi40">                                         </span><span class="ansi37 ansi40">      ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> GENERAL EDWARD LAW…</span><span class="ansi37"></span><span class="ansi37 ansi40">‖     686 |      0.93 | ****  </span><span class="ansi40">        </span><span class="ansi37 ansi40"> </span><span class="ansi40">                                    </span><span class="ansi37 ansi40">‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40">faa-wildlife-strikes_AIRPORT_freq|</span><span class="ansi40">                                      </span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40">  </span><span class="ansi40">      </span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> </span><span class="ansi37"></span><span class="ansi37 ansi40"> F</span><span class="ansi1 ansi37 ansi40">      1512 bins </span><span class="ansi40"> </span>
+</pre>
+</div>
+<ul class="simple">
+<li>Seleziona, quindi, le prime ciqnue voci (saltando <code class="docutils literal notranslate"><span class="pre">UNKNOWN</span></code>):</li>
+</ul>
+<div class='ansi2html'>
+<pre>
+<span class="ansi1 ansi4 inv_background inv_foreground"></span><span class="ansi1 ansi4 inv38-81 inv_foreground"></span><span class="ansi1 ansi4 inv38-81 inv40"> AIRPORT            </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">‖</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> count  #</span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> percent  %</span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> histogram                                         ~</span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> UNKNOWN            </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    8424 |     11.47 | ************************************************** ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-215 ansi40"> DENVER INTL AIRPORT</span><span class="ansi38-215"></span><span class="ansi38-215 ansi40">‖    2756 |      3.75 | ****************</span><span class="ansi40">                                   </span><span class="ansi38-215 ansi40">‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-215 ansi40"> DALLAS/FORT WORTH …</span><span class="ansi38-215"></span><span class="ansi38-215 ansi40">‖    2392 |      3.26 | **************</span><span class="ansi40">                                     </span><span class="ansi38-215 ansi40">‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-215 ansi40"> CHICAGO O'HARE INT…</span><span class="ansi38-215"></span><span class="ansi38-215 ansi40">‖    1583 |      2.16 | *********</span><span class="ansi40">                                          </span><span class="ansi38-215 ansi40">‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-215 ansi40"> JOHN F KENNEDY INTL</span><span class="ansi38-215"></span><span class="ansi38-215 ansi40">‖    1302 |      1.77 | *******</span><span class="ansi40">                                            </span><span class="ansi38-215 ansi40">‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-215 ansi40"> MEMPHIS INTL       </span><span class="ansi38-215"></span><span class="ansi38-215 ansi40">‖    1217 |      1.66 | *******</span><span class="ansi40">                                            </span><span class="ansi38-215 ansi40">‖</span><span class="ansi40">    
+</span><span class="ansi1 inv_background inv40"></span><span class="ansi1 inv38-81 inv40"> SALT LAKE CITY INTL</span><span class="inv_background inv_foreground"></span><span class="inv37 inv_foreground"></span><span class="inv37 inv40">‖    1179 |      1.61 | ******                                             ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> PHILADELPHIA INTL  </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    1131 |      1.54 | ******</span><span class="ansi40">        </span><span class="ansi37 ansi40"> </span><span class="ansi40">                              </span><span class="ansi37 ansi40">      ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> ORLANDO INTL       </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    1026 |      1.40 | ******         </span><span class="ansi40">                              </span><span class="ansi37 ansi40">      ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> SACRAMENTO INTL    </span><span class="ansi37"></span><span class="ansi37 ansi40">‖    1021 |      1.39 | ******</span><span class="ansi40">        </span><span class="ansi37 ansi40"> </span><span class="ansi40">         </span><span class="ansi37 ansi40">      </span><span class="ansi40">               </span><span class="ansi37 ansi40">      ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> LA GUARDIA ARPT    </span><span class="ansi37"></span><span class="ansi37 ansi40">‖     974 |      1.33 | *****</span><span class="ansi40">         </span><span class="ansi37 ansi40"> </span><span class="ansi40">         </span><span class="ansi37 ansi40">       </span><span class="ansi40">              </span><span class="ansi37 ansi40">      ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> CHARLOTTE/DOUGLAS …</span><span class="ansi37"></span><span class="ansi37 ansi40">‖     960 |</span><span class="ansi40">      </span><span class="ansi37 ansi40">1.31 | *****</span><span class="ansi40">         </span><span class="ansi37 ansi40"> </span><span class="ansi40">         </span><span class="ansi37 ansi40">       </span><span class="ansi40">              </span><span class="ansi37 ansi40">      ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> NEWARK LIBERTY INT…</span><span class="ansi37"></span><span class="ansi37 ansi40">‖     917 |      1.25 | *****          </span><span class="ansi40">                                    </span><span class="ansi37 ansi40">‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> LOUISVILLE INTL AR…</span><span class="ansi37"></span><span class="ansi37 ansi40">‖     841 |      1.15 | ****</span><span class="ansi40">          </span><span class="ansi37 ansi40"> </span><span class="ansi40">                                    </span><span class="ansi37 ansi40">‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> AUSTIN-BERGSTROM I…</span><span class="ansi37"></span><span class="ansi37 ansi40">‖     817 |      1.11 | ****</span><span class="ansi40">                                               </span><span class="ansi37 ansi40">‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> LOUIE ARMSTRONG NE…</span><span class="ansi37"></span><span class="ansi37 ansi40">‖     809 |      1.10 | ****</span><span class="ansi40">          </span><span class="ansi37 ansi40"> </span><span class="ansi40">                              </span><span class="ansi37 ansi40">      ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> KANSAS CITY INTL   </span><span class="ansi37"></span><span class="ansi37 ansi40">‖     807 |</span><span class="ansi40">      </span><span class="ansi37 ansi40">1.10 | ****    </span><span class="ansi40">      </span><span class="ansi37 ansi40"> </span><span class="ansi40">                              </span><span class="ansi37 ansi40">      ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> HARTSFIELD - JACKS…</span><span class="ansi37"></span><span class="ansi37 ansi40">‖     775 |</span><span class="ansi40">      </span><span class="ansi37 ansi40">1.06 | ****           </span><span class="ansi40">                              </span><span class="ansi37 ansi40">      ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> GEORGE BUSH INTERC…</span><span class="ansi37"></span><span class="ansi37 ansi40">‖     746 |      1.02 | ****</span><span class="ansi40">          </span><span class="ansi37 ansi40"> </span><span class="ansi40">                              </span><span class="ansi37 ansi40">      ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> DETROIT METRO WAYN…</span><span class="ansi37"></span><span class="ansi37 ansi40">‖     734 |      1.00 | ****         </span><span class="ansi40"> </span><span class="ansi37 ansi40"> </span><span class="ansi40">                              </span><span class="ansi37 ansi40">      ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> BALTIMORE/WASH INT…</span><span class="ansi37"></span><span class="ansi37 ansi40">‖     691 |      0.94 | ****</span><span class="ansi40">                                         </span><span class="ansi37 ansi40">      ‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi38-81 ansi40"> GENERAL EDWARD LAW…</span><span class="ansi37"></span><span class="ansi37 ansi40">‖     686 |      0.93 | ****  </span><span class="ansi40">        </span><span class="ansi37 ansi40"> </span><span class="ansi40">                                    </span><span class="ansi37 ansi40">‖</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40">faa-wildlife-strikes_AIRPORT_freq|</span><span class="ansi40"> </span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40">selected 1302 more rows | selected</span><span class="ansi40"> </span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40">1 more bins</span><span class="ansi37"></span><span class="ansi37 ansi40"> s</span><span class="ansi1 ansi37 ansi40">      1512 bins…</span><span class="ansi40"> </span>
+</pre>
+</div>
+<ul class="simple">
+<li>In seguito, digita <kbd class="kbd docutils literal notranslate">q</kbd> per uscire dalla tabella di frequenza e ritornare al foglio precedente. Dovresti vedere quanto segue:</li>
+</ul>
+<div class='ansi2html'>
+<pre>
+<span class="ansi38-246"></span><span class="ansi38-246 ansi40">&lt;</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40">STATE   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 inv38-246 inv40"></span><span class="ansi1 ansi4 inv37 inv40"> AIRPORT            </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> PHASE_OF_FLT   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> HEIGHT   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> SPEED   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> SPECIES            </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> BIRDS_S</span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">&gt;</span><span class="ansi40"> 
+</span><span class="inv_background inv40"></span><span class="inv37 inv40"> FL      |</span><span class="ansi1 inv37 inv40"> VERO BEACH MUNICIP…</span><span class="inv_background inv_foreground"></span><span class="inv37 inv_foreground"></span><span class="inv37 inv40">| APPROACH       |          |         | Unknown bird       | 1       </span><span class="ansi40"> 
+</span><span class="ansi37 ansi40"> AK      |</span><span class="ansi1 ansi37 ansi40"> KENAI MUNICIPAL AR…</span><span class="ansi37"></span><span class="ansi37 ansi40">| APPROACH       |          |         | Unknown bird       | 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> TX      |</span><span class="ansi1 ansi37 ansi40"> DAVID WAYNE HOOKS …</span><span class="ansi37"></span><span class="ansi37 ansi40">|</span><span class="ansi40">                </span><span class="ansi37 ansi40">|          |         | Unknown bird       | 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> MO      |</span><span class="ansi1 ansi37 ansi40"> LAMBERT-ST LOUIS I…</span><span class="ansi37"></span><span class="ansi37 ansi40">| APPROACH       |          |         | Unknown bird       | 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> FL      |</span><span class="ansi1 ansi37 ansi40"> POMPANO BEACH AIRP…</span><span class="ansi37"></span><span class="ansi37 ansi40">| LANDING ROLL   | 0        |         | Unknown bird       | 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> VI      |</span><span class="ansi1 ansi37 ansi40"> HENRY E ROHLSEN AR…</span><span class="ansi37"></span><span class="ansi37 ansi40">|</span><span class="ansi40">                </span><span class="ansi37 ansi40">|          |         | Unknown bird       | 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> TX      |</span><span class="ansi1 ansi37 ansi40"> SAN ANTONIO INTL   </span><span class="ansi37"></span><span class="ansi37 ansi40">| APPROACH       |          |         | Unknown bird       | 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> TX      |</span><span class="ansi1 ansi37 ansi40"> LONE STAR EXECUTIV…</span><span class="ansi37"></span><span class="ansi37 ansi40">| DEPARTURE      |  </span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Unknown bird</span><span class="ansi40">       </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> FL      |</span><span class="ansi1 ansi37 ansi40"> TAMPA INTL         </span><span class="ansi37"></span><span class="ansi37 ansi40">| APPROACH       | 6000     |</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Unknown bird</span><span class="ansi40">       </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> MO      |</span><span class="ansi1 ansi37 ansi40"> LAMBERT-ST LOUIS I…</span><span class="ansi37"></span><span class="ansi37 ansi40">| APPROACH       |  </span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Owls</span><span class="ansi40">               </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> FL      |</span><span class="ansi1 ansi37 ansi40"> OPA-LOCKA EXECUTIV…</span><span class="ansi37"></span><span class="ansi37 ansi40">| APPROACH       | </span><span class="ansi40">         </span><span class="ansi37 ansi40">|</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Hawks</span><span class="ansi40">              </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> CA      |</span><span class="ansi1 ansi37 ansi40"> NORMAN Y. MINETA S…</span><span class="ansi37"></span><span class="ansi37 ansi40">|</span><span class="ansi40">      </span><span class="ansi37 ansi40">          | </span><span class="ansi40">         </span><span class="ansi37 ansi40">|</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Gulls</span><span class="ansi40">              </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> FL      |</span><span class="ansi1 ansi37 ansi40"> FORT LAUDERDALE/HO…</span><span class="ansi37"></span><span class="ansi37 ansi40">| APPROACH       | 1500     |</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Unknown bird - sma…| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> AR      |</span><span class="ansi1 ansi37 ansi40"> FORT SMITH REGIONA…</span><span class="ansi37"></span><span class="ansi37 ansi40">| CLIMB          |</span><span class="ansi40">          </span><span class="ansi37 ansi40">|</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Unknown bird - sma…| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> AR      |</span><span class="ansi1 ansi37 ansi40"> BILL AND  HILLARY …</span><span class="ansi37"></span><span class="ansi37 ansi40">| LANDING ROLL   | 0</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Unknown bird - sma…| 1</span><span class="ansi40">        
+        </span><span class="ansi37 ansi40"> |</span><span class="ansi1 ansi37 ansi40"> UNKNOWN            </span><span class="ansi37"></span><span class="ansi37 ansi40">| En Route       |</span><span class="ansi40">          </span><span class="ansi37 ansi40">|</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Unknown bird</span><span class="ansi40">       </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> CA      |</span><span class="ansi1 ansi37 ansi40"> METRO OAKLAND INTL </span><span class="ansi37"></span><span class="ansi37 ansi40">|</span><span class="ansi40">      </span><span class="ansi37 ansi40">          |    </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Unknown bird</span><span class="ansi40">       </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> UT      |</span><span class="ansi1 ansi37 ansi40"> SALT LAKE CITY INTL</span><span class="ansi37"></span><span class="ansi37 ansi40">|</span><span class="ansi40">      </span><span class="ansi37 ansi40">          |          |</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Unknown bird</span><span class="ansi40">       </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> TX      |</span><span class="ansi1 ansi37 ansi40"> GEORGE BUSH INTERC…</span><span class="ansi37"></span><span class="ansi37 ansi40">| CLIMB          |</span><span class="ansi40">          </span><span class="ansi37 ansi40">|</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Unknown bird</span><span class="ansi40">       </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> FL      |</span><span class="ansi1 ansi37 ansi40"> ORLANDO SANFORD IN…</span><span class="ansi37"></span><span class="ansi37 ansi40">| APPROACH       |         </span><span class="ansi40"> </span><span class="ansi37 ansi40">|</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Unknown bird</span><span class="ansi40">       </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi38-215 ansi40"> IL      |</span><span class="ansi1 ansi38-215 ansi40"> CHICAGO O'HARE INT…</span><span class="ansi38-215"></span><span class="ansi38-215 ansi40">| CLIMB          | 12000    |         | Unknown bird       | 1       </span><span class="ansi40"> 
+</span><span class="ansi37 ansi40"> AL      |</span><span class="ansi1 ansi37 ansi40"> BIRMINGHAM-SHUTTLE…</span><span class="ansi37"></span><span class="ansi37 ansi40">| LANDING ROLL   | 0</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Unknown bird - sma…| 1</span><span class="ansi40">        
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40">faa-wildlife-strikes|</span><span class="ansi40">                                                            </span><span class="ansi37 ansi40"> q</span><span class="ansi1 ansi37 ansi40">     73448 rows </span><span class="ansi40"> </span>
+</pre>
+</div>
+<ul class="simple">
+<li>Infine, digita <kbd class="kbd docutils literal notranslate">&quot;</kbd> per creare un nuovo foglio filtrato e con le sole righe selezionate.</li>
+</ul>
+<div class='ansi2html'>
+<pre>
+<span class="ansi38-246"></span><span class="ansi38-246 ansi40">&lt;</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40">STATE   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 inv38-246 inv40"></span><span class="ansi1 ansi4 inv37 inv40"> AIRPORT            </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> PHASE_OF_FLT   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> HEIGHT   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> SPEED   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> SPECIES            </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> BIRDS_S</span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">&gt;</span><span class="ansi40"> 
+</span><span class="inv_background inv40"></span><span class="inv37 inv40"> IL      |</span><span class="ansi1 inv37 inv40"> CHICAGO O'HARE INT…</span><span class="inv_background inv_foreground"></span><span class="inv37 inv_foreground"></span><span class="inv37 inv40">| CLIMB          | 12000    |         | Unknown bird       | 1       </span><span class="ansi40"> 
+</span><span class="ansi37 ansi40"> CO      |</span><span class="ansi1 ansi37 ansi40"> DENVER INTL AIRPORT</span><span class="ansi37"></span><span class="ansi37 ansi40">| LANDING ROLL   | 0        |         | Unknown bird       | 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> TX      |</span><span class="ansi1 ansi37 ansi40"> DALLAS/FORT WORTH …</span><span class="ansi37"></span><span class="ansi37 ansi40">| LANDING ROLL   | 0        |         | Unknown bird       | 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> TX      |</span><span class="ansi1 ansi37 ansi40"> DALLAS/FORT WORTH …</span><span class="ansi37"></span><span class="ansi37 ansi40">| LANDING ROLL   | 0        |         | Unknown bird       | 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> IL      |</span><span class="ansi1 ansi37 ansi40"> CHICAGO O'HARE INT…</span><span class="ansi37"></span><span class="ansi37 ansi40">|</span><span class="ansi40">                </span><span class="ansi37 ansi40">|          |         | Unknown bird       | 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> TN      |</span><span class="ansi1 ansi37 ansi40"> MEMPHIS INTL       </span><span class="ansi37"></span><span class="ansi37 ansi40">| APPROACH</span><span class="ansi40">       </span><span class="ansi37 ansi40">|          |         | Unknown bird       | 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> TX      |</span><span class="ansi1 ansi37 ansi40"> DALLAS/FORT WORTH …</span><span class="ansi37"></span><span class="ansi37 ansi40">| APPROACH       |          |         | Unknown bird       | 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> IL      |</span><span class="ansi1 ansi37 ansi40"> CHICAGO O'HARE INT…</span><span class="ansi37"></span><span class="ansi37 ansi40">| LANDING ROLL   | 0</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Unknown bird</span><span class="ansi40">       </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> CO      |</span><span class="ansi1 ansi37 ansi40"> DENVER INTL AIRPORT</span><span class="ansi37"></span><span class="ansi37 ansi40">| Approach       |          |</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Unknown bird</span><span class="ansi40">       </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> CO      |</span><span class="ansi1 ansi37 ansi40"> DENVER INTL AIRPORT</span><span class="ansi37"></span><span class="ansi37 ansi40">| LANDING ROLL   | 0</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Unknown bird</span><span class="ansi40">       </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> CO      |</span><span class="ansi1 ansi37 ansi40"> DENVER INTL AIRPORT</span><span class="ansi37"></span><span class="ansi37 ansi40">| DEPARTURE      | </span><span class="ansi40">         </span><span class="ansi37 ansi40">|</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Unknown bird - sma…| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> CO      |</span><span class="ansi1 ansi37 ansi40"> DENVER INTL AIRPORT</span><span class="ansi37"></span><span class="ansi37 ansi40">| Landing Roll   | 0</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Ferruginous hawk</span><span class="ansi40">   </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> TN      |</span><span class="ansi1 ansi37 ansi40"> MEMPHIS INTL       </span><span class="ansi37"></span><span class="ansi37 ansi40">| APPROACH       | 600      |</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Unknown bird       | 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> CO      |</span><span class="ansi1 ansi37 ansi40"> DENVER INTL AIRPORT</span><span class="ansi37"></span><span class="ansi37 ansi40">| DEPARTURE      |</span><span class="ansi40">          </span><span class="ansi37 ansi40">|</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Unknown bird - sma…| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> CO      |</span><span class="ansi1 ansi37 ansi40"> DENVER INTL AIRPORT</span><span class="ansi37"></span><span class="ansi37 ansi40">| LANDING ROLL   | 0</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Unknown bird - sma…| 2-10</span><span class="ansi40">     
+</span><span class="ansi37 ansi40"> CO</span><span class="ansi40">     </span><span class="ansi37 ansi40"> |</span><span class="ansi1 ansi37 ansi40"> DENVER INTL AIRPORT</span><span class="ansi37"></span><span class="ansi37 ansi40">| APPROACH       |</span><span class="ansi40">          </span><span class="ansi37 ansi40">|</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Unknown bird</span><span class="ansi40">       </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> TX      |</span><span class="ansi1 ansi37 ansi40"> DALLAS/FORT WORTH …</span><span class="ansi37"></span><span class="ansi37 ansi40">|</span><span class="ansi40">      </span><span class="ansi37 ansi40">          |    </span><span class="ansi40">      </span><span class="ansi37 ansi40">|</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Mourning dove</span><span class="ansi40">      </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> IL      |</span><span class="ansi1 ansi37 ansi40"> CHICAGO O'HARE INT…</span><span class="ansi37"></span><span class="ansi37 ansi40">| Landing Roll   | 0        |</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Rock pigeon </span><span class="ansi40">       </span><span class="ansi37 ansi40">| 2-10</span><span class="ansi40">     
+</span><span class="ansi37 ansi40"> NY      |</span><span class="ansi1 ansi37 ansi40"> JOHN F KENNEDY INTL</span><span class="ansi37"></span><span class="ansi37 ansi40">| Approach       |</span><span class="ansi40">          </span><span class="ansi37 ansi40">|</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Wilson's snipe</span><span class="ansi40">     </span><span class="ansi37 ansi40">| 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> TX      |</span><span class="ansi1 ansi37 ansi40"> DALLAS/FORT WORTH …</span><span class="ansi37"></span><span class="ansi37 ansi40">|                |         </span><span class="ansi40"> </span><span class="ansi37 ansi40">|</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Ring-billed gull</span><span class="ansi40">   </span><span class="ansi37 ansi40">| 11-100</span><span class="ansi40">   
+</span><span class="ansi37 ansi40"> TX      |</span><span class="ansi1 ansi37 ansi40"> DALLAS/FORT WORTH …</span><span class="ansi37"></span><span class="ansi37 ansi40">|</span><span class="ansi40">                </span><span class="ansi37 ansi40">|          |         | Cedar waxwing      | 1</span><span class="ansi40">        
+</span><span class="ansi37 ansi40"> NY      |</span><span class="ansi1 ansi37 ansi40"> JOHN F KENNEDY INTL</span><span class="ansi37"></span><span class="ansi37 ansi40">| Take-off run   | 0</span><span class="ansi40">        </span><span class="ansi37 ansi40">|</span><span class="ansi40">         </span><span class="ansi37 ansi40">| Unknown bird - med…| 1</span><span class="ansi40">        
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40">faa-wildlife-strikes_selectedref|</span><span class="ansi40">                                                </span><span class="ansi37 ansi40"> "</span><span class="ansi1 ansi37 ansi40">      9250 rows </span><span class="ansi40"> </span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../summarizing-data/" class="btn btn-neutral float-right" title="Riepilogare i dati" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../understanding-columns/" class="btn btn-neutral float-left" title="Comprendere le colonne" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Jeremy Singer-Vine
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
