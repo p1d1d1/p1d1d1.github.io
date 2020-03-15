@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Join di fogli &mdash; An Introduction to VisiData</title>
+  
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://jsvine.github.io/intro-to-visidata/intermediate/joining-sheets.html"/>
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Dare una nuova forma ai dati" href="../reshaping-data/" />
+    <link rel="prev" title="Creare nuove colonne" href="../creating-new-columns/" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../" class="icon icon-home"> Introduzione a VisiData
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../">Informazioni su questo tutorial</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Il quadro generale</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../the-big-picture/what-is-visidata/">Cos’è VisiData?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-big-picture/installation/">Installazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-big-picture/visidata-in-60-seconds/">VisiData in 60 secondi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Uso di base</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/getting-out-of-trouble/">Per <em>tirarsi fuori dai guai</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/opening-files/">Aprire i file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/navigating-visidata/">Muoversi in VisiData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/understanding-sheets/">Comprendere i Fogli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/understanding-rows/">Comprendere le righe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/understanding-columns/">Comprendere le colonne</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/sorting-and-filtering/">Ordinare e filtrare</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/summarizing-data/">Riepilogare i dati</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/working-with-excel/">Lavorare con i fogli Excel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/saving-sheets/">Salvare i fogli</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Uso intermedio</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../creating-new-columns/">Creare nuove colonne</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Join di fogli</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#join-in-tre-passi">Join in tre passi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#esempio-pratico">Esempio pratico</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reshaping-data/">Dare una nuova forma ai dati</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../large-files/">Lavorare con file di grandi dimensioni</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Uso avanzato</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/configuring-visidata/">Configurare VisiData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/extending-visidata/">Estendere VisiData con i Plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/debugging-visidata/">Debug di VisiData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/the-command-log/">Il Log dei comandi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Esempi pratici</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../practical/high-flying-birds/">Uccelli <em>d’alta quota</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../practical/distinctive-birds/">Uccelli caratteristici</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">Introduzione a VisiData</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../">Docs</a> &raquo;</li>
+        
+      <li>Join di fogli</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="join-di-fogli">
+<h1>Join di fogli<a class="headerlink" href="#join-di-fogli" title="Permalink to this headline">¶</a></h1>
+<p>Proprio come in SQL, VisiData consente di fare il <em>join</em> di più fogli.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Se questo concetto non ti è familiare, puoi trovare più dettagli <a class="reference external" href="https://www.w3schools.com/sql/sql_join.asp">qui</a> e <a class="reference external" href="https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/">qui</a>.</p>
+</div>
+<div class="section" id="join-in-tre-passi">
+<h2>Join in tre passi<a class="headerlink" href="#join-in-tre-passi" title="Permalink to this headline">¶</a></h2>
+<p>Per fare il <em>join</em> di due o più fogli, procedi come di seguito:</p>
+<ol class="arabic simple">
+<li>Nei fogli che vuoi unire <strong>marca le colonne condivise come “chiavi”</strong></li>
+<li>Nel Foglio dei fogli <strong>seleziona i fogli che vuoi unire</strong></li>
+<li>Digita <kbd class="kbd docutils literal notranslate">&amp;</kbd> e al prompt <strong>indica il tipo di join</strong></li>
+</ol>
+<p>VisiData supporta cinque tipi di <em>join</em>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="13%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Comando di join</th>
+<th class="head">Equivalente SQL</th>
+<th class="head">Descrizione</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>inner</td>
+<td><code class="docutils literal notranslate"><span class="pre">LEFT</span> <span class="pre">INNER</span> <span class="pre">JOIN</span></code></td>
+<td>Mantiene le righe con chiavi corrispondenti in tutti i fogli</td>
+</tr>
+<tr class="row-odd"><td>outer</td>
+<td><code class="docutils literal notranslate"><span class="pre">LEFT</span> <span class="pre">OUTER</span> <span class="pre">JOIN</span></code></td>
+<td>Mantiene tutte le righe dal primo foglio selezionato</td>
+</tr>
+<tr class="row-even"><td>full</td>
+<td><code class="docutils literal notranslate"><span class="pre">FULL</span> <span class="pre">OUTER</span> <span class="pre">JOIN</span></code></td>
+<td>Mantiene tutte le righe di tutti i fogli (unione)</td>
+</tr>
+<tr class="row-odd"><td>diff</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>Mantiene solo le righe Keeps only rows NOT in all sheets</td>
+</tr>
+<tr class="row-even"><td>append</td>
+<td><code class="docutils literal notranslate"><span class="pre">UNION</span> <span class="pre">ALL</span></code></td>
+<td>Mantiene tutte le righe di tutti i fogli (concatenazione)</td>
+</tr>
+<tr class="row-odd"><td>extend</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>Copia il foglio selezionato, mantenendone tutte le righe, e lo estende con colonne di altri fogli</td>
+</tr>
+</tbody>
+</table>
+<p>(Le descrizioni sopra riportate sono tratte da <a class="reference external" href="http://visidata.org/man/">Quick Reference</a>.)</p>
+</div>
+<div class="section" id="esempio-pratico">
+<h2>Esempio pratico<a class="headerlink" href="#esempio-pratico" title="Permalink to this headline">¶</a></h2>
+<p>Trovi un esempio pratico di un <em>join</em> nel capitolo <a class="reference external" href="../../practical/distinctive-birds/">Uccelli caratteristici</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../reshaping-data/" class="btn btn-neutral float-right" title="Dare una nuova forma ai dati" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../creating-new-columns/" class="btn btn-neutral float-left" title="Creare nuove colonne" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Jeremy Singer-Vine
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

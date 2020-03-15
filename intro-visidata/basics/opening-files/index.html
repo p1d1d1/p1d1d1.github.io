@@ -1,0 +1,385 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Aprire i file &mdash; An Introduction to VisiData</title>
+  
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://jsvine.github.io/intro-to-visidata/basics/opening-files.html"/>
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Muoversi in VisiData" href="../navigating-visidata/" />
+    <link rel="prev" title="Per tirarsi fuori dai guai" href="../getting-out-of-trouble/" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../" class="icon icon-home"> Introduzione a VisiData
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../">Informazioni su questo tutorial</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Il quadro generale</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../the-big-picture/what-is-visidata/">Cos’è VisiData?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-big-picture/installation/">Installazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-big-picture/visidata-in-60-seconds/">VisiData in 60 secondi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Uso di base</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-out-of-trouble/">Per <em>tirarsi fuori dai guai</em></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Aprire i file</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#come-aprire-un-file">Come aprire un file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#come-chiudere-un-file">Come chiudere un file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#come-specificare-il-formato-file">Come specificare il formato file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tipi-di-file-compatibili">Tipi di file compatibili</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dati-tabellari">Dati tabellari</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dati-nested">Dati <em>nested</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dati-geospaziali">Dati geospaziali</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#directory">Directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#altri">Altri</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../navigating-visidata/">Muoversi in VisiData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding-sheets/">Comprendere i Fogli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding-rows/">Comprendere le righe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../understanding-columns/">Comprendere le colonne</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sorting-and-filtering/">Ordinare e filtrare</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../summarizing-data/">Riepilogare i dati</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../working-with-excel/">Lavorare con i fogli Excel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../saving-sheets/">Salvare i fogli</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Uso intermedio</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intermediate/creating-new-columns/">Creare nuove colonne</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intermediate/joining-sheets/">Join di fogli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intermediate/reshaping-data/">Dare una nuova forma ai dati</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intermediate/large-files/">Lavorare con file di grandi dimensioni</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Uso avanzato</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/configuring-visidata/">Configurare VisiData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/extending-visidata/">Estendere VisiData con i Plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/debugging-visidata/">Debug di VisiData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/the-command-log/">Il Log dei comandi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Esempi pratici</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../practical/high-flying-birds/">Uccelli <em>d’alta quota</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../practical/distinctive-birds/">Uccelli caratteristici</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">Introduzione a VisiData</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../">Docs</a> &raquo;</li>
+        
+      <li>Aprire i file</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="aprire-i-file">
+<h1>Aprire i file<a class="headerlink" href="#aprire-i-file" title="Permalink to this headline">¶</a></h1>
+<p>La prima cosa che impareremo è la più elementare: come aprire (e chiudere) un set di dati in VisiData.</p>
+<div class="section" id="come-aprire-un-file">
+<h2>Come aprire un file<a class="headerlink" href="#come-aprire-un-file" title="Permalink to this headline">¶</a></h2>
+<p>Il modo più semplice per aprire un file in VisiData è quello di specificarlo direttamente quando si invoca il comando <code class="docutils literal notranslate"><span class="pre">vd</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vd faa-wildlife-strikes.csv
+</pre></div>
+</div>
+<p>Se hai scaricato il file <a class="reference download internal" download="" href="../../_downloads/5f8832b0d17e3aabdeeec56c55b51e6a/faa-wildlife-strikes.csv"><code class="xref download docutils literal notranslate"><span class="pre">faa-wildlife-strikes.csv</span></code></a> ed hai lanciato il comando come appena descritto, dovresti vedere questo:</p>
+<div class='ansi2html'>
+<pre>
+<span class="ansi1 ansi4 inv_background inv_foreground"></span><span class="ansi1 ansi4 inv37 inv_foreground"></span><span class="ansi1 ansi4 inv37 inv40"> OPERATOR           </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> ATYPE          </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> INCIDENT_DATE      </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> STATE   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> AIRPORT            </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> PHASE_O</span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">&gt;</span><span class="ansi40"> 
+</span><span class="ansi1 inv_background inv40"></span><span class="ansi1 inv37 inv40"> BUSINESS           </span><span class="inv_background inv_foreground"></span><span class="inv37 inv_foreground"></span><span class="inv37 inv40">| PA-28          | 05/22/15 00:00:00  | FL      | VERO BEACH MUNICIP…| APPROACH</span><span class="ansi40"> 
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> BUSINESS           </span><span class="ansi37"></span><span class="ansi37 ansi40">| BE-1900</span><span class="ansi40">        </span><span class="ansi37 ansi40">| 06/18/15 00:00:00  | AK</span><span class="ansi40">      </span><span class="ansi37 ansi40">| KENAI MUNICIPAL AR…| APPROACH</span><span class="ansi40"> 
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> BUSINESS           </span><span class="ansi37"></span><span class="ansi37 ansi40">| PA-46 MALIBU   | 09/20/15 00:00:00  | TX</span><span class="ansi40">      </span><span class="ansi37 ansi40">| DAVID WAYNE HOOKS …|</span><span class="ansi40">          
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> DELTA AIR LINES    </span><span class="ansi37"></span><span class="ansi37 ansi40">| B-717-200</span><span class="ansi40">      </span><span class="ansi37 ansi40">| 11/07/15 00:00:00  | MO</span><span class="ansi40">      </span><span class="ansi37 ansi40">| LAMBERT-ST LOUIS I…| APPROACH</span><span class="ansi40"> 
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> BUSINESS           </span><span class="ansi37"></span><span class="ansi37 ansi40">| BE-90 KING     | 12/17/15 00:00:00  | FL</span><span class="ansi40">      </span><span class="ansi37 ansi40">| POMPANO BEACH AIRP…| LANDING…</span><span class="ansi40"> 
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> DELTA AIR LINES    </span><span class="ansi37"></span><span class="ansi37 ansi40">| B-757</span><span class="ansi40">          </span><span class="ansi37 ansi40">| 07/17/15 00:00:00  | VI</span><span class="ansi40">      </span><span class="ansi37 ansi40">| HENRY E ROHLSEN AR…|</span><span class="ansi40">          
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> DELTA AIR LINES    </span><span class="ansi37"></span><span class="ansi37 ansi40">| B-717-200</span><span class="ansi40">      </span><span class="ansi37 ansi40">| 08/02/15 00:00:00  | TX</span><span class="ansi40">      </span><span class="ansi37 ansi40">| SAN ANTONIO INTL   | APPROACH</span><span class="ansi40"> 
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> BUSINESS           </span><span class="ansi37"></span><span class="ansi37 ansi40">| C-414</span><span class="ansi40">          </span><span class="ansi37 ansi40">| 08/03/15 00:00:00  | TX</span><span class="ansi40">      </span><span class="ansi37 ansi40">| LONE STAR EXECUTIV…| DEPARTU…</span><span class="ansi40"> 
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> ALLEGIANT AIR      </span><span class="ansi37"></span><span class="ansi37 ansi40">| MD-80</span><span class="ansi40">          </span><span class="ansi37 ansi40">| 09/02/15 00:00:00  | FL</span><span class="ansi40">      </span><span class="ansi37 ansi40">| TAMPA INTL</span><span class="ansi40">         </span><span class="ansi37 ansi40">| APPROACH</span><span class="ansi40"> 
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> TRANS STATES AIRLI…</span><span class="ansi37"></span><span class="ansi37 ansi40">| EMB-145</span><span class="ansi40">        </span><span class="ansi37 ansi40">| 09/07/15 00:00:00  | MO</span><span class="ansi40">      </span><span class="ansi37 ansi40">| LAMBERT-ST LOUIS I…| APPROACH</span><span class="ansi40"> 
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> BUSINESS           </span><span class="ansi37"></span><span class="ansi37 ansi40">| C-172</span><span class="ansi40">          </span><span class="ansi37 ansi40">| 11/28/15 00:00:00  | FL</span><span class="ansi40">      </span><span class="ansi37 ansi40">| OPA-LOCKA EXECUTIV…| APPROACH</span><span class="ansi40"> 
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> GOVERNMENT         </span><span class="ansi37"></span><span class="ansi37 ansi40">| EC120</span><span class="ansi40">          </span><span class="ansi37 ansi40">| 12/08/15 00:00:00  | CA</span><span class="ansi40">      </span><span class="ansi37 ansi40">| NORMAN Y. MINETA S…|</span><span class="ansi40">          
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> AMERICAN AIRLINES  </span><span class="ansi37"></span><span class="ansi37 ansi40">| A-321</span><span class="ansi40">          </span><span class="ansi37 ansi40">| 05/06/15 00:00:00  | FL</span><span class="ansi40">      </span><span class="ansi37 ansi40">| FORT LAUDERDALE/HO…| APPROACH</span><span class="ansi40"> 
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> EXPRESSJET AIRLINES</span><span class="ansi37"></span><span class="ansi37 ansi40">| CRJ100/200     | 05/06/15 00:00:00  | AR</span><span class="ansi40">      </span><span class="ansi37 ansi40">| FORT SMITH REGIONA…| CLIMB</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> MESA AIRLINES      </span><span class="ansi37"></span><span class="ansi37 ansi40">| CRJ900</span><span class="ansi40">         </span><span class="ansi37 ansi40">| 05/08/15 00:00:00  | AR</span><span class="ansi40">      </span><span class="ansi37 ansi40">| BILL AND  HILLARY …| LANDING…</span><span class="ansi40"> 
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> BUSINESS           </span><span class="ansi37"></span><span class="ansi37 ansi40">| HELICOPTER     | 05/06/15 00:00:00  |</span><span class="ansi40">         </span><span class="ansi37 ansi40">| UNKNOWN</span><span class="ansi40">            </span><span class="ansi37 ansi40">| En Route</span><span class="ansi40"> 
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> DELTA AIR LINES    </span><span class="ansi37"></span><span class="ansi37 ansi40">| A-320</span><span class="ansi40">          </span><span class="ansi37 ansi40">| 05/07/15 00:00:00  | CA</span><span class="ansi40">      </span><span class="ansi37 ansi40">| METRO OAKLAND INTL |</span><span class="ansi40">          
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> DELTA AIR LINES    </span><span class="ansi37"></span><span class="ansi37 ansi40">| A-320</span><span class="ansi40">          </span><span class="ansi37 ansi40">| 05/08/15 00:00:00  | UT</span><span class="ansi40">      </span><span class="ansi37 ansi40">| SALT LAKE CITY INTL|</span><span class="ansi40">          
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> LUFTHANSA          </span><span class="ansi37"></span><span class="ansi37 ansi40">| A-380</span><span class="ansi40">          </span><span class="ansi37 ansi40">| 05/10/15 00:00:00  | TX</span><span class="ansi40">      </span><span class="ansi37 ansi40">| GEORGE BUSH INTERC…| CLIMB</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> BUSINESS           </span><span class="ansi37"></span><span class="ansi37 ansi40">| C-172</span><span class="ansi40">          </span><span class="ansi37 ansi40">| 05/08/15 00:00:00  | FL</span><span class="ansi40">      </span><span class="ansi37 ansi40">| ORLANDO SANFORD IN…| APPROACH</span><span class="ansi40"> 
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> SPIRIT AIRLINES    </span><span class="ansi37"></span><span class="ansi37 ansi40">| A-319</span><span class="ansi40">          </span><span class="ansi37 ansi40">| 05/10/15 00:00:00  | IL</span><span class="ansi40">      </span><span class="ansi37 ansi40">| CHICAGO O'HARE INT…| CLIMB</span><span class="ansi40">    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> EXPRESSJET AIRLINES</span><span class="ansi37"></span><span class="ansi37 ansi40">| EMB-145</span><span class="ansi40">        </span><span class="ansi37 ansi40">| 05/11/15 00:00:00  | AL</span><span class="ansi40">      </span><span class="ansi37 ansi40">| BIRMINGHAM-SHUTTLE…| LANDING…</span><span class="ansi40"> 
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40">faa-wildlife-strikes| saul.pw/VisiData v1.5.2 | opening faa-wildlife-strikes as cs</span><span class="ansi37"></span><span class="ansi37 ansi40"> </span><span class="ansi1 ansi37 ansi40">     73448 rows…</span><span class="ansi40"> </span>
+</pre>
+</div>
+<p>Vediamo nel dettaglio:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Riga in alto</dt>
+<dd><ul class="first last">
+<li>Mostra le colonne nel set di dati (quelle che rientrano nello schermo)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Riga in basso</dt>
+<dd><ul class="first last">
+<li>Ti dice quale file stai vedendo (<code class="docutils literal notranslate"><span class="pre">faa-wildlife-strikes</span></code> a sinistra) e ti fornisce altre informazioni come lo stato ed il numero di righe.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Colonna e riga evidenziate</dt>
+<dd><ul class="first last">
+<li>Indica la posizione attuale all’interno del set di dati.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">A seconda della dimensione de vostro terminale vedrete più/meno colonne e righe.</p>
+</div>
+</div>
+<div class="section" id="come-chiudere-un-file">
+<h2>Come chiudere un file<a class="headerlink" href="#come-chiudere-un-file" title="Permalink to this headline">¶</a></h2>
+<p>Per chiudere un file digita <kbd class="kbd docutils literal notranslate">q</kbd>.</p>
+<p>Se hai aperto più file puoi chiuderli tutti digitando <kbd class="kbd docutils literal notranslate">gq</kbd>.</p>
+</div>
+<div class="section" id="come-specificare-il-formato-file">
+<h2>Come specificare il formato file<a class="headerlink" href="#come-specificare-il-formato-file" title="Permalink to this headline">¶</a></h2>
+<p>VisiData stima il tipo di file che cerchi di aprire in base all’estensione del file stesso. Ad esempio, cercherà di aprire <code class="docutils literal notranslate"><span class="pre">my-csv-data.xlsx</span></code> come file Excel. Per sovrascrivere questa impostazione predefinita, puoi specificare il tipo di file con il flag <code class="docutils literal notranslate"><span class="pre">--filetype</span></code>. Esempio:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vd my-csv-data.xlsx --filetype csv
+</pre></div>
+</div>
+<p>O con la versione più corta <code class="docutils literal notranslate"><span class="pre">-f</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vd my-csv-data.xlsx -f csv
+</pre></div>
+</div>
+</div>
+<div class="section" id="tipi-di-file-compatibili">
+<span id="compatible-filetypes"></span><h2>Tipi di file compatibili<a class="headerlink" href="#tipi-di-file-compatibili" title="Permalink to this headline">¶</a></h2>
+<p>VisiData può aprire tutta una serie di tipi di file, tra cui:</p>
+<div class="section" id="dati-tabellari">
+<h3>Dati tabellari<a class="headerlink" href="#dati-tabellari" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>File CSV e qualsiasi altro formato <em>delimiter-separated</em></li>
+<li>Fogli Excel (richiede <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">xlrd</span> <span class="pre">openpyxl</span></code>)</li>
+<li>File a larghezza fissa</li>
+<li>Database SQLite</li>
+<li>Database Postgres (richiede <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">psycopg2</span></code>)</li>
+<li>File HDF5 (richiede <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">h5py</span></code>)</li>
+<li>File .sas7bdat (richiede <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">sas7bdat</span></code>)</li>
+<li>File .xpt (richiede <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">xport</span></code>)</li>
+<li>File .sav (richiede <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">savReaderWriter</span></code>)</li>
+<li>File .dta (richiede <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">pandas</span></code>)</li>
+</ul>
+</div>
+<div class="section" id="dati-nested">
+<h3>Dati <em>nested</em><a class="headerlink" href="#dati-nested" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>JSON / JSONL</li>
+<li>XML (richiede <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">lxml</span></code>)</li>
+<li>YAML (richiede <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">PyYAML</span></code>)</li>
+</ul>
+</div>
+<div class="section" id="dati-geospaziali">
+<h3>Dati geospaziali<a class="headerlink" href="#dati-geospaziali" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Shapefiles (richiede <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">pyshp</span></code>)</li>
+<li>MBTiles (richiede <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">mapbox-vector-tile</span></code>)</li>
+</ul>
+</div>
+<div class="section" id="directory">
+<h3>Directory<a class="headerlink" href="#directory" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Directory Unix standard</li>
+<li>File ZIP</li>
+</ul>
+</div>
+<div class="section" id="altri">
+<h3>Altri<a class="headerlink" href="#altri" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>HTML (cerca i tag <code class="docutils literal notranslate"><span class="pre">&lt;table&gt;</span></code>; richiede <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">lxml</span></code>)</li>
+<li>URL (scarica l’HTML e cerca i tag <code class="docutils literal notranslate"><span class="pre">&lt;table&gt;</span></code>; richiede <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">lxml</span></code>)</li>
+<li>File .pcap (richiede <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">dpkt</span> <span class="pre">dnslib</span></code>)</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../navigating-visidata/" class="btn btn-neutral float-right" title="Muoversi in VisiData" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../getting-out-of-trouble/" class="btn btn-neutral float-left" title="Per tirarsi fuori dai guai" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Jeremy Singer-Vine
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

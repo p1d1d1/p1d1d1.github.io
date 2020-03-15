@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Estendere VisiData con i Plugin &mdash; An Introduction to VisiData</title>
+  
+
+  
+  
+  
+  
+    <link rel="canonical" href="https://jsvine.github.io/intro-to-visidata/advanced/extending-visidata.html"/>
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Debug di VisiData" href="../debugging-visidata/" />
+    <link rel="prev" title="Configurare VisiData" href="../configuring-visidata/" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../" class="icon icon-home"> Introduzione a VisiData
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../">Informazioni su questo tutorial</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Il quadro generale</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../the-big-picture/what-is-visidata/">Cos’è VisiData?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-big-picture/installation/">Installazione</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-big-picture/visidata-in-60-seconds/">VisiData in 60 secondi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Uso di base</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/getting-out-of-trouble/">Per <em>tirarsi fuori dai guai</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/opening-files/">Aprire i file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/navigating-visidata/">Muoversi in VisiData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/understanding-sheets/">Comprendere i Fogli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/understanding-rows/">Comprendere le righe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/understanding-columns/">Comprendere le colonne</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/sorting-and-filtering/">Ordinare e filtrare</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/summarizing-data/">Riepilogare i dati</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/working-with-excel/">Lavorare con i fogli Excel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/saving-sheets/">Salvare i fogli</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Uso intermedio</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intermediate/creating-new-columns/">Creare nuove colonne</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intermediate/joining-sheets/">Join di fogli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intermediate/reshaping-data/">Dare una nuova forma ai dati</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intermediate/large-files/">Lavorare con file di grandi dimensioni</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Uso avanzato</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../configuring-visidata/">Configurare VisiData</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Estendere VisiData con i Plugin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#come-installare-un-plugin">Come installare un plugin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#esempio">Esempio</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dove-trovare-i-plugin">Dove trovare i plugin</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging-visidata/">Debug di VisiData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-command-log/">Il Log dei comandi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Esempi pratici</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../practical/high-flying-birds/">Uccelli <em>d’alta quota</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../practical/distinctive-birds/">Uccelli caratteristici</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">Introduzione a VisiData</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../">Docs</a> &raquo;</li>
+        
+      <li>Estendere VisiData con i Plugin</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="estendere-visidata-con-i-plugin">
+<h1>Estendere VisiData con i Plugin<a class="headerlink" href="#estendere-visidata-con-i-plugin" title="Permalink to this headline">¶</a></h1>
+<p>A partire dalla <a class="reference external" href="https://github.com/saulpw/visidata/releases/tag/v1.5">versione 1.5</a>, VisiData supporta i plugin.</p>
+<div class="section" id="come-installare-un-plugin">
+<h2>Come installare un plugin<a class="headerlink" href="#come-installare-un-plugin" title="Permalink to this headline">¶</a></h2>
+<p>Per installare un plugin devi come prima cosa mettere a disposizione di VisiData il plugin stesso. La procedura può variare in funzione del plugin: alcuni plugin vanno salvati nella cartella <code class="docutils literal notranslate"><span class="pre">~/.visidata/</span></code>, altri vanno installati lanciando <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">[nome</span> <span class="pre">del</span> <span class="pre">pacchetto</span> <span class="pre">del</span> <span class="pre">plugin]</span></code>.</p>
+<p>In seguito, devi usare <code class="docutils literal notranslate"><span class="pre">il</span> <span class="pre">file</span> <span class="pre">di</span> <span class="pre">configurazioen</span> <span class="pre">~/.visidatarc</span></code> per importare il plugin. Se hai salvato il plugin come <code class="docutils literal notranslate"><span class="pre">~/.visidata/myplugin.py</span></code>, allora devi semplicemente aggiungere la linea <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">myplugin</span></code> al file di configurazione.</p>
+<div class="section" id="esempio">
+<h3>Esempio<a class="headerlink" href="#esempio" title="Permalink to this headline">¶</a></h3>
+<p>Proviamo ad installare il plugin <a class="reference external" href="https://github.com/jsvine/visidata-plugins">“vddedupe”</a>:</p>
+<ul class="simple">
+<li>Apri questo <a class="reference external" href="https://raw.githubusercontent.com/jsvine/visidata-plugins/master/plugins/vddedupe.py">file</a> nel tuo browser e salvalo come <code class="docutils literal notranslate"><span class="pre">~/.visidata/vddedupe.py</span></code> sul tuo computer</li>
+<li>Apri il <code class="docutils literal notranslate"><span class="pre">file</span> <span class="pre">~/.visidatarc</span></code>, aggiundi <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">vddedupe</span></code> su una nuova linea e salva il file.</li>
+</ul>
+<p>Riavvia VisiData e dovresti avere accesso a due nuovi comandi: <code class="docutils literal notranslate"><span class="pre">select-duplicate-rows</span></code> e <code class="docutils literal notranslate"><span class="pre">dedupe-rows</span></code>.</p>
+<p>Diamo un’occhiata al plugin. Scarica <a class="reference download internal" download="" href="../../_downloads/bcb5336f0f32c96ae12b52c1c1735b06/dedupe-example.csv"><code class="xref download docutils literal notranslate"><span class="pre">dedupe-example.csv</span></code></a> ed aprilo in VisiData:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vd dedupe-example.csv
+</pre></div>
+</div>
+<p>Dovresti vedere qualcosa del genere:</p>
+<div class='ansi2html'>
+<pre>
+<span class="ansi1 ansi4 inv_background inv_foreground"></span><span class="ansi1 ansi4 inv37 inv_foreground"></span><span class="ansi1 ansi4 inv37 inv40"> animal   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> name     </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">‖</span><span class="ansi40">                                                                              
+</span><span class="ansi1 inv_background inv40"></span><span class="ansi1 inv37 inv40"> dog      </span><span class="inv_background inv_foreground"></span><span class="inv37 inv_foreground"></span><span class="inv37 inv40">| Apollo   ‖</span><span class="ansi40">                                                                              
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> dog      </span><span class="ansi37"></span><span class="ansi37 ansi40">| Bambi    ‖</span><span class="ansi40">                                                                              
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> dog      </span><span class="ansi37"></span><span class="ansi37 ansi40">| Cutie    ‖</span><span class="ansi40">                                                                              
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> fish     </span><span class="ansi37"></span><span class="ansi37 ansi40">| Fido     ‖</span><span class="ansi40">                                                                              
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> fish     </span><span class="ansi37"></span><span class="ansi37 ansi40">| Fido     ‖</span><span class="ansi40">                                                                              
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40">dedupe-example| saul.pw/VisiData v1.5.2 | opening dedupe-example as csv | Ctrl+H o</span><span class="ansi37"></span><span class="ansi37 ansi40"> </span><span class="ansi1 ansi37 ansi40">         5 rows…</span><span class="ansi40"> </span>
+</pre>
+</div>
+<p>Premi <kbd class="kbd docutils literal notranslate">Spazio</kbd> ed al prompt digita <code class="docutils literal notranslate"><span class="pre">dedupe-rows</span></code>:</p>
+<div class='ansi2html'>
+<pre>
+<span class="ansi1 ansi4 inv_background inv_foreground"></span><span class="ansi1 ansi4 inv37 inv_foreground"></span><span class="ansi1 ansi4 inv37 inv40"> animal   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> name     </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">‖</span><span class="ansi40">                                                                              
+</span><span class="ansi1 inv_background inv40"></span><span class="ansi1 inv37 inv40"> dog      </span><span class="inv_background inv_foreground"></span><span class="inv37 inv_foreground"></span><span class="inv37 inv40">| Apollo   ‖</span><span class="ansi40">                                                                              
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> dog      </span><span class="ansi37"></span><span class="ansi37 ansi40">| Bambi    ‖</span><span class="ansi40">                                                                              
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> dog      </span><span class="ansi37"></span><span class="ansi37 ansi40">| Cutie    ‖</span><span class="ansi40">                                                                              
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> fish     </span><span class="ansi37"></span><span class="ansi37 ansi40">| Fido     ‖</span><span class="ansi40">                                                                              
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> fish     </span><span class="ansi37"></span><span class="ansi37 ansi40">| Fido     ‖</span><span class="ansi40">                                                                              
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+</span><span class="ansi37 ansi40">command name: dedupe-rows</span><span class="ansi40">                                                         </span><span class="ansi37 ansi40"> </span><span class="ansi1 ansi37 ansi40">         5 rows…</span><span class="ansi40"> </span>
+</pre>
+</div>
+<p>Premi <kbd class="kbd docutils literal notranslate">Invio</kbd> per eseguire il comando. Ora dovresti vedere una nuova copia del foglio, ma con le righe duplicate rimosse:</p>
+<div class='ansi2html'>
+<pre>
+<span class="ansi1 ansi4 inv_background inv_foreground"></span><span class="ansi1 ansi4 inv37 inv_foreground"></span><span class="ansi1 ansi4 inv37 inv40"> animal   </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">|</span><span class="ansi1 ansi4 ansi38-246 ansi40"></span><span class="ansi1 ansi4 ansi37 ansi40"> name     </span><span class="ansi38-246"></span><span class="ansi38-246 ansi40">‖</span><span class="ansi40">                                                                              
+</span><span class="ansi1 inv_background inv40"></span><span class="ansi1 inv37 inv40"> dog      </span><span class="inv_background inv_foreground"></span><span class="inv37 inv_foreground"></span><span class="inv37 inv40">| Apollo   ‖</span><span class="ansi40">                                                                              
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> dog      </span><span class="ansi37"></span><span class="ansi37 ansi40">| Bambi    ‖</span><span class="ansi40">                                                                              
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> dog      </span><span class="ansi37"></span><span class="ansi37 ansi40">| Cutie    ‖</span><span class="ansi40">                                                                              
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40"> fish     </span><span class="ansi37"></span><span class="ansi37 ansi40">| Fido     ‖</span><span class="ansi40">                                                                              
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+</span><span class="ansi1 ansi40"></span><span class="ansi1 ansi37 ansi40">dedupe-example_deduped| </span><span class="ansi1 ansi33 ansi40">No key cols specified. Using all columns.</span><span class="ansi1 ansi37 ansi40"> | "dedupe-rows"</span><span class="ansi40"> </span><span class="ansi37 ansi40"> </span><span class="ansi1 ansi37 ansi40">         4 rows </span><span class="ansi40"> </span>
+</pre>
+</div>
+</div>
+</div>
+<div class="section" id="dove-trovare-i-plugin">
+<h2>Dove trovare i plugin<a class="headerlink" href="#dove-trovare-i-plugin" title="Permalink to this headline">¶</a></h2>
+<p>Il supporto dei plugin è una caratteristica relativamente nuova di VisiData, quindi non ci sono ancora molti plugin disponibili. Ecco una lista (probabilmente incompleta) di risorse:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/jsvine/visidata-plugins">jsvine/visidata-plugins</a></li>
+<li><a class="reference external" href="https://github.com/anjakefala/vd-plugins">anjakefala/vd-plugins</a></li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Come per qualsiasi software scaricato, i plugin possono contenere codice dannoso. Quindi fai attenzione a cosa installi, sopratutto se non sei sicuro della fonte!</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../debugging-visidata/" class="btn btn-neutral float-right" title="Debug di VisiData" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../configuring-visidata/" class="btn btn-neutral float-left" title="Configurare VisiData" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Jeremy Singer-Vine
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
