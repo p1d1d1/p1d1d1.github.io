@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:georss="http://www.georss.org/georss" xmlns:gml="http://www.opengis.net/gml" xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:opensearchextensions="http://example.com/opensearchextensions/1.0/" xsi:schemaLocation="http://www.w3.org/2005/Atom" xmlns:ech0056="http://www.ech.ch/schemas/ech-0056/3.0" xml:lang="de">
+	<title>Swiss Map Raster 50 - timestamp 2020 - format tif - reference system 2056 - resolution 2.5 - KOMB</title>
+	<subtitle type="html"><div>Swiss Map Raster sind Umsetzungen des Kartenbildes in eine digitale Form ohne Bezug zu den verschiedenen Kartenelementen. Die «Einteilung Swiss Map Raster 50» zeigt den Permieter, die Nummer und den Namen jedes Kartenblattes. Der Perimeter entspricht demjenigen eines Standardblattes der gedruckten Kartenblätter. Die auf den gedruckten Kartenblättern enthaltene Ausbuchtungen (z.B. südlicher Teil des Blattes 270 Genève) werden in zusätzlichen Kartenblättern mit der Standardausdehnung abgebildet auch wenn diese nur in Teilgebieten Informationen enthalten.</div><div><a href="https://data.geo.admin.ch/ch.swisstopo.swissimage-product.metadata/data.zip">Nutzungsbedingungen und weitere Informationen</a></div></subtitle>
+    <link rel="self" href="http://ltrea.infra.bgdi.ch/proxywms/de/de/.xml" type="application/atom+xml" hreflang="de" title="Dieses Dokument"></link>
+    <link rel="up" title="Dienst-Feed" type="application/atom+xml" hreflang="de" href="http://ltrea.infra.bgdi.ch/proxywms/de/de/service.xml"></link>
+	<link rel="alternate" href="http://ltrea.infra.bgdi.ch/proxywms/de/fra/.xml" type="application/atom+xml" hreflang="fr" title=""/>
+	<link rel="alternate" href="http://ltrea.infra.bgdi.ch/proxywms/de/ita/.xml" type="application/atom+xml" hreflang="it" title=""/>
+	<link rel="alternate" href="http://ltrea.infra.bgdi.ch/proxywms/de/eng/.xml" type="application/atom+xml" hreflang="en" title=""/>
+    <link rel="describedby"  href="https://www.geocat.ch/geonetwork/srv/ger/xml_iso19139?uuid="></link>
+    <id>http://ltrea.infra.bgdi.ch/proxywms/de/de/ch.swisstopo.swissimage-product.metadata.xml</id>
+    <rights>https://data.geo.admin.ch/ch.swisstopo.swissimage-product.metadata/data.zip</rights>
+    <updated>2021-06-01T14:59:01Z</updated>
+    <author>
+            <name>Bundesamt für Landestopografie swisstopo</name>
+    </author>
+    
+	<entry>
+		<title>Swiss Map Raster 50 - timestamp 2020 - format tif - reference system 2056 - resolution 2.5 - KOMB</title>
+		<id>smr.xml</id>
+		<rights>https://data.geo.admin.ch</rights>
+		<updated>2021-06-01T14:59:01Z</updated>
+		<georss:box>45.819747 5.956623 47.810467 10.493459</georss:box>
+		<category term="http://www.opengis.net/def/crs/EPSG/0/2056" label="CH1903+ / LV95"/>
+		<content type="html">
+			<div xmlns="http://www.w3.org/1999/xhtml">
+				<div class="content">
+					<div><a href="https://d3uwu98rrq9fz9.cloudfront.net/ch.swisstopo.swiss-map-raster50/2020/KOMB/tif_lzw/2056/2.5/212.zip">212</a></div>
+					<div><a href="https://d3uwu98rrq9fz9.cloudfront.net/ch.swisstopo.swiss-map-raster50/2020/KOMB/tif_lzw/2056/2.5/213.zip">213</a></div>
+					<div><a href="https://d3uwu98rrq9fz9.cloudfront.net/ch.swisstopo.swiss-map-raster50/2020/KOMB/tif_lzw/2056/2.5/214.zip">214</a></div>
+					<div><a href="https://d3uwu98rrq9fz9.cloudfront.net/ch.swisstopo.swiss-map-raster50/2020/KOMB/tif_lzw/2056/2.5/215.zip">215</a></div>
+					<div><a href="https://d3uwu98rrq9fz9.cloudfront.net/ch.swisstopo.swiss-map-raster50/2020/KOMB/tif_lzw/2056/2.5/216.zip">216</a></div>
+					<div><a href="https://d3uwu98rrq9fz9.cloudfront.net/ch.swisstopo.swiss-map-raster50/2020/KOMB/tif_lzw/2056/2.5/217.zip">217</a></div>
+					<div><a href="https://d3uwu98rrq9fz9.cloudfront.net/ch.swisstopo.swiss-map-raster50/2020/KOMB/tif_lzw/2056/2.5/218.zip">218</a></div>
+					<div><a href="">270</a></div>
+					<div><a href="">271</a></div>
+					<div><a href="">272</a></div>
+					<div><a href="">273</a></div>
+					<div><a href="">274</a></div>
+					<div><a href="">275</a></div>
+					<div><a href="">276</a></div>
+					<div><a href="">277</a></div>
+					<div><a href="">278</a></div>
+					<div><a href="">279</a></div>
+					<div><a href="">282</a></div>
+					<div><a href="">283</a></div>
+					<div><a href="">284</a></div>
+					<div><a href="">285</a></div>
+					<div><a href="">286</a></div>
+					<div><a href="">287</a></div>
+					<div><a href="">288</a></div>
+					<div><a href="">289</a></div>
+					<div><a href="">290</a></div>
+					<div><a href="">291</a></div>
+					<div><a href="">292</a></div>
+					<div><a href="">293</a></div>
+					<div><a href="">294</a></div>
+					<div><a href="">...</a></div>
+				</div>
+			</div>
+		</content>
+		<link rel="section" href="https://d3uwu98rrq9fz9.cloudfront.net/ch.swisstopo.swiss-map-raster50/2020/KOMB/tif_lzw/2056/2.5/212.zip" type="image/tiff+zip" hreflang="de" title="212" bbox="45.819747 5.956623 47.810467 10.493459"/>
+		<link rel="section" href="https://d3uwu98rrq9fz9.cloudfront.net/ch.swisstopo.swiss-map-raster50/2020/KOMB/tif_lzw/2056/2.5/213.zip" type="image/tiff+zip" hreflang="de" title="213" bbox="45.819747 5.956623 47.810467 10.493459"/>
+		<link rel="section" href="https://d3uwu98rrq9fz9.cloudfront.net/ch.swisstopo.swiss-map-raster50/2020/KOMB/tif_lzw/2056/2.5/214.zip" type="image/tiff+zip" hreflang="de" title="214" bbox="45.819747 5.956623 47.810467 10.493459"/>
+		<link rel="section" href="https://d3uwu98rrq9fz9.cloudfront.net/ch.swisstopo.swiss-map-raster50/2020/KOMB/tif_lzw/2056/2.5/215.zip" type="image/tiff+zip" hreflang="de" title="215" bbox="45.819747 5.956623 47.810467 10.493459"/>
+		<link rel="section" href="https://d3uwu98rrq9fz9.cloudfront.net/ch.swisstopo.swiss-map-raster50/2020/KOMB/tif_lzw/2056/2.5/216.zip" type="image/tiff+zip" hreflang="de" title="216" bbox="45.819747 5.956623 47.810467 10.493459"/>
+		<link rel="section" href="https://d3uwu98rrq9fz9.cloudfront.net/ch.swisstopo.swiss-map-raster50/2020/KOMB/tif_lzw/2056/2.5/217.zip" type="image/tiff+zip" hreflang="de" title="217" bbox="45.819747 5.956623 47.810467 10.493459"/>
+		<link rel="section" href="https://d3uwu98rrq9fz9.cloudfront.net/ch.swisstopo.swiss-map-raster50/2020/KOMB/tif_lzw/2056/2.5/218.zip" type="image/tiff+zip" hreflang="de" title="218" bbox="45.819747 5.956623 47.810467 10.493459"/>
+		<link rel="section" href="" type="image/tiff+zip" hreflang="de" title="270" bbox="45.819747 5.956623 47.810467 10.493459"/>
+		<link rel="section" href="" type="image/tiff+zip" hreflang="de" title="271" bbox="45.819747 5.956623 47.810467 10.493459"/>
+		<link rel="section" href="" type="image/tiff+zip" hreflang="de" title="272" bbox="45.819747 5.956623 47.810467 10.493459"/>
+		<link rel="section" href="" type="image/tiff+zip" hreflang="de" title="273" bbox="45.819747 5.956623 47.810467 10.493459"/>
+		<link rel="section" href="" type="image/tiff+zip" hreflang="de" title="274" bbox="45.819747 5.956623 47.810467 10.493459"/>
+		<link rel="section" href="" type="image/tiff+zip" hreflang="de" title="275" bbox="45.819747 5.956623 47.810467 10.493459"/>
+		<link rel="section" href="" type="image/tiff+zip" hreflang="de" title="276" bbox="45.819747 5.956623 47.810467 10.493459"/>
+		<link rel="section" href="" type="image/tiff+zip" hreflang="de" title="277" bbox="45.819747 5.956623 47.810467 10.493459"/>
+		<link rel="section" href="" type="image/tiff+zip" hreflang="de" title="278" bbox="45.819747 5.956623 47.810467 10.493459"/>
+	</entry>                                                                   
+</feed>
