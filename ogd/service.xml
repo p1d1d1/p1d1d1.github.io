@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:georss="http://www.georss.org/georss" xmlns:gml="http://www.opengis.net/gml" xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:opensearchextensions="http://example.com/opensearchextensions/1.0/" xsi:schemaLocation="http://www.w3.org/2005/Atom" xmlns:ech0056="http://www.ech.ch/schemas/ech-0056/3.0" xml:lang="de">
+  <!--Response language is the value of xml:lang-->
+  <!-- feed title -->
+  <title>Download-Dienst BGDI</title>
+  <!-- feed subtitle -->
+  <subtitle>Öffentliche Daten der Bundes Geodaten-Infrastruktur</subtitle>
+  <!-- link to this feed -->
+  <link rel="self" href="http://ltrea.infra.bgdi.ch/proxywms/de/service.xml" type="application/atom+xml" hreflang="de" title="Dieses Dokument"/>
+  <!-- links to this feed in other languages -->
+  <link rel="alternate" href="http://ltrea.infra.bgdi.ch/proxywms/fr/service.xml" type="application/atom+xml" hreflang="fr" title="Service de téléchargement IFDG"/>
+  <link rel="alternate" href="http://ltrea.infra.bgdi.ch/proxywms/it/service.xml" type="application/atom+xml" hreflang="it" title="Servizio di telecaricamento IFDG"/>
+  <link rel="alternate" href="http://ltrea.infra.bgdi.ch/proxywms/en/service.xml" type="application/atom+xml" hreflang="en" title="Download service FSDI"/>
+  <!-- links to Download Service ISO 19139 metadata-->
+  <link href="https://www.geocat.ch/geonetwork/srv/ger/xml_iso19139?uuid=" rel="describedby" type="application/xml"/>
+  <!-- links to Open Search definition file-->
+  <link rel="search" href="http://ltrea.infra.bgdi.ch/proxywms/de/search/de/opensearchdescription.xml" type="application/opensearchdescription+xml" title="Opensearch"/>
+  <id>http://ltrea.infra.bgdi.ch/proxywms/de/service.xml</id>
+  <rights>https://www.geo.admin.ch/de/home/meta/impressum.html</rights>
+  <updated>2019-07-17T14:59:01Z</updated>
+  <author>
+    <name>Bundesamt für Landestopografie swisstopo</name>
+    <email>webgis@swisstopo.ch</email>
+  </author>
+    
+   <entry>
+      <category term="http://www.opengis.net/def/crs/EPSG/0/2056" label="CH1903+ / LV95"/>
+      <author><name>Bundesamt für Landestopografie swisstopo</name></author>
+      <ech0056:spatial_dataset_identifier_code>ch.swisstopo.images-swissimage-dop10.ogd</ech0056:spatial_dataset_identifier_code>
+      <ech0056:spatial_dataset_identifier_namespace>https://www.geo.admin.ch/</ech0056:spatial_dataset_identifier_namespace>
+      <id>ch.swisstopo.images-swissimage-dop10.xml</id>
+      <published>2021-06-01T14:59:01Z</published>
+      <title>SWISSIMAGE 10</title>
+		 <link href="https://www.geocat.ch/geonetwork/srv/ger/xml_iso19139?uuid=3f340030-15de-4ab6-a1b1-5f33e09a997f" rel="describedby" type="application/xml" title="Metadaten"/>
+	 	 <link title="Datensatz-Feed" rel="alternate" href="ch.swisstopo.images-swissimage-dop10.xml" hreflang="de" type="application/atom+xml"/>
+     <summary type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">SWISSIMAGE 10 cm wird über die gesamte Fläche der Schweiz und Liechtenstein ab 2020 verfügbar sein. Es umfasst zudem einen geringen Teil der benachbarten Grenzregionen. SWISSIMAGE 10 cm wird in Kacheln von jeweils 1 km2 produziert. Die Kachelnummerierung entspricht den Kilometerkoordinaten des südwestlichen Eckpunkts einer Kachel. Neben der geometrischen und radiometrischen Qualität ist das Flugdatum der Luftbilder für die optimale Benutzung eines Orthophotos von grosser Wichtigkeit. Das Flugjahr wird daher für jede Kachel angegeben. In den Randgebieten der Befliegungsblöcke kann es vorkommen, dass die Kacheln nicht mit Bildern ein und desselben Flugjahres abgedeckt werden können. Diese Kacheln weisen daher Pixel unterschiedlicher Flugjahre auf, wobei jeweils dasjenige Flugjahr attributiert wird,das die Mehrheit der Pixel aufweist (mehr als 75% aller Pixel). <p><a href="ch.swisstopo.images-swissimage-dop10.xml">Datensatz-Feed</a></p></div></summary>
+     <updated></updated>
+     <georss:box>45.819747 5.956623 47.810467 10.493459</georss:box>
+   </entry>
+   <entry>
+      <category term="http://www.opengis.net/def/crs/EPSG/0/2056" label="CH1903+ / LV95"/>
+      <author><name>Bundesamt für Landestopografie swisstopo</name></author>
+      <ech0056:spatial_dataset_identifier_code>ch.swisstopo.swiss-map-raster50.ogd</ech0056:spatial_dataset_identifier_code>
+      <ech0056:spatial_dataset_identifier_namespace>https://www.geo.admin.ch/</ech0056:spatial_dataset_identifier_namespace>
+      <id>ch.swisstopo.swiss-map-raster50.xml</id>
+      <published>2021-06-01T14:59:01Z</published>
+      <title>Swiss Map Raster 50</title>
+		 <link href="https://www.geocat.ch/geonetwork/srv/ger/xml_iso19139?uuid=7cd16f54-34e9-43ba-b65c-39461c03495e" rel="describedby" type="application/xml" title="Metadaten"/>
+	 	 <link title="Datensatz-Feed" rel="alternate" href="ch.swisstopo.swiss-map-raster50.xml" hreflang="de" type="application/atom+xml"/>
+     <summary type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">Swiss Map Raster sind Umsetzungen des Kartenbildes in eine digitale Form ohne Bezug zu den verschiedenen Kartenelementen. Die «Einteilung Swiss Map Raster 50» zeigt den Permieter, die Nummer und den Namen jedes Kartenblattes. Der Perimeter entspricht demjenigen eines Standardblattes der gedruckten Kartenblätter. Die auf den gedruckten Kartenblättern enthaltene Ausbuchtungen (z.B. südlicher Teil des Blattes 270 Genève) werden in zusätzlichen Kartenblättern mit der Standardausdehnung abgebildet auch wenn diese nur in Teilgebieten Informationen enthalten.<p><a href="ch.swisstopo.swiss-map-raster50.xml">Datensatz-Feed</a></p></div></summary>
+     <updated></updated>
+     <georss:box>45.819747 5.956623 47.810467 10.493459</georss:box>
+   </entry> 
+</feed>
