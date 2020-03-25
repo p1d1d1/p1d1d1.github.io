@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="style.xslt" version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:georss="http://www.georss.org/georss" xmlns:gml="http://www.opengis.net/gml" xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:opensearchextensions="http://example.com/opensearchextensions/1.0/" xsi:schemaLocation="http://www.w3.org/2005/Atom" xmlns:ech0056="http://www.ech.ch/schemas/ech-0056/3.0" xml:lang="de">
 	<title>SWISSIMAGE 10</title>
 	<subtitle type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">SWISSIMAGE ist seit 1979 bis heute verfügbar. Bei allen Kacheln wird immer die Kachelnummer sowie das jeweilige Flugjahr angegeben. In den Randgebieten von Befliegungsblöcken kann es vorkommen, dass die Kacheln nicht mit Bildern eines Flugjahres abgedeckt werden können. Diese Kacheln weisen daher Pixel unterschiedlicher Flugjahre auf, wobei jeweils dasjenige Flugjahr attribuiert wird, das die Mehrheit der Pixel aufweist (mehr als 75% aller Pixel). Mit der Anzeige von Bildzeitständen, der sogenannten «Zeitreise», lässt sich die Einteilung von SWISSIMAGE ab 1979 bis heute interaktiv ermitteln.<p><a href="https://data.geo.admin.ch/ch.swisstopo.swissimage-product.metadata/data.zip">Nutzungsbedingungen und weitere Informationen</a></p></div></subtitle>
@@ -14,7 +15,7 @@
     <author>
             <name>Bundesamt für Landestopografie swisstopo</name>
     </author>
-	
+
     <entry>
         <title>SWISSIMAGE 10 - timestamp 2017 - format tif - reference system 2056 - resolution 0.1</title>
 	<link title="Datensatz-Feed" rel="alternate" href="swissimage1.xml" hreflang="de" type="application/atom+xml"/>
@@ -25,19 +26,16 @@
         <rights>https://data.geo.admin.ch/</rights>
         <georss:box>45.819747 5.956623 47.810467 10.493459</georss:box>
     </entry>
-    
-	
+
+
     <entry>
-        <title>SWISSIMGE 10 - timestamp 2019 - format tif - reference system 2056 - resolution 2</title>
-	<link title="Datensatz-Feed" rel="alternate" href="swissimage1.xml" hreflang="de" type="application/atom+xml"/>
+        <title>SWISSIMAGE 10 - timestamp 2019 - format tif - reference system 2056 - resolution 2</title>
+	<link title="Datensatz-Feed" rel="alternate" href="swissimage2.xml" hreflang="de" type="application/atom+xml"/>
 	<id>swissimage2.xml</id>
-	<updated>2021-06-01T14:59:01Z</updated>
+	<updated>2020-06-01T14:59:01Z</updated>
 	<category label="CH1903+ / LV95" term="http://www.opengis.net/def/crs/EPSG/0/2056" />
         <summary type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml"><a href="swissimage2.xml">Dataset Feed</a></div></summary>
         <rights>https://data.geo.admin.ch</rights>
         <georss:box>45.819747 5.956623 47.810467 10.493459</georss:box>
     </entry>
-   
-   <entry>...</entry>
-    
 </feed>
