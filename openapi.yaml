@@ -1030,11 +1030,11 @@ components:
     link:
       properties:
         href:
-          example: https://data.geo.admin.ch/api/stac/v0.9/
+          example: https://data.geo.admin.ch/api/stac/v0.9/collections
           format: url
           type: string
         rel:
-          example: root
+          example: self
           type: string
       required:
       - href
