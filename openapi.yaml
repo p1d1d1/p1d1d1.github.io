@@ -345,6 +345,7 @@ components:
       type: object
     collection:
       example:
+        created: "2020-07-14T12:30:00Z"
         description: Swiss Map Raster are a conversion of the map image into a digital form with no direct bearing on the individual map elements.The information is structured only in colour layers. Swiss Map Raster pixel maps are ideal for finding background information for a broad variety of screen applications, web and mobile applications and services, as well as for geographic information systems. They can also be used as basic maps for a variety of purposes (digital printing, plots, offset printing, etc.).
         extent:
           spatial:
@@ -359,6 +360,18 @@ components:
               - "2020-12-31T23:59:59Z"
         id: ch.swisstopo.pixelkarte-farbe-pk50.noscale
         license: proprietary
+        links:
+        - href: https://data.geo.admin.ch/api/stac/v0.9/collections/ch.swisstopo.pixelkarte-farbe-pk50.noscale
+          rel: self
+        - href: https://data.geo.admin.ch/api/stac/v0.9/
+          rel: root
+        - href: https://data.geo.admin.ch/api/stac/v0.9/collections/ch.swisstopo.pixelkarte-farbe-pk50.noscale
+          rel: item
+        - href: https://www.swisstopo.admin.ch/en/home/meta/conditions/geodata/free-geodata.html
+          rel: license
+          title: Licence for the free geodata of the Federal Office of Topography swisstopo
+        - href: https://www.geocat.ch/geonetwork/srv/eng/catalog.search#/metadata/4c8c7c58-61c7-4a61-8e7a-6ffb95d183df
+          rel: describedby
         providers:
         - name: Federal Office of Topography - swisstopo
           roles:
@@ -367,7 +380,21 @@ components:
           url: https://www.swisstopo.admin.ch
         stac_extensions:
         - epsg
+        - https://data.geo.admin.ch/stac/geoadmin-extension/1.0/schema.json
         stac_version: 1.0.0-beta.2
+        summaries:
+          geoadmin:variant:
+          - - description: Grayscale combination with shading
+              name: kgrel
+            - description: Color combination without shading
+              name: komb
+            - description: Color combination with shading
+              name: krel
+          gsd: null
+          proj:epsg:
+          - 2056
+        title: National Map 1:50'000
+        updated: "2020-07-14T12:30:00Z"
       properties:
         crs:
           default:
