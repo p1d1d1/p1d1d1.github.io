@@ -431,8 +431,11 @@ components:
           $ref: '#/components/schemas/license'
         links:
           example:
-            href: https://data.geo.admin.ch/api/stac/v0.9/collections/ch.swisstopo.pixelkarte-farbe-pk50.noscale
-            rel: self
+          - href: http://data.example.com/buildings
+            rel: item
+          - href: http://example.com/concepts/buildings.html
+            rel: describedBy
+            type: text/html
           items:
             $ref: '#/components/schemas/link'
           type: array
@@ -1027,11 +1030,11 @@ components:
     link:
       properties:
         href:
-          example: https://data.geo.admin.ch/api/stac/v0.9/collections/ch.swisstopo.pixelkarte-farbe-pk50.noscale
+          example: https://data.geo.admin.ch/api/stac/v0.9/
           format: url
           type: string
         rel:
-          example: self
+          example: root
           type: string
       required:
       - href
