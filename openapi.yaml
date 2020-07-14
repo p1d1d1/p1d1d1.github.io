@@ -501,8 +501,9 @@ components:
             $ref: '#/components/schemas/collection'
           type: array
         links:
-          items:
-            $ref: '#/components/schemas/link'
+          example:
+          - href: "ciao come stai"
+            rel: "self"
           type: array
       required:
       - links
