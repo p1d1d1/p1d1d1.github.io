@@ -345,8 +345,29 @@ components:
       type: object
     collection:
       example:
-        description: Swiss Map Raster 1:50'000
-        id: ch.swisstopo
+        description: Swiss Map Raster are a conversion of the map image into a digital form with no direct bearing on the individual map elements.The information is structured only in colour layers. Swiss Map Raster pixel maps are ideal for finding background information for a broad variety of screen applications, web and mobile applications and services, as well as for geographic information systems. They can also be used as basic maps for a variety of purposes (digital printing, plots, offset printing, etc.).
+        extent:
+          spatial:
+            bbox:
+            - - 6.02260949059
+              - 45.7769477403
+              - 10.4427014502
+              - 47.8308275417
+          temporal:
+            interval:
+            - - "2012-01-01T00:00:00Z"
+              - "2020-12-31T23:59:59Z"
+        id: ch.swisstopo.pixelkarte-farbe-pk50.noscale
+        license: proprietary
+        providers:
+        - name: Federal Office of Topography - swisstopo
+          roles:
+          - producer
+          - licensor
+          url: https://www.swisstopo.admin.ch
+        stac_extensions:
+        - epsg
+        stac_version: 1.0.0-beta.2
       properties:
         crs:
           default:
