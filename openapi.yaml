@@ -699,7 +699,7 @@ components:
       properties:
         features:
           items:
-            $ref: '#/components/schemas/featureGeoJSON'
+            $ref: '#/components/schemas/item'
             type: array
         links:
           example:
@@ -723,10 +723,23 @@ components:
       type: object
     featureGeoJSON:
       properties:
-        features:
+        geometry:
+          $ref: '#/components/schemas/geometryGeoJSON'
+        id:
+          oneOf:
+          - type: string
+          - type: integer
+        links:
           items:
-            $ref: '#/components/schemas/item'
-            type: array
+            $ref: '#/components/schemas/link'
+          type: array
+        properties:
+          nullable: true
+          type: object
+        type:
+          enum:
+          - Feature
+          type: string
       required:
       - type
       - geometry
