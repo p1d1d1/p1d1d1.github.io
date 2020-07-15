@@ -721,23 +721,10 @@ components:
       type: object
     featureGeoJSON:
       properties:
-        geometry:
-          $ref: '#/components/schemas/geometryGeoJSON'
-        id:
-          oneOf:
-          - type: string
-          - type: integer
-        links:
+        features:
           items:
-            $ref: '#/components/schemas/link'
-          type: array
-        properties:
-          nullable: true
-          type: object
-        type:
-          enum:
-          - Feature
-          type: string
+            $ref: '#/components/schemas/item'
+            type: array
       required:
       - type
       - geometry
