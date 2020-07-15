@@ -430,10 +430,15 @@ components:
         license:
           $ref: '#/components/schemas/license'
         links:
-        - href: https://data.geo.admin.ch/api/stac/v0.9/collections
-          rel: self
-        - href: https://data.geo.admin.ch/api/stac/v0.9/collections?startindex=10
-          rel: next
+          example:
+          - href: http://data.example.com/buildings
+            rel: item
+          - href: http://example.com/concepts/buildings.html
+            rel: describedBy
+            type: text/html
+          items:
+            $ref: '#/components/schemas/link'
+          type: array
         providers:
           $ref: '#/components/schemas/providers'
         stac_extensions:
@@ -501,9 +506,10 @@ components:
             $ref: '#/components/schemas/collection'
           type: array
         links:
-          items:
-            $ref: '#/components/schemas/link'
-          type: array
+        - href: https://data.geo.admin.ch/api/stac/v0.9/collections
+          rel: self
+        - href: https://data.geo.admin.ch/api/stac/v0.9/collections?startindex=10
+          rel: next
       required:
       - links
       - collections
