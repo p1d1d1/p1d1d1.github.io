@@ -1320,7 +1320,9 @@ components:
       additionalProperties:
         $ref: '#/components/schemas/queryProp'
       description: Define which properties to query and the operatations to apply
-      example: null
+      example:
+        property:
+          eq: ""
       type: object
     queryFilter:
       description: Allows users to query properties for specific values
