@@ -699,7 +699,7 @@ components:
       properties:
         features:
           items:
-            $ref: '#/components/schemas/item'
+            $ref: '#/components/schemas/featureGeoJSON'
             type: array
         links:
           example:
