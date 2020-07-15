@@ -1,0 +1,6 @@
+- op: replace
+  path: /components/schemas/query/example
+  value:
+    property:
+      eq: ""
+    
