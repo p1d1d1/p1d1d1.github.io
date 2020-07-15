@@ -700,17 +700,19 @@ components:
         features:
           items:
             $ref: '#/components/schemas/featureGeoJSON'
-          type: array
+            type: array
         links:
-          items:
-            $ref: '#/components/schemas/link'
-          type: array
+          example:
+          - href: https://data.geo.admin.ch/api/stac/v0.9/collections/ch.swisstopo.pixelkarte-farbe-pk50.noscale/items
+            rel: self
+          - href: https://data.geo.admin.ch/api/stac/v0.9/collections/ch.swisstopo.pixelkarte-farbe-pk50.noscale/items?startindex=10
+            rel: next
         numberMatched:
-          $ref: '#/components/schemas/numberMatched'
+          example: 256
         numberReturned:
-          $ref: '#/components/schemas/numberReturned'
+          example: 10
         timeStamp:
-          $ref: '#/components/schemas/timeStamp'
+          example: "2020-07-15T12:30:00Z"
         type:
           enum:
           - FeatureCollection
