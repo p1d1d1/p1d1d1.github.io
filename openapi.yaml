@@ -506,10 +506,11 @@ components:
             $ref: '#/components/schemas/collection'
           type: array
         links:
-        - href: https://data.geo.admin.ch/api/stac/v0.9/collections
-          rel: self
-        - href: https://data.geo.admin.ch/api/stac/v0.9/collections?startindex=10
-          rel: next
+          example:
+          - href: https://data.geo.admin.ch/api/stac/v0.9/collections
+            rel: self
+          - href: https://data.geo.admin.ch/api/stac/v0.9/collections?startindex=10
+            rel: next
       required:
       - links
       - collections
