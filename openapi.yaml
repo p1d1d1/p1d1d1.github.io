@@ -723,7 +723,8 @@ components:
       type: object
     featureGeoJSON:
       properties:
-        $ref: '#/components/schemas/item'
+        items:
+          $ref: '#/components/schemas/item'
       required:
       - type
       - geometry
