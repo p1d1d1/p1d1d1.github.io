@@ -1007,7 +1007,7 @@ components:
     itemCollectionLinks:
       description: An array of links. Can be used for pagination, e.g. by providing a link with the `next` relation type.
       example:
-      - href: http://api.cool-sat.com/search?next=ANsXtp9mrqN0yrKWhf-y2PUpHRLQb1GT-mtxNcXou8TwkXhi1Jbk
+      - href: https://data.geo.admin.ch/api/stac/v0.9/search?startindex=10
         rel: next
       items:
         $ref: '#/components/schemas/link'
