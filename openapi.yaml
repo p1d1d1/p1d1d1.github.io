@@ -255,7 +255,7 @@ components:
               rel: search
               title: Search across feature collections
               type: application/json
-            stac_version: 0.9.0
+            stac_version: 1.0.0-beta.2
             title: data.geo.admin.ch
           schema:
             $ref: '#/components/schemas/landingPage'
