@@ -474,7 +474,7 @@
 	  	</LineStyle>
 	 </Style>
 
-	<Style id="color0099ff">
+	<Style id="color00k99ff">
 		<LineStyle>
 		  <color>ffff9900</color>
 		  <width>2</width>
@@ -787,10 +787,7 @@
 		<IconStyle>
 			<Icon>
 				<href>http://igc2kml.com/images/kml/thermal_end.png</href>
-				<gx:x>40</gx:x>
-				<gx:y>40</gx:y>
-				<gx:w>40</gx:w>
-				<gx:h>40</gx:h>
+			
 				<x>40</x>
 				<y>40</y>
 				<w>40</w>
