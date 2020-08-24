@@ -1,0 +1,3 @@
+https://data.geo.admin.ch/ch.swisstopo.rapidmapping/data/2017-001-BONDO/20170825_0827_12501_RGBNN00L2.tfw
+https://data.geo.admin.ch/ch.swisstopo.rapidmapping/data/2017-001-BONDO/20170825_0827_12501_RGBNN00L2.tif
+https://data.geo.admin.ch/ch.swisstopo.rapidmapping/data/2017-001-BONDO/20170825_0827_12501_RGBNN00L2.tif.ovr
