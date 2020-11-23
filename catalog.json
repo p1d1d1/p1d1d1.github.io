@@ -121,12 +121,7 @@
       "title": "Root",
       "type": "application/json"
     },
-    {
-      "href": "https://eod-catalog-svc-prod.astraea.earth/collections",
-      "rel": "data",
-      "title": "Collections",
-      "type": "application/json"
-    },
+
     {
       "href": "https://eod-catalog-svc-prod.astraea.earth/collections",
       "rel": "collections",
