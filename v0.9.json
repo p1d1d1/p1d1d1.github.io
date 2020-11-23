@@ -45,6 +45,12 @@
       "rel": "child",
       "type": "application/json",
       "title": "A collections"
+    },
+    {
+      "href": "https://eod-catalog-svc-prod.astraea.earth/collections/mcd43a4",
+      "rel": "child",
+      "title": "MCD43A4 NBAR",
+      "type": "application/json"
     }
   ]
 }
