@@ -23,7 +23,7 @@
       "title": "OGC API conformance classes implemented by this server"
     },
     {
-      "href": "http://service-stac.int.bgdi.ch/api/stac/v0.9/collections",
+      "href": "https://service-stac.int.bgdi.ch/api/stac/v0.9/collections?format=json",
       "rel": "collections",
       "type": "application/json",
       "title": "Information about the feature collections"
