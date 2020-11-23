@@ -35,7 +35,7 @@
       "title": "Search across feature collections"
     },
     {
-      "href": "https://service-stac.int.bgdi.ch/api/stac/v0.9/collections/ch.swisstopo.pixelkarte-farbe-pk200.noscale",
+      "href": "https://service-stac.int.bgdi.ch/api/stac/v0.9/collections/ch.swisstopo.pixelkarte-farbe-pk200.noscale?format=json",
       "rel": "child",
       "type": "application/json",
       "title": "A collections"
