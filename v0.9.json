@@ -39,18 +39,6 @@
       "rel": "search",
       "type": "application/json",
       "title": "Search across feature collections"
-    },
-    {
-      "href": "https://raw.githubusercontent.com/p1d1d1/p1d1d1.github.io/master/coll.json",
-      "rel": "child",
-      "type": "application/json",
-      "title": "A collections"
-    },
-    {
-      "href": "https://eod-catalog-svc-prod.astraea.earth/collections/mcd43a4",
-      "rel": "child",
-      "title": "MCD43A4 NBAR",
-      "type": "application/json"
     }
   ]
 }
