@@ -29,6 +29,12 @@
       "title": "Information about the feature collections"
     },
     {
+      "href": "http://service-stac.int.bgdi.ch/api/stac/v0.9/collections",
+      "rel": "data",
+      "type": "application/json",
+      "title": "Information about the feature collections"
+    },
+    {
       "href": "http://service-stac.int.bgdi.ch/api/stac/v0.9/search",
       "rel": "search",
       "type": "application/json",
