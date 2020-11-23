@@ -124,7 +124,7 @@
 
     {
       "href": "https://eod-catalog-svc-prod.astraea.earth/collections",
-      "rel": "collections",
+      "rel": "data",
       "title": "Collections",
       "type": "application/json"
     }
