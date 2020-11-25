@@ -29,7 +29,7 @@
       "title": "Information about the feature collections"
     },
     {
-      "href": "http://service-stac.int.bgdi.ch/api/stac/v0.9/collections??httpAccept=application/json",
+      "href": "http://service-stac.int.bgdi.ch/api/stac/v0.9/collections?httpAccept=application/json",
       "rel": "data",
       "type": "application/json",
       "title": "Information about the feature collections"
