@@ -1,5 +1,0 @@
-<<<
-:sectnums!:
-== Annexe 1
-
-=== Routine de test
