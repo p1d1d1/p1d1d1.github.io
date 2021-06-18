@@ -1,139 +1,32 @@
 {
-  "capabilities": [
-    {
-      "parameters": [
-        {
-          "name": "pixel_selection",
-          "values": [
-            {
-              "description": "Feed the mosaic tile with the first pixel available.",
-              "name": "first",
-              "title": "First available pixel"
-            },
-            {
-              "description": "Feed the mosaic tile with the highest pixel values.",
-              "name": "highest",
-              "title": "Highest pixel value"
-            },
-            {
-              "description": "Feed the mosaic tile with the lowest pixel values.",
-              "name": "lowest",
-              "title": "Lowest pixel value"
-            },
-            {
-              "description": "Stack the tiles and return the mean pixel value.",
-              "name": "mean",
-              "title": "Mean pixel value"
-            },
-            {
-              "description": "Stack the tiles and return the median pixel value.",
-              "name": "median",
-              "title": "Median pixel value"
-            }
-          ]
-        }
-      ],
-      "rel": "mosaic-maplayer"
-    },
-    {
-      "parameters": [
-        {
-          "name": "pixel_selection",
-          "values": [
-            {
-              "description": "Feed the mosaic tile with the first pixel available.",
-              "name": "first",
-              "title": "First available pixel"
-            },
-            {
-              "description": "Feed the mosaic tile with the highest pixel values.",
-              "name": "highest",
-              "title": "Highest pixel value"
-            },
-            {
-              "description": "Feed the mosaic tile with the lowest pixel values.",
-              "name": "lowest",
-              "title": "Lowest pixel value"
-            },
-            {
-              "description": "Stack the tiles and return the mean pixel value.",
-              "name": "mean",
-              "title": "Mean pixel value"
-            },
-            {
-              "description": "Stack the tiles and return the median pixel value.",
-              "name": "median",
-              "title": "Median pixel value"
-            }
-          ]
-        }
-      ],
-      "rel": "mosaic-maplayer-zxy"
-    },
-    {
-      "parameters": [
-        {
-          "name": "pixel_selection",
-          "values": [
-            {
-              "description": "Feed the mosaic tile with the first pixel available.",
-              "name": "first",
-              "title": "First available pixel"
-            },
-            {
-              "description": "Feed the mosaic tile with the highest pixel values.",
-              "name": "highest",
-              "title": "Highest pixel value"
-            },
-            {
-              "description": "Feed the mosaic tile with the lowest pixel values.",
-              "name": "lowest",
-              "title": "Lowest pixel value"
-            },
-            {
-              "description": "Stack the tiles and return the mean pixel value.",
-              "name": "mean",
-              "title": "Mean pixel value"
-            },
-            {
-              "description": "Stack the tiles and return the median pixel value.",
-              "name": "median",
-              "title": "Median pixel value"
-            }
-          ]
-        }
-      ],
-      "rel": "mosaic-esri-tile-layer"
-    }
-  ],
-  "description": "Astraea Earth OnDemand geospatial imagery query and analysis tool",
-  "id": "astraea",
+  "id": "examples",
+  "type": "Catalog",
+  "title": "are",
+  "stac_version": "0.9",
+  "description": "This catalog is a simple demonstration of an example catalog that is used to organize a hierarchy of collections and their items.",
   "links": [
     {
-      "href": "https://eod-catalog-svc-prod.astraea.earth",
+      "rel": "child",
+      "href": "https://service-stac.int.bgdi.ch/api/stac/v0.9/collections/ch.are.windenergie-bundesinteressen",
+      "type": "application/json",
+      "title": "ch.are.windenergie-bundesinteressen"
+    },
+    {
+      "rel": "child",
+      "href": "https://service-stac.int.bgdi.ch/api/stac/v0.9/collections/ch.are.reisezeit-miv",
+      "type": "application/json",
+      "title": "ch.are.reisezeit-miv"
+    },
+    {
+      "rel": "child",
+      "href": "https://service-stac.int.bgdi.ch/api/stac/v0.9/collections/ch.are.reisezeit-miv",
+      "type": "application/json",
+      "title": "ch.are.reisezeit-miv"
+    },
+    {
       "rel": "self",
-      "title": "Self",
-      "type": "application/json"
-    },
-    {
-      "href": "https://eod-catalog-svc-prod.astraea.earth",
-      "rel": "root",
-      "title": "Root",
-      "type": "application/json"
-    },
-
-    {
-      "href": "https://eod-catalog-svc-prod.astraea.earth/collections",
-      "rel": "data",
-      "title": "Collections",
+      "href": "https://data.geo.admin.ch/catalogs/are.json",
       "type": "application/json"
     }
-  ],
-  "stac_extensions": [
-    "eo",
-    "proj",
-    "context"
-  ],
-  "stac_version": "0.9.0",
-  "title": "Astraea Earth OnDemand"
+  ]
 }
