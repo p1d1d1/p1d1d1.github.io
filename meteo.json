@@ -52,6 +52,8 @@
 	"conformsTo": [
 		"https://api.stacspec.org/v1.0.0-rc.1/core",
 		"https://api.stacspec.org/v1.0.0-rc.1/item-search",
+		"https://api.stacspec.org/v1.0.0-rc.1/ogcapi-features",
+		"https://api.stacspec.org/v1.0.0-rc.1/collections",
 		"http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core",
 		"http://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections",
 		"http://www.opengis.net/spec/ogcapi_common-2/1.0/req/json",
