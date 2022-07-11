@@ -25,6 +25,12 @@
 			"title": "This document"
 		},
 		{
+			"href": "https://poc.meteoschweiz-poc.swisstopo.cloud",
+			"rel": "root",
+			"type": "application/json",
+			"title": "This document"
+		},
+		{
 			"href": "https://poc.meteoschweiz-poc.swisstopo.cloud/api",
 			"rel": "service-desc",
 			"type": "application/vnd.oai.openapi+json;version=3.0",
@@ -50,7 +56,7 @@
 		}
 	],
 	"conformsTo": [
-		"https://api.stacspec.org/v1.0.0-rc.1/core",
+
 		"https://api.stacspec.org/v1.0.0-rc.1/item-search",
 		"https://api.stacspec.org/v1.0.0-rc.1/ogcapi-features",
 		"https://api.stacspec.org/v1.0.0-rc.1/collections",
