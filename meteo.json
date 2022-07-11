@@ -19,13 +19,13 @@
 			"title": "Metadata about the processes"
 		},
 		{
-			"href": "https://poc.meteoschweiz-poc.swisstopo.cloud",
+			"href": "https://poc.meteoschweiz-poc.swisstopo.cloud/",
 			"rel": "self",
 			"type": "application/json",
 			"title": "This document"
 		},
 		{
-			"href": "https://poc.meteoschweiz-poc.swisstopo.cloud",
+			"href": "https://poc.meteoschweiz-poc.swisstopo.cloud/",
 			"rel": "root",
 			"type": "application/json",
 			"title": "This document"
