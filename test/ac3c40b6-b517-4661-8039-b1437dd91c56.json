@@ -1,0 +1,238 @@
+{
+  "type": "Feature",
+  "stac_version": "1.0.0",
+  "id": "ac3c40b6-b517-4661-8039-b1437dd91c56",
+  "properties": {
+    "created": "2023-04-20T06:37:54.728855Z",
+    "updated": "2023-04-20T06:37:54.728855Z",
+    "start_datetime": "2023-04-16T02:14:37.429809Z",
+    "end_datetime": "2023-04-16T02:14:43.244654Z",
+    "license": "CC-BY-4.0",
+    "providers": [
+      {
+        "name": "umbra",
+        "roles": [
+          "host",
+          "processor",
+          "producer",
+          "licensor"
+        ],
+        "url": "https://umbra.space"
+      }
+    ],
+    "constellation": "umbra",
+    "platform": "UMBRA_04",
+    "mission": "umbra-sample-data",
+    "view:azimuth": -132.66625361981963,
+    "view:incidence_angle": 59.185891009402894,
+    "sar:instrument_mode": "SPOTLIGHT",
+    "sar:frequency_band": "X",
+    "sar:center_frequency": 9.600009372574279,
+    "sar:polarizations": [
+      "VV"
+    ],
+    "sar:product_type": "GEC",
+    "sar:resolution_range": 0.32522905734068264,
+    "sar:resolution_azimuth": 0.32871831615892455,
+    "sar:looks_range": 1.031634295776817,
+    "sar:looks_azimuth": 1.0,
+    "sar:observation_direction": "right",
+    "datetime": "2023-04-16T02:14:37.429809Z"
+  },
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -58.4131356640458,
+          -34.603009649449255
+        ],
+        [
+          -58.40938215265683,
+          -34.60627853861318
+        ],
+        [
+          -58.405626496683496,
+          -34.609545225268846
+        ],
+        [
+          -58.40187186543846,
+          -34.61281470363087
+        ],
+        [
+          -58.39811778062218,
+          -34.61608348572031
+        ],
+        [
+          -58.39436153808939,
+          -34.619350075269836
+        ],
+        [
+          -58.39060853048356,
+          -34.62261747208983
+        ],
+        [
+          -58.38685114249378,
+          -34.62588467337137,
+          31.19148584175855
+        ],
+        [
+          -58.383096984791415,
+          -34.62915268536749
+        ],
+        [
+          -58.37914358750337,
+          -34.6260466176132
+        ],
+        [
+          -58.37519248658571,
+          -34.62294362532892
+        ],
+        [
+          -58.371240489826235,
+          -34.61983872502636
+        ],
+        [
+          -58.367287598072515,
+          -34.61673191618505
+        ],
+        [
+          -58.36333699110392,
+          -34.613628186420236
+        ],
+        [
+          -58.35938548519199,
+          -34.61052254914507
+        ],
+        [
+          -58.35543577620945,
+          -34.60741650033183
+        ],
+        [
+          -58.35148295041133,
+          -34.60431054122698
+        ],
+        [
+          -58.35524028100692,
+          -34.601045082974885
+        ],
+        [
+          -58.35899543691819,
+          -34.59777743701308
+        ],
+        [
+          -58.36275158564222,
+          -34.59451259367632
+        ],
+        [
+          -58.3665055670305,
+          -34.591245555675016
+        ],
+        [
+          -58.370260078804165,
+          -34.58797781925792
+        ],
+        [
+          -58.37401289638885,
+          -34.58471137751199
+        ],
+        [
+          -58.37776848185598,
+          -34.58144223741881
+        ],
+        [
+          -58.381522834338426,
+          -34.57817788473948
+        ],
+        [
+          -58.38547258078516,
+          -34.581281265290194
+        ],
+        [
+          -58.3894218821197,
+          -34.58438624045067
+        ],
+        [
+          -58.393375203911916,
+          -34.58748882434113
+        ],
+        [
+          -58.39732585706403,
+          -34.59059499259114
+        ],
+        [
+          -58.40127784127163,
+          -34.593697266863195
+        ],
+        [
+          -58.405229392166525,
+          -34.59680113183421
+        ],
+        [
+          -58.40918051472257,
+          -34.599906585242614
+        ],
+        [
+          -58.4131356640458,
+          -34.603009649449255
+        ]
+      ]
+    ]
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../../../catalog.json",
+      "type": "application/json",
+      "title": "Umbra Open SAR Data"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json",
+      "type": "application/json",
+      "title": "2023-04-16"
+    }
+  ],
+  "assets": {
+    "metadata": {
+      "href": "http://umbra-open-data-catalog.s3.amazonaws.com/sar-data/tasks/Buenos Aires, ARG/00598f52-cd7d-44e6-8894-b335448c8e44/2023-04-16-02-14-35_UMBRA-04/2023-04-16-02-14-35_UMBRA-04_METADATA.json",
+      "type": "application/json",
+      "title": "metadata",
+      "description": "Extended Umbra Metadata: https://docs.canopy.umbra.space/reference/get_schema",
+      "roles": [
+        "metadata"
+      ]
+    },
+    "GEC": {
+      "href": "https://umbra-open-data-catalog.s3.amazonaws.com/sar-data/tasks/Buenos Aires, ARG/00598f52-cd7d-44e6-8894-b335448c8e44/2023-04-16-02-14-35_UMBRA-04/2023-04-16-02-14-35_UMBRA-04_GEC.tif",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "title": "GEC",
+      "roles": [
+        "data",
+        "overview"
+      ]
+    },
+    "SICD": {
+      "href": "https://umbra-open-data-catalog.s3.amazonaws.com/sar-data/tasks/Buenos Aires, ARG/00598f52-cd7d-44e6-8894-b335448c8e44/2023-04-16-02-14-35_UMBRA-04/2023-04-16-02-14-35_UMBRA-04_SICD.nitf",
+      "type": "application/vnd.nitf",
+      "title": "SICD",
+      "description": "Sensor Independent Complex Data",
+      "roles": [
+        "data"
+      ]
+    },
+    "SIDD": {
+      "href": "https://umbra-open-data-catalog.s3.amazonaws.com/sar-data/tasks/Buenos Aires, ARG/00598f52-cd7d-44e6-8894-b335448c8e44/2023-04-16-02-14-35_UMBRA-04/2023-04-16-02-14-35_UMBRA-04_SIDD.nitf",
+      "type": "application/vnd.nitf",
+      "title": "SIDD",
+      "description": "Sensor Independent Derived Data",
+      "roles": [
+        "data"
+      ]
+    }
+  },
+  "stac_extensions": [
+    "https://stac-extensions.github.io/view/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/sar/v1.0.0/schema.json"
+  ]
+}
