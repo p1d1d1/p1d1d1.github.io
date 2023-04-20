@@ -23,7 +23,7 @@
     "constellation": "umbra",
     "platform": "UMBRA_04",
     "mission": "umbra-sample-data",
-    "view:azimuth": -132.66625361981963,
+    "view:azimuth": 132.66625361981963,
     "view:incidence_angle": 59.185891009402894,
     "sar:instrument_mode": "SPOTLIGHT",
     "sar:frequency_band": "X",
