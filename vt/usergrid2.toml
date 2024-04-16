@@ -1,0 +1,56 @@
+# t-rex configuration
+
+# To run this example (self-contained datasource)
+# cd t_rex
+# t_rex serve --loglevel debug  --config examples/usergrid.toml
+# and navigate to http://127.0.0.1:6767/static/usergrid.html
+
+[service.mvt]
+viewer = true
+
+
+[[datasource]]
+path = "../data/g1k18.shp"
+name = "datasource"
+default = true
+
+[grid.user]
+width = 256
+height = 256
+# LV95/CH1903+ (EPSG:2056)
+extent = { minx = 2420000.0, miny = 1030000.0, maxx = 2900000.0, maxy = 1350000.0 }
+srid = 2056
+units = "m"
+resolutions = [4000.0,2000.0,1000.0,500.0,250.0,100.0,50.0,20.0,10.0,5.0,2.5,1.0,0.5]
+origin = "TopLeft"
+
+[[tileset]]
+name = "g1k18"
+extent = [5.96455, 45.81936, 10.55885, 47.77213]
+
+[[tileset.layer]]
+name = "g1k18"
+table_name = "g1k18"
+geometry_field = ""
+geometry_type = "POLYGON"
+srid = 2056
+buffer_size = 1
+#make_valid = true
+simplify = true
+query_limit = 1000
+
+#[[tileset.layer.query]]
+
+#[cache.file]
+#base = "/tmp/mvtcache"
+#baseurl = "http://example.com/tiles"
+
+[webserver]
+# Bind address. Use 0.0.0.0 to listen on all adresses.
+bind = "127.0.0.1"
+port = 6767
+#cache_control_max_age = 43200
+
+[[webserver.static]]
+path = "/static"
+dir = "../examples/"
