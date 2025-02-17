@@ -1,5 +1,5 @@
 ```mermaid
-flowchart TD
+graph TD
   A[Start: Generate COG] --> B{What is the purpose?}
   B -->|View Data| C{Data Type?}
   B -->|Analyze Data| D{Data Type?}
