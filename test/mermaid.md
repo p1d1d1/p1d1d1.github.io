@@ -23,7 +23,7 @@ graph TD
   analyze -->|No| lerc_lossless[Use LERC_ZSTD compression<br>-co COMPRESS=LERC_ZSTD]
 
  
-  click lerc_lossless https://github.com/p1d1d1/p1d1d1.github.io/edit/master/test/mermaid.md#lossless-raster
+  click lerc_lossless "https://github.com/p1d1d1/p1d1d1.github.io/edit/master/test/mermaid.md#lossless-raster"
 ```
 
 
