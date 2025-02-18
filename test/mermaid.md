@@ -22,10 +22,10 @@ graph TD
   analyze -->|Yes| lerc_lossy[Use LERC_ZSTD compression<br>-co COMPRESS=LERC_ZSTD]
   analyze -->|No| lerc_lossless[Use LERC_ZSTD compression<br>-co COMPRESS=LERC_ZSTD]
 
-  click jpeg README.md#lossy-visual-image
-  click jpeg-mask README.md#lossy-visual-image
-  click lerc_lossy README.md#lossy-numerical-raster
-  click lerc_lossless README.md#lossless-raster
+  click jpeg mermaid.md#lossy-visual-image
+  click jpeg-mask mermaid.md#lossy-visual-image
+  click lerc_lossy mermaid.md#lossy-numerical-raster
+  click lerc_lossless mermaid.md#lossless-raster
 ```
 
 
