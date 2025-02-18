@@ -22,10 +22,10 @@ graph TD
   analyze -->|Yes| lerc_lossy[Use LERC_ZSTD compression<br>-co COMPRESS=LERC_ZSTD]
   analyze -->|No| lerc_lossless[Use LERC_ZSTD compression<br>-co COMPRESS=LERC_ZSTD]
 
-  click jpeg mermaid.md#lossy-visual-image
-  click jpeg-mask mermaid.md#lossy-visual-image
-  click lerc_lossy mermaid.md#lossy-numerical-raster
-  click lerc_lossless mermaid.md#lossless-raster
+  click jpeg #lossy-visual-image
+  click jpeg-mask #lossy-visual-image
+  click lerc_lossy #lossy-numerical-raster
+  click lerc_lossless #lossless-raster
 ```
 
 
@@ -67,3 +67,29 @@ Apply optimization steps for raster data
     ```
     while
     - choosing a [threshold](https://gdal.org/en/stable/drivers/raster/cog.html#general-creation-options:~:text=MAX_Z_ERROR) (limited error tolerance i.e. `0.01` for `cm`) for better lossy compression ratio
+  
+# Table of Contents
+<details open>
+<summary><b>(click to expand or hide)</b></summary>
+<!-- MarkdownTOC -->
+
+1. [All of my Wifi adapter repos:](#all-of-my-wifi-adapter-repos)
+1. [Wiki Instructions](#wiki-instructions)
+1. [My Instructions](#my-instructions)
+1. [Alfa Driver DVDs](#alfa-driver-dvds)
+    1. [Disk 1: ALFA_Driver_DVD_old](#disk-1-alfa_driver_dvd_old)
+    1. [Disk 2: ALFA_Driver_DVD_v3.0](#recommended)
+    1. [Disk copy instructions on Linux](#disk-copy-instructions-on-linux)
+1. [License](#license)
+1. [Driver Installation Instructions on Linux](#driver-installation-instructions-on-linux)
+    1. [1. Alfa AWUS036NH 2000mW Tx Power 2.4GHz USB Wi-Fi adapter](#1-alfa-awus036nh-2000mw-tx-power-24ghz-usb-wi-fi-adapter)
+        1. [SPEED:](#speed)
+        1. [INSTALL DRIVER:](#install-driver)
+        1. [CONNECT AND CONFIGURE:](#connect-and-configure)
+    1. [2. Alfa AWUS036AC 802.11ac Long Range AC1200 Dual Band 2.4GHz/5GHz WiFi USB adapter](#2-alfa-awus036ac-80211ac-long-range-ac1200-dual-band-24ghz5ghz-wifi-usb-adapter)
+        1. [SPEED:](#speed-1)
+        1. [INSTALL DRIVER:](#install-driver-1)
+        1. [CONNECT AND CONFIGURE:](#connect-and-configure-1)
+
+<!-- /MarkdownTOC -->
+</details>
