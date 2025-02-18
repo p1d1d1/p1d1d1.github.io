@@ -1,4 +1,4 @@
 Test include .md
 
-```{include} m,ermaid.md
+```{include} _mermaid.md
 ```
